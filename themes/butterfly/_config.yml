@@ -9,18 +9,28 @@
 menu:
   Home: / || fas fa-home
   Archives: /archives/ || fas fa-archive
-  Tags: /tags/ || fas fa-tags
-  Categories: /categories/ || fas fa-folder-open
-  List||fas fa-list:
-    - Music || /music/ || fas fa-music
-    - Movie || /movies/ || fas fa-video
-  Link: /link/ || fas fa-link
+  #Tags: /tags/ || fas fa-tags
+  # Tags || fas fa-tags:
+  #  - Web || /tags/web/ || fas fa-web
+  #  - Backend || /tags/backend/ || fas fa-backend
+  #  - Interview || /tags/interview/ || fas fa-interview
+  #  - Other || /tags/other/ || fas fa-other
+  #Categories: /categories/ || fas fa-folder-open
+  Categories || fas fa-Categories:
+   - Web || /categories/web/ || fas fa-web
+   - Backend || /categories/backend/ || fas fa-backend
+   - Interview || /categories/interview/ || fas fa-interview
+   - Other || /categories/other/ || fas fa-other
+  # List || fas fa-list:
+  #  - Music || /music/ || fas fa-music
+  #  - Movie || /movies/ || fas fa-video
+  # Link: /link/ || fas fa-link
   About: /about/ || fas fa-heart
 
 # Code Blocks (代碼相關)
 # --------------------------------------
 
-highlight_theme: light # default / darker / pale night / light / ocean / mac / false
+highlight_theme: mac # default / darker / pale night / light / ocean / mac / false
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
@@ -36,8 +46,8 @@ copy:
 # formal:
 #   icon: link || the description
 social:
-  fab fa-github: https://github.com/xxxxx || Github
-  fas fa-envelope: mailto:xxxxxx@gmail.com || Email
+  fab fa-github: https://github.com/simple-delfino || Github
+  fas fa-envelope: mailto:1319879149@qq.com || Email
 
 # search (搜索)
 # --------------------------------------
@@ -82,11 +92,11 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/favicon.png
+favicon: /img/favicon.ico
 
 # Avatar (頭像)
 avatar:
-  img: /img/avatar.png
+  img: /img/avatar.jpg
   effect: false
 
 # the banner image of home page
@@ -97,15 +107,15 @@ index_img:
 default_top_img: https://i.loli.net/2020/07/30/M7EjCLHaOG5B4lU.jpg
 
 # the banner image of archive page
-archive_img:
+archive_img: https://s1.ax1x.com/2020/07/30/aMZYcD.jpg
 
 # the banner image of tag page
 # tag page, look like https://xxxxxxxxx.com/tags/butterfly
-tag_img:
+tag_img: https://s1.ax1x.com/2020/07/30/aMZD4P.jpg
 
 # the banner image of category page
 # category page, look like https://xxxxxxxxx.com/categories/butterfly
-category_img:
+category_img: https://s1.ax1x.com/2020/07/30/aMZ2uQ.jpg
 
 # If you are using hexo-douban, you can configure it (如果你有使用 hexo-douban,可配置這個)
 # douban:
@@ -141,7 +151,7 @@ post_meta:
   page: # Home Page
     date_type: created # created or updated or both 主頁文章日期是創建日或者更新日或都顯示
     categories: true # true or false 主頁是否顯示分類
-    tags: false # true or false 主頁是否顯示標籤
+    tags: true # true or false 主頁是否顯示標籤
   post:
     date_type: both # created or updated or both 文章頁日期是創建日或者更新日或都顯示
     categories: true # true or false 文章頁是否顯示分類
@@ -181,10 +191,10 @@ post_copyright:
 reward:
   enable: false
   QR_code:
-    - img: /img/wechat.jpg
+    - img: /img/wechatpay.jpeg
       link:
       text: wechat
-    - img: /img/alipay.jpg
+    - img: /img/alipay.jpeg
       link:
       text: alipay
 
