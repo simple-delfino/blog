@@ -8,20 +8,21 @@ menu:
     url: /tags
     icon: fas fa-tags
   Categories:
+    url: /categories
     icon: fas fa-bookmark
-    children:
-     - name: Web
-       url: /web
-       icon: fas fa-laptop
-     - name: Backend
-       url: /backend
-       icon: fas fa-database
-     - name: Interview
-       url: /interview
-       icon: fas fa-book
-     - name: Other
-       url: /other
-       icon: fas fa-suitcase
+    # children:
+    #  - name: Web
+    #    url: /categories/web
+    #    icon: fas fa-laptop
+    #  - name: Backend
+    #    url: /categories/backend
+    #    icon: fas fa-database
+    #  - name: Interview
+    #    url: /categories/interview
+    #    icon: fas fa-book
+    #  - name: Other
+    #    url: /categories/other
+    #    icon: fas fa-suitcase
   Archives:
     url: /archives
     icon: fas fa-archive
