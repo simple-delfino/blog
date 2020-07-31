@@ -7,8 +7,6 @@ id: 20200730003
 ---
 
 
-[转自 【掘金**~cyndarila**】](https://juejin.im/post/6844903910973374478)
-
 # 1\. 剔除不必要的代码
 
 ## 1.1 引入未使用
@@ -143,3 +141,5 @@ DllPlugin结合DllRefrencePlugin插件的运用，对将要产出的bundle文件
 ## 6.3 bundlesize
 
 设置类型文件的最大大小，当超出范围，会给与警告和提示，帮助分析那些模块体积过大。
+
+[转自 【掘金**~cyndarila**】](https://juejin.im/post/6844903910973374478)

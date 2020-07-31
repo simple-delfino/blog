@@ -7,11 +7,6 @@ id: 20200730002
 ---
 
 
-[转自 图雀社区](https://mp.weixin.qq.com/s/eASescI3ZO0InccGQgQSjg)
-
-> 本文由掘金作者 晨曦时梦见兮\[1\] 写作而成，此次转载已得到原作者授权，点击阅读原文查看作者掘金链接，感谢作者的优质输出，让我们的技术世界变得更加美好😆
-
-## 前言
 
 如果让你手写 async 函数的实现，你是不是会觉得很复杂？这篇文章带你用 20 行搞定它的核心。经常有人说 async 函数是 generator 函数的语法糖，那么到底是怎么样一个糖呢？让我们来一层层的剥开它的糖衣。有的同学想说，既然用了 generator 函数何必还要实现 async 呢？这篇文章的目的就是带大家理解清楚 async 和 generator 之间到底是如何相互协作，管理异步的。
 
@@ -247,3 +242,6 @@ github.com/sl1673495/f…\[2\]
 ## 总结
 
 本文用最简单的方式实现了 asyncToGenerator 这个函数，这是 babel 编译 async 函数的核心，当然在 babel 中，generator 函数也被编译成了一个很原始的形式，本文我们直接以 generator 替代。这也是实现 promise 串行的一个很棒的模式，如果本篇文章对你有帮助，点个赞就好啦。
+
+
+[转自 图雀社区](https://mp.weixin.qq.com/s/eASescI3ZO0InccGQgQSjg)

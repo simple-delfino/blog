@@ -1,0 +1,13 @@
+<div class="dream">
+    <% if (theme.dream.showTitle) { %>
+    <div class="title center-align">
+        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;<%= theme.dream.title %>
+    </div>
+    <% } %>
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+          <span id="hitokoto"><%- theme.dream.text %></span>
+           <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+        </div>
+      </div>
+</div>

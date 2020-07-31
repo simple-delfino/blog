@@ -7,7 +7,6 @@ id: 20200730004
 ---
 
 
-[转自【掘金 **Marica**】](https://juejin.im/post/6854573219060400141)
 
 > 一直不太理解 Node.js 中 Stream 的概念，最近深入学习了一下，争取一篇文章说清楚。 文章中的代码地址：[github.com/Maricaya/no…](https://github.com/Maricaya/node-stream)
 
@@ -507,3 +506,5 @@ Node.js 官网有一篇专门的文章解释如何解决，大家碰到问题的
   - 可读可写（变化）Transform
 
 - 最后了解如何创建四类 Stream 和 Node.js 中的 Stream
+
+[转自【掘金 **Marica**】](https://juejin.im/post/6854573219060400141)
