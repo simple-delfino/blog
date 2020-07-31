@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="一文搞定Node.js流 （Stream）, delfino">
+    <meta name="keywords" content="hexo+github+matery搭建自己的个人博客, delfino">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>一文搞定Node.js流 （Stream） | delfino</title>
+    <title>hexo+github+matery搭建自己的个人博客 | delfino</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">一文搞定Node.js流 （Stream）</h1>
+                    <h1 class="description center-align post-title">hexo+github+matery搭建自己的个人博客</h1>
                 </div>
             </div>
         </div>
@@ -408,8 +408,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blog/tags/node/">
-                                <span class="chip bg-color">node</span>
+                            <a href="/blog/tags/blog/">
+                                <span class="chip bg-color">blog</span>
                             </a>
                         
                     </div>
@@ -420,8 +420,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog/categories/backend/" class="post-category">
-                                backend
+                            <a href="/blog/categories/other/" class="post-category">
+                                other
                             </a>
                         
                     </div>
@@ -433,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-30
+                    2020-07-31
                 </div>
                 
 
@@ -447,14 +447,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    6 分
                 </div>
                 
 
@@ -475,396 +475,135 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>一直不太理解 Node.js 中 Stream 的概念，最近深入学习了一下，争取一篇文章说清楚。 文章中的代码地址：<a target="_blank" rel="noopener" href="https://github.com/Maricaya/node-stream">github.com/Maricaya/no…</a></p>
+<p>之前用<code>wordpress</code>折腾了个博客，服务器、域名、备案、<code>docker</code>、乱七八糟的折腾了好久，现在推荐一个生成静态网站的工具，用来写博客，简直不需要太爽，<code>Hexo</code>配合<code>github</code>以及配合 <code>Travis CI</code> 工具自动打包，happy啊…..</p>
 </blockquote>
-<h1 id="Stream-流是什么？"><a href="#Stream-流是什么？" class="headerlink" title="Stream 流是什么？"></a>Stream 流是什么？</h1><p>stream（流）是一种抽象的数据结构。就像数组或字符串一样，流是数据的集合。</p>
-<p>不同的是，流可以每次输出少量数据，而且它不用存在内存中。</p>
-<p>比如，对服务器发起 http 请求的 <code>request/response</code> 对象就是 Stream。</p>
-<h2 id="图解-Stream"><a href="#图解-Stream" class="headerlink" title="图解 Stream"></a>图解 Stream</h2><p>stream 就像是水流，但默认是没有水的。 stream.write 可以让水流中有水，也就是写入数据。</p>
-<p>左上角是产生数据的一段，称为 source（源头）。 最下面是得到数据的一段 sink（水池）。 从上向下流动的小圆点是每次写的小数据，称为 chunk（块）。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/7/25/173869cb08686702?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
-<h2 id="为什么需要-Stream"><a href="#为什么需要-Stream" class="headerlink" title="为什么需要 Stream"></a>为什么需要 Stream</h2><p>同学们可能有这样的疑问，流的作用不就是传递数据吗，不用流 node 也可以实现读写操作啊。</p>
-<p>是的，但是读写方式是把文件内容全部读入内存，然后再写入文件，小型文件这么处理问题不大。</p>
-<p>但是遇到较大的文件，实在承受不住。</p>
-<p>而流可以把文件资源拆分成小块，一块一块的运输，资源就像水流一样进行传输，减轻服务器压力。</p>
-<h1 id="Stream-实例"><a href="#Stream-实例" class="headerlink" title="Stream 实例"></a>Stream 实例</h1><p>可能这么描述并不能让大家信服， 我们来做一个试验，看看在读写大文件时有没有必要使用流。</p>
-<p>首先创建一个大文件：</p>
-<h2 id="用-Stream-创建大文件"><a href="#用-Stream-创建大文件" class="headerlink" title="用 Stream 创建大文件"></a>用 Stream 创建大文件</h2><p>我们首先创建一个可写流，向文件里多次写入内容。 最后记得关闭流，得到一个大文件。</p>
-<pre><code>// 引入文件模块
-const fs = require('fs');
-
-const stream = fs.createWriteStream('./../big_file.txt');
-
-for (let i = 0; i &lt; 1000000; i++) &amp;#123;
-  stream.write(`这是第$&amp;#123;i&amp;#125;行内容\n`);
-&amp;#125;
-
-stream.end()
-console.log('done')
-复制代码</code></pre>
-<h2 id="使用-readFile"><a href="#使用-readFile" class="headerlink" title="使用 readFile"></a>使用 readFile</h2><p>我们先使用 fs.readFile 来读取文件内容，看看会发生什么。</p>
-<pre><code>const fs = require('fs')
-const http = require('http')
-const server = http.createServer()
-server.on('request', (request, response) =&gt; &amp;#123;
-  fs.readFile('./../big_file.txt', (error, data) =&gt; &amp;#123;
-    if (error) throw error
-    response.end(data)
-    console.log('done')
-  &amp;#125;)
-&amp;#125;)
-server.listen(8889)
-console.log(8889)
-复制代码</code></pre>
-<p>当我们访问 <code>http://localhost:8889</code> 的时候，服务器会异步读取这个大文件。</p>
-<p>看起来一切正常，没什么毛病。</p>
-<p>但是，我们用任务管理器查看 Node.js 的内存，大概占用 130Mb。</p>
-<p>服务器接收 1 次请求，占用 130 Mb；那如果接受 10 次请求，就是占用 1G。 对服务器的内存消耗是很大的。</p>
-<p>怎么解决这个问题呢？使用 Stream。</p>
-<h2 id="使用-Stream"><a href="#使用-Stream" class="headerlink" title="使用 Stream"></a>使用 Stream</h2><p>我们来试试用 Stream 改写上面的例子。</p>
-<p>创建一个可读流 <code>createReadStream</code>， 再把文件 <code>stream</code> 和 <code>response stream</code> 通过管道 <code>pipe</code> 相连。</p>
-<pre><code>const fs = require('fs')
-const http = require('http')
-const server = http.createServer()
-server.on('request', (request, response) =&gt; &amp;#123;
-    const stream = fs.createReadStream('./big_file.txt')
-    stream.pipe(response)
-&amp;#125;)
-server.listen(8888)
-复制代码</code></pre>
-<p>我们再次查看 node.js 内存占用，基本不会高于 30Mb。</p>
-<p>因为每次只传递一小段数据，不会占用很大内存。</p>
-<h1 id="管道-pipe"><a href="#管道-pipe" class="headerlink" title="管道 pipe"></a>管道 pipe</h1><p><img src="https://user-gold-cdn.xitu.io/2020/7/25/173869d998e4c5cf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
-<p>两个流可以用一个管道相连，stream1 的末尾连接上 stream2 的开端。</p>
-<p>只要 stream1 有数据，就会流到 stream2。</p>
-<p>比如上面的代码：</p>
-<pre><code>const stream = fs.createReadStream('./big_file.txt')
-stream.pipe(response)
-复制代码</code></pre>
-<p><code>stream</code> 就是一个文件流，下面的 stream 就是我们的 http 流 response。 本来这两个流是没有关系的，现在我们想把文件流的数据传递给 http 流。 很简单，用 pipe 连接就行啦。</p>
-<h2 id="常用代码"><a href="#常用代码" class="headerlink" title="常用代码"></a>常用代码</h2><p><code>stream1.pipe(stream2)</code></p>
-<ul>
-<li>stream1 是发出数据的流，一个可读流。</li>
-<li>stream2 是写入数据的流，一个可写流。</li>
-</ul>
-<h2 id="链式操作"><a href="#链式操作" class="headerlink" title="链式操作"></a>链式操作</h2><p>一个水流可以经过无限个管道，数据流也一样。</p>
-<p>有两种写法：</p>
-<pre><code>a.pipe(b).pipe(c)
-// 等价于
-a.pipe(b)
-b.pipe(c)
-复制代码</code></pre>
-<h2 id="管道原理"><a href="#管道原理" class="headerlink" title="管道原理"></a>管道原理</h2><p>管道也可以认为是两个事件的封装</p>
-<ul>
-<li>监听 data 事件，stream1 一有数据就塞给 stream2</li>
-<li>监听 end 事件，当 stream1 停了，就停掉 stream2</li>
-</ul>
-<pre><code>stream1.on('data', (chunk) =&gt; &amp;#123;
-    stream2.write(chunk)
-&amp;#125;)
-
-stream1.on('end', () =&gt; &amp;#123;
-    stream2.end()
-&amp;#125;)
-复制代码</code></pre>
-<h1 id="Stream-对象的原型链"><a href="#Stream-对象的原型链" class="headerlink" title="Stream 对象的原型链"></a>Stream 对象的原型链</h1><p>了解 Stream 的原型链，可以更容易地记忆 Stream 的 API。</p>
-<h2 id="fs-createReadStream-path"><a href="#fs-createReadStream-path" class="headerlink" title="fs.createReadStream(path)"></a>fs.createReadStream(path)</h2><p>如果 <code>s = fs.createReadStream(path)</code> ，那么<code>s</code>的对象层级为：</p>
-<ol>
-<li>自身的属性，由 <code>fs.ReadStream</code> 构造函数构造的</li>
-<li>原型: <code>stream.Readable.prototype</code></li>
-<li>二级原型: <code>stream.Stream.prototype</code></li>
-<li>三级原型: <code>events.EventEmitter.prototype</code> 这是所有 Stream 都继承的原型</li>
-<li>四级原型: <code>Object.prototype</code> 也就是所有对象都继承的原型</li>
-</ol>
-<h1 id="Stream-支持的事件和方法"><a href="#Stream-支持的事件和方法" class="headerlink" title="Stream 支持的事件和方法"></a>Stream 支持的事件和方法</h1><p>了解了原型链之，我们来看看 Stream 支持的事件和方法。</p>
-<p>大概有个印象就好，用到的时候再去查。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Readable Stream</th>
-<th>Writable Stream</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>事件</td>
-<td>data, end, error,close,readable</td>
-<td>drain(这一次写完),finish(整个写完),error,close,pipe,unpipe</td>
-</tr>
-<tr>
-<td>方法</td>
-<td>pipe() unpipe() read()…</td>
-<td>write() destroy() …</td>
-</tr>
-</tbody></table>
-<h1 id="Stream-分类"><a href="#Stream-分类" class="headerlink" title="Stream 分类"></a>Stream 分类</h1><p>一共分为四类</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Readable</td>
-<td>可读</td>
-</tr>
-<tr>
-<td>Writable</td>
-<td>可写</td>
-</tr>
-<tr>
-<td>Duplex</td>
-<td>可读可写（双向）</td>
-</tr>
-<tr>
-<td>Transform</td>
-<td>可读可写（变化）</td>
-</tr>
-</tbody></table>
-<p>Readable、Writable 都是单向的，其他两个是双向的。</p>
-<p>可读、可写好理解，剩下两个有什么区别呢？</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/7/25/173869e8a42d0879?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
-<p>Duplex 可以读写，但是读的内容和写的内容是相互独立的，没有交叉。</p>
-<p>而 Transform 是自己写自己读。</p>
-<p>比如一个 babel，把es6转换为，我们在左边写入 es6，从右边读取 es5。 就像洗车一样，黑车进去，白车出来。</p>
-<h2 id="Readable-Stream-可读流"><a href="#Readable-Stream-可读流" class="headerlink" title="Readable Stream 可读流"></a>Readable Stream 可读流</h2><h3 id="静止态-paused-和流动态-flowing"><a href="#静止态-paused-和流动态-flowing" class="headerlink" title="静止态 paused 和流动态 flowing"></a>静止态 paused 和流动态 flowing</h3><p>可读流有两个状态 paused 和 flowing。</p>
-<p>可以把可读流看成内容生产者，不发内容时就是静止态，内容恢复发送时就是流动态。</p>
-<ul>
-<li>可读流默认处于 paused 态。</li>
-<li>一旦添加 data 事件监听，它就变为 flowing 态。</li>
-<li>删掉 data 事件监听，paused 态。</li>
-<li>pause() 可以将它变为 paused。</li>
-<li>resume() 可以将它变为 flowing。</li>
-</ul>
-<pre><code>const http = require('http')
-const fs = require('fs')
-const server = http.createServer()
-server,on('request', (request, response) =&gt; &amp;#123;
-  // 默认处于 paused 态
-  const stream = fs.createReadStream('./big_file.txt')
-  stream.pipe(response)
-  stream.pause(); // 暂停
-  setTimeout(() =&gt; &amp;#123;
-  // 恢复
-    stream.resume()
-  &amp;#125;, 3000)
-&amp;#125;)
-server.listen(8888);
-复制代码</code></pre>
-<h1 id="Writable-Stream"><a href="#Writable-Stream" class="headerlink" title="Writable Stream"></a>Writable Stream</h1><h2 id="drain-流干了事件"><a href="#drain-流干了事件" class="headerlink" title="drain 流干了事件"></a>drain 流干了事件</h2><p>表示可以加点水了，也就是可以继续写入数据了。 我们调用 <code>stream.write(chunk)</code> 的时候，可能会得到 false。</p>
-<p>false 的意思是你写太快了，积压数据。</p>
-<p>这个时候我们就不能再 write 了，要监听 drain。</p>
-<p>等 drain 事件触发了，我们才能继续 write。</p>
-<p>光看这些有点难以理解，可以看看 <a target="_blank" rel="noopener" href="https://nodejs.org/api/stream.html#stream_event_drain">官网上的例子</a>：</p>
-<pre><code>const fs = require('fs');
-
-// 将 data 写入文件 1000000 次
-function writeOneMillionTimes(writer, data) &amp;#123;
-  let i = 1000000;
-  write();
-
-  function write() &amp;#123;
-    let ok = true;
-    do &amp;#123;
-      i--;
-      if (i === 0) &amp;#123;
-        // 最后一次写入
-        writer.write(data);
-      &amp;#125; else &amp;#123;
-        // 在这里判断是不是可以继续写
-    // ok 为 false 的意思是你写太快了，数据积压
-        ok = writer.write(data);
-        if (ok === false) &amp;#123;
-          console.log('不能再写了')
-        &amp;#125;
-      &amp;#125;
-    &amp;#125; while (i &gt; 0 &amp;&amp; ok);
-    if (i &gt; 0) &amp;#123;
-      // 干涸了,可以继续写入 
-      writer.once('drain', () =&gt; &amp;#123;
-        console.log('干涸了')
-        write()
-      &amp;#125;);
-    &amp;#125;
-  &amp;#125;
-&amp;#125;
-
-const write = fs.createWriteStream('./../big_file.txt')
-writeOneMillionTimes(write, 'hello world')
-复制代码</code></pre>
-<h2 id="finish-事件"><a href="#finish-事件" class="headerlink" title="finish 事件"></a>finish 事件</h2><p>在调用 <code>stream.end()</code> 之后，而且缓冲区数据都已经传给底层系统之后，触发 finish 事件。</p>
-<p>我们往文件中写入数据时，不是直接存入硬盘中，而是先放入缓冲区。 当数据到达一定大小后，才会写入硬盘。</p>
-<h1 id="创建自己的流"><a href="#创建自己的流" class="headerlink" title="创建自己的流"></a>创建自己的流</h1><p>下面我们来看看，如何创建自己的流。</p>
-<p>按照流的四个类型依次讲解。</p>
-<h2 id="Writable"><a href="#Writable" class="headerlink" title="Writable"></a>Writable</h2><pre><code>const &amp;#123;Writable&amp;#125; = require('stream')
-
-const outStream = new Writable(&amp;#123;
-  // 如果别人调用，我们做什么
-  write(chunk, encoding, callback) &amp;#123;
-    console.log(chunk.toString())
-    // 进入下一个流程
-    callback()
-  &amp;#125;
-&amp;#125;)
-
-process.stdin.pipe(outStream);
-复制代码</code></pre>
-<p>保存文件为 writable.js 然后用 node 运行。 不管你输入什么，都会得到相同的结果。</p>
-<h2 id="Readable"><a href="#Readable" class="headerlink" title="Readable"></a>Readable</h2><h3 id="一次读取所有数据"><a href="#一次读取所有数据" class="headerlink" title="一次读取所有数据"></a>一次读取所有数据</h3><pre><code>const &amp;#123;Readable&amp;#125; = require('stream')
-
-const inStream = new Readable()
-
-inStream.push('hello world') // 写入数据
-inStream.push('hello node')
-
-inStream.push(null) // 没有数据了
-// 将这个可读流，导入到可写流 process.stdout。
-inStream.pipe(process.stdout)
-复制代码</code></pre>
-<p>先把所有数据都 push 进 inStream，再使用管道导入到可写流 <code>process.stdout</code> 中。</p>
-<p>这样，当我们用 node 运行文件时，我们可以从 inStream 中读取所有数据，并且打印出来。</p>
-<p>这种方式非常简单，但是并不高效。</p>
-<p>更好的方式是按需 push，当用户需要的时候，我们才读取数据。</p>
-<h3 id="调用-read-才会给一次数据"><a href="#调用-read-才会给一次数据" class="headerlink" title="调用 read 才会给一次数据"></a>调用 read 才会给一次数据</h3><p>这种写法数据是按需供给的，对方调用 <code>read</code> ，我们才会给一次数据。</p>
-<p>例如下面这个例子，我们一次 <code>push</code> 一个字符，从字符码 65（代表 A） 开始。</p>
-<p>当用户读取时，会持续触发 <code>read</code>，我们会 <code>push</code> 更多地字符。</p>
-<p>当字符全部 <code>push</code> 完毕，我们 <code>push null</code>，停止 Stream。</p>
-<pre><code>const &amp;#123;Readable&amp;#125; = require('stream')
-
-const inStream = new Readable(&amp;#123;
-  read(size) &amp;#123;
-    const char = String.fromCharCode(this.currentCharCode++)
-    this.push(char);
-    console.log(`推了$&amp;#123;char&amp;#125;`)
-    // 这个时候停止
-    if (this.currentCharCode &gt; 90) &amp;#123; // Z
-      this.push(null)
-    &amp;#125;
-  &amp;#125;
-&amp;#125;)
-
-inStream.currentCharCode = 65 // A
-
-inStream.pipe(process.stdout)
-复制代码</code></pre>
-<h2 id="Duplex-Stream"><a href="#Duplex-Stream" class="headerlink" title="Duplex Stream"></a>Duplex Stream</h2><p>看完了可读流、可写流，<code>Duplex Stream</code> 就简单多了。</p>
-<p>同时实现 <code>write</code> 和 <code>read</code> 方法就好啦。</p>
-<pre><code>const &amp;#123;Duplex&amp;#125; = require('stream')
-
-const inoutStream = new Duplex(&amp;#123;
-  write(chunk, encoding, callback) &amp;#123;
-    console.log(chunk.toString())
-    callback()
-  &amp;#125;,
-  read(size) &amp;#123;
-    this.push(String.fromCharCode(this.currentCharCode++))
-    if (this.currentCharCode &gt; 90) &amp;#123;
-      this.pull(null)
-    &amp;#125;
-  &amp;#125;
-&amp;#125;)
-
-inoutStream.currentCharCode = 65;
-
-process.stdin.pipe(inoutStream).pipe(process.stdout);
-复制代码</code></pre>
-<h2 id="Transform-Stream"><a href="#Transform-Stream" class="headerlink" title="Transform Stream"></a>Transform Stream</h2><p>对于 Transform Stream，我们实现 transform 方法就好了，它结合了可读、可写两个方法。</p>
-<p>这里有一个简单的 transform 例子，会以大写的格式打印任何你键入的字符：</p>
-<pre><code>const &amp;#123;Transform&amp;#125; = require('stream')
-
-const upperCaseTr = new Transform(&amp;#123;
-  transform(chunk, encoding, callback) &amp;#123;
-    // 1. 读数据 chunk.toString()
-    // 2. 写数据 this.push(xxx)
-    this.push(chunk.toString().toUpperCase())
-    callback();
-  &amp;#125;
-&amp;#125;)
-
-// 监听用户输入，调用 upperCaseTr
-// 转化完成后，输出
-process.stdin.pipe(upperCaseTr) 
-    .pipe(process.stdout)
-复制代码</code></pre>
-<h1 id="Node-js-内置的-Transform-Stream"><a href="#Node-js-内置的-Transform-Stream" class="headerlink" title="Node.js 内置的 Transform Stream"></a>Node.js 内置的 Transform Stream</h1><p>比如面试中经常说的优化方案：gzip 压缩。</p>
-<p>在 Node.js 中用 4 行代码就可以实现</p>
-<pre><code>const fs = require('fs')
-const zlib = require('zlib')
-const file = process.argv[2]
-
-fs.createReadStream(file)
-  .pipe(zlib.createGzip())
-    .on('data', () =&gt; process.stdout.write(".")) // 打出进度条
-  .pipe(fs.createWriteStream(file + ".gz"))
-复制代码</code></pre>
-<h1 id="Stream-在-Node-js-中随处可见"><a href="#Stream-在-Node-js-中随处可见" class="headerlink" title="Stream 在 Node.js 中随处可见"></a>Stream 在 Node.js 中随处可见</h1><table>
-<thead>
-<tr>
-<th>Readable Stream</th>
-<th>Writeable Stream</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>HTTP Response 客户端</td>
-<td>HTTP Request 客户端</td>
-</tr>
-<tr>
-<td>HTTP Request 服务端</td>
-<td>HTTP Response 服务端</td>
-</tr>
-<tr>
-<td>fs read stream</td>
-<td>fs write stream</td>
-</tr>
-<tr>
-<td>zlib stream</td>
-<td>zlib stream</td>
-</tr>
-<tr>
-<td>TCP sockets</td>
-<td>TCP sockets</td>
-</tr>
-<tr>
-<td>child process stdout &amp; stderr</td>
-<td>child process stdin</td>
-</tr>
-<tr>
-<td>process.stdin</td>
-<td>process.stdout,process.stderr</td>
-</tr>
-<tr>
-<td>…</td>
-<td>…</td>
-</tr>
-</tbody></table>
-<h1 id="数据积压问题"><a href="#数据积压问题" class="headerlink" title="数据积压问题"></a>数据积压问题</h1><p>在 Stream 中，还有一个非常重要的问题：数据积压。</p>
-<p>如果数据太多，堵住了，怎么解决。</p>
-<p>Node.js 官网有一篇专门的文章解释如何解决，大家碰到问题的时候可以翻出来看看。</p>
-<p>我在这里就不赘述了，<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/docs/guides/backpressuring-in-streams/">地址在这里</a></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>来总结下到目前为止，我们了解的 Stream 对象。</p>
-<ul>
-<li><p>为什么使用 Stream 呢？</p>
-<ul>
-<li>因为读写大文件的时候，可以有效降低内存压力。</li>
-</ul>
+<p><strong>本人用的是mac，windows大同小异，水平有限，有毛病随时交流哈…….</strong></p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo 官网地址</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>本地开发环境先装上<code>node</code>以及<code>git</code>,具体安装方式自行<strong>百度</strong></p>
+<h2 id="本地部分"><a href="#本地部分" class="headerlink" title="本地部分"></a>本地部分</h2><h3 id="1-全局安装hexo-cli"><a href="#1-全局安装hexo-cli" class="headerlink" title="1.全局安装hexo-cli"></a>1.全局安装<code>hexo-cli</code></h3><pre><code>npm install -g hexo-cli</code></pre>
+<h3 id="2-进入一个本地文件夹，初始化hexo"><a href="#2-进入一个本地文件夹，初始化hexo" class="headerlink" title="2.进入一个本地文件夹，初始化hexo"></a>2.进入一个本地文件夹，初始化hexo</h3><ul>
+<li><p>初始化hexo</p>
+<pre><code>//名字随便取，我已经部署过blog了，这里用delfino
+hexo init delfino</code></pre>
 </li>
-<li><p>管道 pipe 是 Stream 中的一个重要概念，可以连接流。</p>
+<li><p>初始化后，进入该目录，安装依赖</p>
+<pre><code>cd delfino
+npm install</code></pre>
 </li>
-<li><p>Stream 对象都继承了 EventEmitter。</p>
+<li><p>安装完了之后就是启动服务了</p>
+<pre><code>hexo server
+//端口默认4000
+//可以指定端口运行，如下：
+hexo server -p 5000
+//自定义IP
+hexo server -i 192.168.1.1</code></pre>
 </li>
-<li><p>Stream 分为四类</p>
-<ul>
-<li>可读 Readable，有两个状态：paused、flowing。</li>
-<li>可写 Writable，两个重要事件：drain、finish。</li>
-<li>可读可写（双向）Duplex</li>
-<li>可读可写（变化）Transform</li>
-</ul>
+<li><p>浏览器打开试一下是否成功<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
 </li>
-<li><p>最后了解如何创建四类 Stream 和 Node.js 中的 Stream</p>
+<li><p>初始化本地的git仓库，方便提交到github</p>
+<pre><code>git init</code></pre>
 </li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6854573219060400141">转自【掘金 <strong>Marica</strong>】</a></p>
+<h2 id="github部分"><a href="#github部分" class="headerlink" title="github部分"></a>github部分</h2><h3 id="1-创建一个test的仓库"><a href="#1-创建一个test的仓库" class="headerlink" title="1.创建一个test的仓库"></a>1.创建一个test的仓库</h3><p><strong>没有github的自行注册</strong><br><img src="https://imgkr2.cn-bj.ufileos.com/62a22056-41b2-471f-9f5a-4b8dc5b69d12.jpg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=MvsPE6RgxjzEuwe9FKdobURcCzY%253D&amp;Expires=1596260088"></p>
+<p>仓库选择公开，点击创建,成功后如下图：<br><img src="https://imgkr2.cn-bj.ufileos.com/b13b351b-a714-4de2-bf6d-489284e2c5c9.jpg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=IcuuD6bkJCLeyqSi8wKqKYUveQE%253D&amp;Expires=1596260163"></p>
+<h3 id="2-将本地的项目推送到github"><a href="#2-将本地的项目推送到github" class="headerlink" title="2.将本地的项目推送到github"></a>2.将本地的项目推送到github</h3><pre><code>//进入本地项目目录
+git remote add origin https://github.com/simple-delfino/delfino.git
+git add .
+git commit -m "提交Hexo"
+//第一次提交到github上加上 -u
+git push -u origin master
+//后面如果需要提交,直接
+git push origin master</code></pre>
+<h2 id="Travis-CI-部分"><a href="#Travis-CI-部分" class="headerlink" title="Travis CI 部分"></a>Travis CI 部分</h2><h3 id="1-将-Travis-CI添加到你的-GitHub-账户中。"><a href="#1-将-Travis-CI添加到你的-GitHub-账户中。" class="headerlink" title="1.将 Travis CI添加到你的 GitHub 账户中。"></a>1.将 <a target="_blank" rel="noopener" href="https://github.com/marketplace/travis-ci">Travis CI</a>添加到你的 GitHub 账户中。</h3><p>进入到Travis CI官网，安装：<br><img src="https://imgkr2.cn-bj.ufileos.com/9ba11bb0-9413-46d7-a1f8-6f5c48fb8db1.jpg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=O4xCHESMyn0IlX%252FADr%252FlIIBCwfU%253D&amp;Expires=1596260569"><br><strong>进入官网往下翻，看到如上图的位置，选择Open Source，你有钱当我没说，安装</strong></p>
+<h3 id="2-配置-Travis-CI-权限"><a href="#2-配置-Travis-CI-权限" class="headerlink" title="2.配置 Travis CI 权限"></a>2.配置 Travis CI 权限</h3><p><strong>前往 <code>GitHub</code> 的 Applications settings，配置 Travis CI 权限，使其能够访问你的 repository。</strong><br><img src="https://imgkr2.cn-bj.ufileos.com/6e2f5bc0-59cc-4596-9507-6ca7f1ea1c67.jpg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=N6Ya6o%252B4T5pk8Jg9AY1Bl8RRDYs%253D&amp;Expires=1596260819"></p>
+<ul>
+<li>点击Travis CI的<strong>Configure</strong><br><img src="https://imgkr2.cn-bj.ufileos.com/a9c5202b-e4fc-4dde-9367-5367cf3ef70b.jpg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=bOkr3%252F%252F0S7gRG51DmfxP4PP%252F%252BgY%253D&amp;Expires=1596260979"></li>
+<li>设置<strong>Repository access</strong>，我这里选择了All repositories，你也可以只选择你当前的博客仓库，随意，点击保存<br><img src="https://imgkr2.cn-bj.ufileos.com/4ca0f55c-042d-4d70-be7e-96ec4e61cecc.jpg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=WIWTMojc%252FrdZ3X8D8oM37NRLRZc%253D&amp;Expires=1596261107"></li>
+</ul>
+<h3 id="3-Travis-CI-的页面"><a href="#3-Travis-CI-的页面" class="headerlink" title="3.Travis CI 的页面"></a>3.Travis CI 的页面</h3><p><strong>你应该会被重定向到 Travis CI 的页面。如果没有，请 <a target="_blank" rel="noopener" href="https://travis-ci.com/dashboard">手动前往</a>。</strong></p>
+<h3 id="4-新建-Personal-Access-Token"><a href="#4-新建-Personal-Access-Token" class="headerlink" title="4.新建 [Personal Access Token]"></a>4.新建 [Personal Access Token]</h3><p><strong>在浏览器新建一个标签页，前往 GitHub 新建 <a target="_blank" rel="noopener" href="https://github.com/settings/tokens">Personal Access Token</a>，只勾选 repo 的权限并生成一个新的 Token。Token 生成后请复制并保存好。</strong><br><img src="https://imgkr2.cn-bj.ufileos.com/e1bc538f-7d14-4db3-ac2c-7868ecdc698d.jpg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=BVrIY1dRyntKvma7sjdlKZd01Gs%253D&amp;Expires=1596261375"></p>
+<h3 id="5-新建Token环境变量"><a href="#5-新建Token环境变量" class="headerlink" title="5.新建Token环境变量"></a>5.新建Token环境变量</h3><p><strong>回到 Travis CI，前往你的 repository 的设置页面，在 Environment Variables 下新建一个环境变量，Name 为 GH_TOKEN，Value 为刚才你在 GitHub 生成的 Token。确保 DISPLAY VALUE IN BUILD LOG 保持 不被勾选 避免你的 Token 泄漏。点击 Add 保存</strong><br><img src="https://imgkr2.cn-bj.ufileos.com/6c00b26b-cb7c-4ac0-a6a6-19130f0178ab.jpg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=FK1V%252F07RYKyDIdZ32d%252FfZn2BF6I%253D&amp;Expires=1596261478"></p>
+<p><img src="https://imgkr2.cn-bj.ufileos.com/e4db1191-5315-4be4-ad98-9df9dec5ba99.jpg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=HD45NxNDxL%252B0qVy4Nbto%252FoPjrV0%253D&amp;Expires=1596261591"></p>
+<h3 id="6-新建-travis-yml"><a href="#6-新建-travis-yml" class="headerlink" title="6.新建.travis.yml"></a>6.新建.travis.yml</h3><p><strong>在你的 Hexo 站点文件夹中新建一个 .travis.yml 文件：</strong></p>
+<pre><code>sudo: false
+language: node_js
+node_js:
+  - 10 # use nodejs v10 LTS
+cache: npm
+branches:
+  only:
+    - master # build master branch only
+script:
+  - hexo generate # generate static files
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  on:
+    branch: master
+  local-dir: public</code></pre>
+<h3 id="7-设置url"><a href="#7-设置url" class="headerlink" title="7.设置url"></a>7.设置url</h3><p><strong>编辑本地项目的<code>_config.yml</code>,修改如下：</strong></p>
+<pre><code>url: https://simple-delfino.github.io/delfino
+root: /delfino</code></pre>
+<h3 id="8-将-travis-yml以及修改的-config-yml推送到-repository-中。"><a href="#8-将-travis-yml以及修改的-config-yml推送到-repository-中。" class="headerlink" title="8.将 .travis.yml以及修改的_config.yml推送到 repository 中。"></a>8.将 .travis.yml以及修改的_config.yml推送到 repository 中。</h3><p>Travis CI 应该会自动开始运行，并将生成的文件推送到同一 repository 下的 gh-pages 分支下</p>
+<pre><code>git add .
+git commit -m 'push .travis.yml'
+git push origin master</code></pre>
+<h3 id="9-修改-GitHub-Pages-的部署分支为-gh-pages"><a href="#9-修改-GitHub-Pages-的部署分支为-gh-pages" class="headerlink" title="9.修改 GitHub Pages 的部署分支为 gh-pages"></a>9.修改 GitHub Pages 的部署分支为 gh-pages</h3><p>在 GitHub 中前往你的 repository 的设置页面，修改 GitHub Pages 的部署分支为 gh-pages</p>
+<h3 id="10-尝试访问"><a href="#10-尝试访问" class="headerlink" title="10.尝试访问"></a>10.尝试访问</h3><p>前往 https://&lt;你的github用户名&gt;.github.io/&lt;博客仓库目录&gt;,eg:<a href="https://simple-delfino.github.io/delfino">https://simple-delfino.github.io/delfino</a> 查看你的站点是否可以访问。这可能需要一些时间。<br><img src="https://imgkr2.cn-bj.ufileos.com/97115fac-535b-442c-94f6-5583004a083b.jpg?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&amp;Signature=uv0qrk%252FXj9p1mWJqW4npVInaHyQ%253D&amp;Expires=1596262739"></p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>默认的主题有点丑，可以自己安装主题，我自己现在用的是matery，可以从我的<a href="https://simple-delfino.github.io/blog/">博客</a>上看效果,<br>当然beauty也不错，还有其他的极简风格的黑白主题，去百度搜索吧</p>
+<h3 id="1-下载matery"><a href="#1-下载matery" class="headerlink" title="1.下载matery"></a>1.下载matery</h3><p><a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">matery地址</a></p>
+<p>进入到本地项目的theme目录下</p>
+<pre><code>cd theme
+git clone https://github.com/blinkfox/hexo-theme-matery.git</code></pre>
+<h3 id="2-切换主题"><a href="#2-切换主题" class="headerlink" title="2.切换主题"></a>2.切换主题</h3><p>修改 Hexo 根目录下的 _config.yml 的 <code>theme</code> 的值：<code>theme: hexo-theme-matery</code></p>
+<h3 id="3-新建分类-categories-页"><a href="#3-新建分类-categories-页" class="headerlink" title="3.新建分类 categories 页"></a>3.新建分类 categories 页</h3><p>categories 页是用来展示所有分类的页面，如果在你的博客 source 目录下还没有 categories/index.md 文件，那么你就需要新建一个，命令如下：</p>
+<pre><code>hexo new page "categories"</code></pre>
+<p>编辑你刚刚新建的页面文件 /source/categories/index.md，至少需要以下内容：</p>
+<pre><code>---
+title: categories
+date: 2018-09-30 17:25:30
+type: "categories"
+layout: "categories"
+---</code></pre>
+<h3 id="4-新建标签-tags-页"><a href="#4-新建标签-tags-页" class="headerlink" title="4.新建标签 tags 页"></a>4.新建标签 tags 页</h3><p>tags 页是用来展示所有标签的页面，如果在你的博客 source 目录下还没有 tags/index.md 文件，那么你就需要新建一个，命令如下：</p>
+<pre><code>hexo new page "tags"</code></pre>
+<p>编辑你刚刚新建的页面文件 /source/tags/index.md，至少需要以下内容：</p>
+<pre><code>---
+title: tags
+date: 2018-09-30 18:23:38
+type: "tags"
+layout: "tags"
+---</code></pre>
+<h3 id="5-新建关于我-about-页"><a href="#5-新建关于我-about-页" class="headerlink" title="5.新建关于我 about 页"></a>5.新建关于我 about 页</h3><p>about 页是用来展示关于我和我的博客信息的页面，如果在你的博客 source 目录下还没有 about/index.md 文件，那么你就需要新建一个，命令如下：</p>
+<pre><code>hexo new page "about"</code></pre>
+<p>编辑你刚刚新建的页面文件 /source/about/index.md，至少需要以下内容：</p>
+<pre><code>---
+title: about
+date: 2018-09-30 17:25:30
+type: "about"
+layout: "about"
+---</code></pre>
+<h3 id="6-新建留言板-contact-页（可选的）"><a href="#6-新建留言板-contact-页（可选的）" class="headerlink" title="6.新建留言板 contact 页（可选的）"></a>6.新建留言板 contact 页（可选的）</h3><p>contact 页是用来展示留言板信息的页面，如果在你的博客 source 目录下还没有 contact/index.md 文件，那么你就需要新建一个，命令如下：</p>
+<pre><code>hexo new page "contact"</code></pre>
+<p>编辑你刚刚新建的页面文件 /source/contact/index.md，至少需要以下内容：</p>
+<pre><code>---
+title: contact
+date: 2018-09-30 17:25:30
+type: "contact"
+layout: "contact"
+---</code></pre>
+<blockquote>
+<p>注：本留言板功能依赖于第三方评论系统，请激活你的评论系统才有效果。并且在主题的 _config.yml 文件中，第 19 至 21 行的“菜单”配置，取消关于留言板的注释即可。</p>
+</blockquote>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>hexo还是比较好用的，其他的设置自己捉摸吧<br>比如文章的永久链接，我用的是</p>
+<pre><code>url: https://simple-delfino.github.io/blog
+root: /blog
+permalink: :category/:id/
+permalink_defaults:</code></pre>
+<p>当然你文章的<code>Front-matter</code>必须有<code>category</code>和<code>id</code>(id我就是固定的数字，年月日+001或者002)</p>
+<p>其他的配置自己折腾吧，<code>hexo</code>的配置在根目录下的<code>_config.yml</code>，主题的配置在该主题目录下的<code>_config.yml</code>，有一些比较好玩的优化，比如每日一句等等 去百度吧</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -908,7 +647,7 @@ fs.createReadStream(file)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://simple-delfino.github.io/blog/blog/backend/20200730004/">https://simple-delfino.github.io/blog/blog/backend/20200730004/</a>
+                    <a href="https://simple-delfino.github.io/blog/blog/other/20200731001/">https://simple-delfino.github.io/blog/blog/other/20200731001/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -946,8 +685,8 @@ fs.createReadStream(file)
                     
                         <div class="article-tag">
                             
-                                <a href="/blog/tags/node/">
-                                    <span class="chip bg-color">node</span>
+                                <a href="/blog/tags/blog/">
+                                    <span class="chip bg-color">blog</span>
                                 </a>
                             
                         </div>
@@ -1115,9 +854,61 @@ fs.createReadStream(file)
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/blog/other/20200731001/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/3.jpg" class="responsive-img" alt="hexo+github+matery搭建自己的个人博客">
+                        
+                        <span class="card-title">hexo+github+matery搭建自己的个人博客</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+之前用wordpress折腾了个博客，服务器、域名、备案、docker、乱七八糟的折腾了好久，现在推荐一个生成静态网站的工具，用来写博客，简直不需要太爽，Hexo配合github以及配合 Travis CI 工具自动打包，happy啊….
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/other/" class="post-category">
+                                    other
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/blog/">
+                        <span class="chip bg-color">blog</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/blog/other/20200730003/">
                     <div class="card-image">
@@ -1136,9 +927,9 @@ fs.createReadStream(file)
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1156,57 +947,6 @@ fs.createReadStream(file)
                     
                     <a href="/blog/tags/webpack/">
                         <span class="chip bg-color">webpack</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blog/web/20200730001/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/blog/medias/featureimages/2.jpg" class="responsive-img" alt="对象深拷贝和浅拷贝">
-                        
-                        <span class="card-title">对象深拷贝和浅拷贝</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            各类技术论坛关于深拷贝的博客有很多,有些写的也比我好,那为什么我还要坚持写这篇博客呢,之前看到的一篇博客中有句话写的非常好
-
-学习就好比是座大山，人们沿着不同的路登山，分享着自己看到的风景。你不一定能看到别人看到的风景，体会到别人的心情。只
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/blog/categories/web/" class="post-category">
-                                    web
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/blog/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
                     </a>
                     
                 </div>
