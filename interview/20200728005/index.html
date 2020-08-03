@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="一文搞定Node.js流 （Stream）, delfino">
+    <meta name="keywords" content="标签: js, delfino">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>一文搞定Node.js流 （Stream） | delfino</title>
+    <title>标签: js | delfino</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">一文搞定Node.js流 （Stream）</h1>
+                    <h1 class="description center-align post-title">什么是防抖和节流,他们的应用场景有哪些</h1>
                 </div>
             </div>
         </div>
@@ -408,8 +408,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blog/tags/node/">
-                                <span class="chip bg-color">node</span>
+                            <a href="/blog/tags/interview/">
+                                <span class="chip bg-color">interview</span>
                             </a>
                         
                     </div>
@@ -420,8 +420,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog/categories/backend/" class="post-category">
-                                backend
+                            <a href="/blog/categories/interview/" class="post-category">
+                                interview
                             </a>
                         
                     </div>
@@ -433,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-30
+                    2020-07-28
                 </div>
                 
 
@@ -447,14 +447,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    607
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    2 分
                 </div>
                 
 
@@ -474,397 +474,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>一直不太理解 Node.js 中 Stream 的概念，最近深入学习了一下，争取一篇文章说清楚。 文章中的代码地址：<a target="_blank" rel="noopener" href="https://github.com/Maricaya/node-stream">github.com/Maricaya/no…</a></p>
-</blockquote>
-<h1 id="Stream-流是什么？"><a href="#Stream-流是什么？" class="headerlink" title="Stream 流是什么？"></a>Stream 流是什么？</h1><p>stream（流）是一种抽象的数据结构。就像数组或字符串一样，流是数据的集合。</p>
-<p>不同的是，流可以每次输出少量数据，而且它不用存在内存中。</p>
-<p>比如，对服务器发起 http 请求的 <code>request/response</code> 对象就是 Stream。</p>
-<h2 id="图解-Stream"><a href="#图解-Stream" class="headerlink" title="图解 Stream"></a>图解 Stream</h2><p>stream 就像是水流，但默认是没有水的。 stream.write 可以让水流中有水，也就是写入数据。</p>
-<p>左上角是产生数据的一段，称为 source（源头）。 最下面是得到数据的一段 sink（水池）。 从上向下流动的小圆点是每次写的小数据，称为 chunk（块）。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/7/25/173869cb08686702?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
-<h2 id="为什么需要-Stream"><a href="#为什么需要-Stream" class="headerlink" title="为什么需要 Stream"></a>为什么需要 Stream</h2><p>同学们可能有这样的疑问，流的作用不就是传递数据吗，不用流 node 也可以实现读写操作啊。</p>
-<p>是的，但是读写方式是把文件内容全部读入内存，然后再写入文件，小型文件这么处理问题不大。</p>
-<p>但是遇到较大的文件，实在承受不住。</p>
-<p>而流可以把文件资源拆分成小块，一块一块的运输，资源就像水流一样进行传输，减轻服务器压力。</p>
-<h1 id="Stream-实例"><a href="#Stream-实例" class="headerlink" title="Stream 实例"></a>Stream 实例</h1><p>可能这么描述并不能让大家信服， 我们来做一个试验，看看在读写大文件时有没有必要使用流。</p>
-<p>首先创建一个大文件：</p>
-<h2 id="用-Stream-创建大文件"><a href="#用-Stream-创建大文件" class="headerlink" title="用 Stream 创建大文件"></a>用 Stream 创建大文件</h2><p>我们首先创建一个可写流，向文件里多次写入内容。 最后记得关闭流，得到一个大文件。</p>
-<pre><code>// 引入文件模块
-const fs = require('fs');
-
-const stream = fs.createWriteStream('./../big_file.txt');
-
-for (let i = 0; i &lt; 1000000; i++) &amp;#123;
-  stream.write(`这是第$&amp;#123;i&amp;#125;行内容\n`);
-&amp;#125;
-
-stream.end()
-console.log('done')
-复制代码</code></pre>
-<h2 id="使用-readFile"><a href="#使用-readFile" class="headerlink" title="使用 readFile"></a>使用 readFile</h2><p>我们先使用 fs.readFile 来读取文件内容，看看会发生什么。</p>
-<pre><code>const fs = require('fs')
-const http = require('http')
-const server = http.createServer()
-server.on('request', (request, response) =&gt; &amp;#123;
-  fs.readFile('./../big_file.txt', (error, data) =&gt; &amp;#123;
-    if (error) throw error
-    response.end(data)
-    console.log('done')
-  &amp;#125;)
-&amp;#125;)
-server.listen(8889)
-console.log(8889)
-复制代码</code></pre>
-<p>当我们访问 <code>http://localhost:8889</code> 的时候，服务器会异步读取这个大文件。</p>
-<p>看起来一切正常，没什么毛病。</p>
-<p>但是，我们用任务管理器查看 Node.js 的内存，大概占用 130Mb。</p>
-<p>服务器接收 1 次请求，占用 130 Mb；那如果接受 10 次请求，就是占用 1G。 对服务器的内存消耗是很大的。</p>
-<p>怎么解决这个问题呢？使用 Stream。</p>
-<h2 id="使用-Stream"><a href="#使用-Stream" class="headerlink" title="使用 Stream"></a>使用 Stream</h2><p>我们来试试用 Stream 改写上面的例子。</p>
-<p>创建一个可读流 <code>createReadStream</code>， 再把文件 <code>stream</code> 和 <code>response stream</code> 通过管道 <code>pipe</code> 相连。</p>
-<pre><code>const fs = require('fs')
-const http = require('http')
-const server = http.createServer()
-server.on('request', (request, response) =&gt; &amp;#123;
-    const stream = fs.createReadStream('./big_file.txt')
-    stream.pipe(response)
-&amp;#125;)
-server.listen(8888)
-复制代码</code></pre>
-<p>我们再次查看 node.js 内存占用，基本不会高于 30Mb。</p>
-<p>因为每次只传递一小段数据，不会占用很大内存。</p>
-<h1 id="管道-pipe"><a href="#管道-pipe" class="headerlink" title="管道 pipe"></a>管道 pipe</h1><p><img src="https://user-gold-cdn.xitu.io/2020/7/25/173869d998e4c5cf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
-<p>两个流可以用一个管道相连，stream1 的末尾连接上 stream2 的开端。</p>
-<p>只要 stream1 有数据，就会流到 stream2。</p>
-<p>比如上面的代码：</p>
-<pre><code>const stream = fs.createReadStream('./big_file.txt')
-stream.pipe(response)
-复制代码</code></pre>
-<p><code>stream</code> 就是一个文件流，下面的 stream 就是我们的 http 流 response。 本来这两个流是没有关系的，现在我们想把文件流的数据传递给 http 流。 很简单，用 pipe 连接就行啦。</p>
-<h2 id="常用代码"><a href="#常用代码" class="headerlink" title="常用代码"></a>常用代码</h2><p><code>stream1.pipe(stream2)</code></p>
+                <h2 id="防抖-debounce"><a href="#防抖-debounce" class="headerlink" title="防抖 (debounce)"></a>防抖 (debounce)</h2><h3 id="防抖，顾名思义，防止抖动，以免把一次事件误认为多次，敲键盘就是一个每天都会接触到的防抖操作。"><a href="#防抖，顾名思义，防止抖动，以免把一次事件误认为多次，敲键盘就是一个每天都会接触到的防抖操作。" class="headerlink" title="防抖，顾名思义，防止抖动，以免把一次事件误认为多次，敲键盘就是一个每天都会接触到的防抖操作。"></a>防抖，顾名思义，防止抖动，以免把一次事件误认为多次，敲键盘就是一个每天都会接触到的防抖操作。</h3><p>想要了解一个概念，必先了解概念所应用的场景。在 JS 这个世界中，有哪些防抖的场景呢</p>
 <ul>
-<li>stream1 是发出数据的流，一个可读流。</li>
-<li>stream2 是写入数据的流，一个可写流。</li>
-</ul>
-<h2 id="链式操作"><a href="#链式操作" class="headerlink" title="链式操作"></a>链式操作</h2><p>一个水流可以经过无限个管道，数据流也一样。</p>
-<p>有两种写法：</p>
-<pre><code>a.pipe(b).pipe(c)
-// 等价于
-a.pipe(b)
-b.pipe(c)
-复制代码</code></pre>
-<h2 id="管道原理"><a href="#管道原理" class="headerlink" title="管道原理"></a>管道原理</h2><p>管道也可以认为是两个事件的封装</p>
-<ul>
-<li>监听 data 事件，stream1 一有数据就塞给 stream2</li>
-<li>监听 end 事件，当 stream1 停了，就停掉 stream2</li>
-</ul>
-<pre><code>stream1.on('data', (chunk) =&gt; &amp;#123;
-    stream2.write(chunk)
-&amp;#125;)
-
-stream1.on('end', () =&gt; &amp;#123;
-    stream2.end()
-&amp;#125;)
-复制代码</code></pre>
-<h1 id="Stream-对象的原型链"><a href="#Stream-对象的原型链" class="headerlink" title="Stream 对象的原型链"></a>Stream 对象的原型链</h1><p>了解 Stream 的原型链，可以更容易地记忆 Stream 的 API。</p>
-<h2 id="fs-createReadStream-path"><a href="#fs-createReadStream-path" class="headerlink" title="fs.createReadStream(path)"></a>fs.createReadStream(path)</h2><p>如果 <code>s = fs.createReadStream(path)</code> ，那么<code>s</code>的对象层级为：</p>
-<ol>
-<li>自身的属性，由 <code>fs.ReadStream</code> 构造函数构造的</li>
-<li>原型: <code>stream.Readable.prototype</code></li>
-<li>二级原型: <code>stream.Stream.prototype</code></li>
-<li>三级原型: <code>events.EventEmitter.prototype</code> 这是所有 Stream 都继承的原型</li>
-<li>四级原型: <code>Object.prototype</code> 也就是所有对象都继承的原型</li>
-</ol>
-<h1 id="Stream-支持的事件和方法"><a href="#Stream-支持的事件和方法" class="headerlink" title="Stream 支持的事件和方法"></a>Stream 支持的事件和方法</h1><p>了解了原型链之，我们来看看 Stream 支持的事件和方法。</p>
-<p>大概有个印象就好，用到的时候再去查。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Readable Stream</th>
-<th>Writable Stream</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>事件</td>
-<td>data, end, error,close,readable</td>
-<td>drain(这一次写完),finish(整个写完),error,close,pipe,unpipe</td>
-</tr>
-<tr>
-<td>方法</td>
-<td>pipe() unpipe() read()…</td>
-<td>write() destroy() …</td>
-</tr>
-</tbody></table>
-<h1 id="Stream-分类"><a href="#Stream-分类" class="headerlink" title="Stream 分类"></a>Stream 分类</h1><p>一共分为四类</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Readable</td>
-<td>可读</td>
-</tr>
-<tr>
-<td>Writable</td>
-<td>可写</td>
-</tr>
-<tr>
-<td>Duplex</td>
-<td>可读可写（双向）</td>
-</tr>
-<tr>
-<td>Transform</td>
-<td>可读可写（变化）</td>
-</tr>
-</tbody></table>
-<p>Readable、Writable 都是单向的，其他两个是双向的。</p>
-<p>可读、可写好理解，剩下两个有什么区别呢？</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/7/25/173869e8a42d0879?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
-<p>Duplex 可以读写，但是读的内容和写的内容是相互独立的，没有交叉。</p>
-<p>而 Transform 是自己写自己读。</p>
-<p>比如一个 babel，把es6转换为，我们在左边写入 es6，从右边读取 es5。 就像洗车一样，黑车进去，白车出来。</p>
-<h2 id="Readable-Stream-可读流"><a href="#Readable-Stream-可读流" class="headerlink" title="Readable Stream 可读流"></a>Readable Stream 可读流</h2><h3 id="静止态-paused-和流动态-flowing"><a href="#静止态-paused-和流动态-flowing" class="headerlink" title="静止态 paused 和流动态 flowing"></a>静止态 paused 和流动态 flowing</h3><p>可读流有两个状态 paused 和 flowing。</p>
-<p>可以把可读流看成内容生产者，不发内容时就是静止态，内容恢复发送时就是流动态。</p>
-<ul>
-<li>可读流默认处于 paused 态。</li>
-<li>一旦添加 data 事件监听，它就变为 flowing 态。</li>
-<li>删掉 data 事件监听，paused 态。</li>
-<li>pause() 可以将它变为 paused。</li>
-<li>resume() 可以将它变为 flowing。</li>
-</ul>
-<pre><code>const http = require('http')
-const fs = require('fs')
-const server = http.createServer()
-server,on('request', (request, response) =&gt; &amp;#123;
-  // 默认处于 paused 态
-  const stream = fs.createReadStream('./big_file.txt')
-  stream.pipe(response)
-  stream.pause(); // 暂停
-  setTimeout(() =&gt; &amp;#123;
-  // 恢复
-    stream.resume()
-  &amp;#125;, 3000)
-&amp;#125;)
-server.listen(8888);
-复制代码</code></pre>
-<h1 id="Writable-Stream"><a href="#Writable-Stream" class="headerlink" title="Writable Stream"></a>Writable Stream</h1><h2 id="drain-流干了事件"><a href="#drain-流干了事件" class="headerlink" title="drain 流干了事件"></a>drain 流干了事件</h2><p>表示可以加点水了，也就是可以继续写入数据了。 我们调用 <code>stream.write(chunk)</code> 的时候，可能会得到 false。</p>
-<p>false 的意思是你写太快了，积压数据。</p>
-<p>这个时候我们就不能再 write 了，要监听 drain。</p>
-<p>等 drain 事件触发了，我们才能继续 write。</p>
-<p>光看这些有点难以理解，可以看看 <a target="_blank" rel="noopener" href="https://nodejs.org/api/stream.html#stream_event_drain">官网上的例子</a>：</p>
-<pre><code>const fs = require('fs');
-
-// 将 data 写入文件 1000000 次
-function writeOneMillionTimes(writer, data) &amp;#123;
-  let i = 1000000;
-  write();
-
-  function write() &amp;#123;
-    let ok = true;
-    do &amp;#123;
-      i--;
-      if (i === 0) &amp;#123;
-        // 最后一次写入
-        writer.write(data);
-      &amp;#125; else &amp;#123;
-        // 在这里判断是不是可以继续写
-    // ok 为 false 的意思是你写太快了，数据积压
-        ok = writer.write(data);
-        if (ok === false) &amp;#123;
-          console.log('不能再写了')
-        &amp;#125;
-      &amp;#125;
-    &amp;#125; while (i &gt; 0 &amp;&amp; ok);
-    if (i &gt; 0) &amp;#123;
-      // 干涸了,可以继续写入 
-      writer.once('drain', () =&gt; &amp;#123;
-        console.log('干涸了')
-        write()
-      &amp;#125;);
-    &amp;#125;
-  &amp;#125;
-&amp;#125;
-
-const write = fs.createWriteStream('./../big_file.txt')
-writeOneMillionTimes(write, 'hello world')
-复制代码</code></pre>
-<h2 id="finish-事件"><a href="#finish-事件" class="headerlink" title="finish 事件"></a>finish 事件</h2><p>在调用 <code>stream.end()</code> 之后，而且缓冲区数据都已经传给底层系统之后，触发 finish 事件。</p>
-<p>我们往文件中写入数据时，不是直接存入硬盘中，而是先放入缓冲区。 当数据到达一定大小后，才会写入硬盘。</p>
-<h1 id="创建自己的流"><a href="#创建自己的流" class="headerlink" title="创建自己的流"></a>创建自己的流</h1><p>下面我们来看看，如何创建自己的流。</p>
-<p>按照流的四个类型依次讲解。</p>
-<h2 id="Writable"><a href="#Writable" class="headerlink" title="Writable"></a>Writable</h2><pre><code>const &amp;#123;Writable&amp;#125; = require('stream')
-
-const outStream = new Writable(&amp;#123;
-  // 如果别人调用，我们做什么
-  write(chunk, encoding, callback) &amp;#123;
-    console.log(chunk.toString())
-    // 进入下一个流程
-    callback()
-  &amp;#125;
-&amp;#125;)
-
-process.stdin.pipe(outStream);
-复制代码</code></pre>
-<p>保存文件为 writable.js 然后用 node 运行。 不管你输入什么，都会得到相同的结果。</p>
-<h2 id="Readable"><a href="#Readable" class="headerlink" title="Readable"></a>Readable</h2><h3 id="一次读取所有数据"><a href="#一次读取所有数据" class="headerlink" title="一次读取所有数据"></a>一次读取所有数据</h3><pre><code>const &amp;#123;Readable&amp;#125; = require('stream')
-
-const inStream = new Readable()
-
-inStream.push('hello world') // 写入数据
-inStream.push('hello node')
-
-inStream.push(null) // 没有数据了
-// 将这个可读流，导入到可写流 process.stdout。
-inStream.pipe(process.stdout)
-复制代码</code></pre>
-<p>先把所有数据都 push 进 inStream，再使用管道导入到可写流 <code>process.stdout</code> 中。</p>
-<p>这样，当我们用 node 运行文件时，我们可以从 inStream 中读取所有数据，并且打印出来。</p>
-<p>这种方式非常简单，但是并不高效。</p>
-<p>更好的方式是按需 push，当用户需要的时候，我们才读取数据。</p>
-<h3 id="调用-read-才会给一次数据"><a href="#调用-read-才会给一次数据" class="headerlink" title="调用 read 才会给一次数据"></a>调用 read 才会给一次数据</h3><p>这种写法数据是按需供给的，对方调用 <code>read</code> ，我们才会给一次数据。</p>
-<p>例如下面这个例子，我们一次 <code>push</code> 一个字符，从字符码 65（代表 A） 开始。</p>
-<p>当用户读取时，会持续触发 <code>read</code>，我们会 <code>push</code> 更多地字符。</p>
-<p>当字符全部 <code>push</code> 完毕，我们 <code>push null</code>，停止 Stream。</p>
-<pre><code>const &amp;#123;Readable&amp;#125; = require('stream')
-
-const inStream = new Readable(&amp;#123;
-  read(size) &amp;#123;
-    const char = String.fromCharCode(this.currentCharCode++)
-    this.push(char);
-    console.log(`推了$&amp;#123;char&amp;#125;`)
-    // 这个时候停止
-    if (this.currentCharCode &gt; 90) &amp;#123; // Z
-      this.push(null)
-    &amp;#125;
-  &amp;#125;
-&amp;#125;)
-
-inStream.currentCharCode = 65 // A
-
-inStream.pipe(process.stdout)
-复制代码</code></pre>
-<h2 id="Duplex-Stream"><a href="#Duplex-Stream" class="headerlink" title="Duplex Stream"></a>Duplex Stream</h2><p>看完了可读流、可写流，<code>Duplex Stream</code> 就简单多了。</p>
-<p>同时实现 <code>write</code> 和 <code>read</code> 方法就好啦。</p>
-<pre><code>const &amp;#123;Duplex&amp;#125; = require('stream')
-
-const inoutStream = new Duplex(&amp;#123;
-  write(chunk, encoding, callback) &amp;#123;
-    console.log(chunk.toString())
-    callback()
-  &amp;#125;,
-  read(size) &amp;#123;
-    this.push(String.fromCharCode(this.currentCharCode++))
-    if (this.currentCharCode &gt; 90) &amp;#123;
-      this.pull(null)
-    &amp;#125;
-  &amp;#125;
-&amp;#125;)
-
-inoutStream.currentCharCode = 65;
-
-process.stdin.pipe(inoutStream).pipe(process.stdout);
-复制代码</code></pre>
-<h2 id="Transform-Stream"><a href="#Transform-Stream" class="headerlink" title="Transform Stream"></a>Transform Stream</h2><p>对于 Transform Stream，我们实现 transform 方法就好了，它结合了可读、可写两个方法。</p>
-<p>这里有一个简单的 transform 例子，会以大写的格式打印任何你键入的字符：</p>
-<pre><code>const &amp;#123;Transform&amp;#125; = require('stream')
-
-const upperCaseTr = new Transform(&amp;#123;
-  transform(chunk, encoding, callback) &amp;#123;
-    // 1. 读数据 chunk.toString()
-    // 2. 写数据 this.push(xxx)
-    this.push(chunk.toString().toUpperCase())
-    callback();
-  &amp;#125;
-&amp;#125;)
-
-// 监听用户输入，调用 upperCaseTr
-// 转化完成后，输出
-process.stdin.pipe(upperCaseTr) 
-    .pipe(process.stdout)
-复制代码</code></pre>
-<h1 id="Node-js-内置的-Transform-Stream"><a href="#Node-js-内置的-Transform-Stream" class="headerlink" title="Node.js 内置的 Transform Stream"></a>Node.js 内置的 Transform Stream</h1><p>比如面试中经常说的优化方案：gzip 压缩。</p>
-<p>在 Node.js 中用 4 行代码就可以实现</p>
-<pre><code>const fs = require('fs')
-const zlib = require('zlib')
-const file = process.argv[2]
-
-fs.createReadStream(file)
-  .pipe(zlib.createGzip())
-    .on('data', () =&gt; process.stdout.write(".")) // 打出进度条
-  .pipe(fs.createWriteStream(file + ".gz"))
-复制代码</code></pre>
-<h1 id="Stream-在-Node-js-中随处可见"><a href="#Stream-在-Node-js-中随处可见" class="headerlink" title="Stream 在 Node.js 中随处可见"></a>Stream 在 Node.js 中随处可见</h1><table>
-<thead>
-<tr>
-<th>Readable Stream</th>
-<th>Writeable Stream</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>HTTP Response 客户端</td>
-<td>HTTP Request 客户端</td>
-</tr>
-<tr>
-<td>HTTP Request 服务端</td>
-<td>HTTP Response 服务端</td>
-</tr>
-<tr>
-<td>fs read stream</td>
-<td>fs write stream</td>
-</tr>
-<tr>
-<td>zlib stream</td>
-<td>zlib stream</td>
-</tr>
-<tr>
-<td>TCP sockets</td>
-<td>TCP sockets</td>
-</tr>
-<tr>
-<td>child process stdout &amp; stderr</td>
-<td>child process stdin</td>
-</tr>
-<tr>
-<td>process.stdin</td>
-<td>process.stdout,process.stderr</td>
-</tr>
-<tr>
-<td>…</td>
-<td>…</td>
-</tr>
-</tbody></table>
-<h1 id="数据积压问题"><a href="#数据积压问题" class="headerlink" title="数据积压问题"></a>数据积压问题</h1><p>在 Stream 中，还有一个非常重要的问题：数据积压。</p>
-<p>如果数据太多，堵住了，怎么解决。</p>
-<p>Node.js 官网有一篇专门的文章解释如何解决，大家碰到问题的时候可以翻出来看看。</p>
-<p>我在这里就不赘述了，<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/docs/guides/backpressuring-in-streams/">地址在这里</a></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>来总结下到目前为止，我们了解的 Stream 对象。</p>
-<ul>
-<li><p>为什么使用 Stream 呢？</p>
-<ul>
-<li>因为读写大文件的时候，可以有效降低内存压力。</li>
-</ul>
+<li><p>登录、发短信等按钮避免用户点击太快，以致于发送了多次请求，需要防抖</p>
 </li>
-<li><p>管道 pipe 是 Stream 中的一个重要概念，可以连接流。</p>
+<li><p>调整浏览器窗口大小时，resize 次数过于频繁，造成计算过多，此时需要一次到位，就用到了防抖</p>
 </li>
-<li><p>Stream 对象都继承了 EventEmitter。</p>
-</li>
-<li><p>Stream 分为四类</p>
-<ul>
-<li>可读 Readable，有两个状态：paused、flowing。</li>
-<li>可写 Writable，两个重要事件：drain、finish。</li>
-<li>可读可写（双向）Duplex</li>
-<li>可读可写（变化）Transform</li>
-</ul>
-</li>
-<li><p>最后了解如何创建四类 Stream 和 Node.js 中的 Stream</p>
+<li><p>文本编辑器实时保存，当无任何更改操作一秒后进行保存</p>
 </li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6854573219060400141">转自【掘金 <strong>Marica</strong>】</a></p>
+<p>代码如下，可以看出来「防抖重在清零 clearTimeout(timer)」</p>
+<pre><code>function debounce (f, wait) &amp;#123;
+ let timer
+ return (...args) =&gt; &amp;#123;
+ clearTimeout(timer)
+ timer = setTimeout(() =&gt; &amp;#123;
+ f(...args)
+ &amp;#125;, wait)
+ &amp;#125;
+&amp;#125;</code></pre>
+<h2 id="节流-throttle"><a href="#节流-throttle" class="headerlink" title="节流 (throttle)"></a>节流 (throttle)</h2><h4 id="节流，顾名思义，控制水的流量。控制事件发生的频率，如控制为1s发生一次，甚至1分钟发生一次。与服务端-server-及网关-gateway-控制的限流-Rate-Limit-类似。"><a href="#节流，顾名思义，控制水的流量。控制事件发生的频率，如控制为1s发生一次，甚至1分钟发生一次。与服务端-server-及网关-gateway-控制的限流-Rate-Limit-类似。" class="headerlink" title="节流，顾名思义，控制水的流量。控制事件发生的频率，如控制为1s发生一次，甚至1分钟发生一次。与服务端(server)及网关(gateway)控制的限流 (Rate Limit) 类似。"></a>节流，顾名思义，控制水的流量。控制事件发生的频率，如控制为1s发生一次，甚至1分钟发生一次。与服务端(server)及网关(gateway)控制的限流 (Rate Limit) 类似。</h4><ul>
+<li><p>scroll 事件，每隔一秒计算一次位置信息等</p>
+</li>
+<li><p>浏览器播放事件，每个一秒计算一次进度信息等</p>
+</li>
+<li><p>input 框实时搜索并发送请求展示下拉列表，没隔一秒发送一次请求 (也可做防抖)</p>
+</li>
+</ul>
+<p>代码如下，可以看出来「节流重在开关锁 timer=null」</p>
+<pre><code>function throttle (f, wait) {
+ let timer
+ return (...args) =&gt; {
+ if (timer) { return }
+ timer = setTimeout(() =&gt; {
+ f(...args)
+ timer = null
+ }, wait)
+ }
+}</code></pre>
+<h2 id="总结-简要答案"><a href="#总结-简要答案" class="headerlink" title="总结 (简要答案)"></a>总结 (简要答案)</h2><p>防抖：防止抖动，单位时间内事件触发会被重置，避免事件被误伤触发多次。代码实现重在清零 <code>clearTimeout</code>。防抖可以比作等电梯，只要有一个人进来，就需要再等一会儿。业务场景有避免登录按钮多次点击的重复提交。</p>
+<p>节流：控制流量，单位时间内事件只能触发一次，与服务器端的限流 (Rate Limit) 类似。代码实现重在开锁关锁 <code>timer=timeout; timer=null</code>。节流可以比作过红绿灯，每等一个红灯时间就可以过一批。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200708230700776.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjU1NDE5MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>在这里插入图片描述</p>
+<p>转自<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42554191/article/details/107217271">【csdn】Web_hls</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -908,7 +560,7 @@ fs.createReadStream(file)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://simple-delfino.github.io/blog/blog/backend/20200730004/">https://simple-delfino.github.io/blog/blog/backend/20200730004/</a>
+                    <a href="https://simple-delfino.github.io/blog/blog/interview/20200728005/">https://simple-delfino.github.io/blog/blog/interview/20200728005/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -946,8 +598,8 @@ fs.createReadStream(file)
                     
                         <div class="article-tag">
                             
-                                <a href="/blog/tags/node/">
-                                    <span class="chip bg-color">node</span>
+                                <a href="/blog/tags/interview/">
+                                    <span class="chip bg-color">interview</span>
                                 </a>
                             
                         </div>
@@ -1119,32 +771,34 @@ fs.createReadStream(file)
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog/other/20200731001/">
+                <a href="/blog/web/20200729002/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/3.jpg" class="responsive-img" alt="hexo+github+matery搭建自己的个人博客">
+                        <img src="/blog/medias/featureimages/23.jpg" class="responsive-img" alt="你知道vue中key的作用和工作原理吗？说说你对它的理解。">
                         
-                        <span class="card-title">hexo+github+matery搭建自己的个人博客</span>
+                        <span class="card-title">你知道vue中key的作用和工作原理吗？说说你对它的理解。</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-之前用wordpress折腾了个博客，服务器、域名、备案、docker、乱七八糟的折腾了好久，现在推荐一个生成静态网站的工具，用来写博客，简直不需要太爽，Hexo配合github以及配合 Travis CI 工具自动打包，happy啊….
+                            先写测试案例代码
+&lt;body&gt;
+ &lt;div id="demo"&gt;
+ &lt;p v-for="item in items" :key="item"&gt;&amp;#123;&amp;#123;item&amp;#1
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-31
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/other/" class="post-category">
-                                    other
+                            <a href="/blog/categories/web/" class="post-category">
+                                    web
                                 </a>
                             
                             
@@ -1154,8 +808,8 @@ fs.createReadStream(file)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/blog/">
-                        <span class="chip bg-color">blog</span>
+                    <a href="/blog/tags/interview/">
+                        <span class="chip bg-color">interview</span>
                     </a>
                     
                 </div>
@@ -1169,32 +823,34 @@ fs.createReadStream(file)
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/other/20200730003/">
+                <a href="/blog/backend/20200728001/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/23.jpg" class="responsive-img" alt="webpack性能优化">
+                        <img src="/blog/medias/featureimages/1.jpg" class="responsive-img" alt="封装 axios 拦截器实现用户无感刷新 access_token">
                         
-                        <span class="card-title">webpack性能优化</span>
+                        <span class="card-title">封装 axios 拦截器实现用户无感刷新 access_token</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1. 剔除不必要的代码1.1 引入未使用对于js，tree-shaking 贯穿整个依赖树，检查被使用的依赖，移除无用的依赖。 对于css,purifycss-webpack未使用的css不会被打包进来
-1.2 避免重复引入1.2.1 ex
+                            前言最近做项目的时候，涉及到一个单点登录，即是项目的登录页面，用的是公司共用的一个登录页面，在该页面统一处理逻辑。最终实现用户只需登录一次，就可以以登录状态访问公司旗下的所有网站。
+
+❝
+单点登录( Single Sign On ，简称 S
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/other/" class="post-category">
-                                    other
+                            <a href="/blog/categories/backend/" class="post-category">
+                                    backend
                                 </a>
                             
                             
@@ -1204,8 +860,8 @@ fs.createReadStream(file)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/webpack/">
-                        <span class="chip bg-color">webpack</span>
+                    <a href="/blog/tags/axios/">
+                        <span class="chip bg-color">axios</span>
                     </a>
                     
                 </div>

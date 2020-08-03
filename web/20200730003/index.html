@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="一文搞定Node.js流 （Stream）, delfino">
+    <meta name="keywords" content="标签: eventloop, delfino">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>一文搞定Node.js流 （Stream） | delfino</title>
+    <title>标签: eventloop | delfino</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">一文搞定Node.js流 （Stream）</h1>
+                    <h1 class="description center-align post-title">深入核心，详解事件循环机制</h1>
                 </div>
             </div>
         </div>
@@ -408,8 +408,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blog/tags/node/">
-                                <span class="chip bg-color">node</span>
+                            <a href="/blog/tags/javascript/">
+                                <span class="chip bg-color">javascript</span>
                             </a>
                         
                     </div>
@@ -420,8 +420,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog/categories/backend/" class="post-category">
-                                backend
+                            <a href="/blog/categories/web/" class="post-category">
+                                web
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.4k
                 </div>
                 
 
@@ -474,397 +474,281 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>一直不太理解 Node.js 中 Stream 的概念，最近深入学习了一下，争取一篇文章说清楚。 文章中的代码地址：<a target="_blank" rel="noopener" href="https://github.com/Maricaya/node-stream">github.com/Maricaya/no…</a></p>
+                <p>JavaScript的学习零散而庞杂，很多时候我们学到了一些东西，但是却没办法感受到进步！甚至过了不久，就把学到的东西给忘了。为了解决自己的这个困扰，在学习的过程中，我一直在试图寻找一条核心的线索，只要顺着这条线索，我就能够一点一点的进步。前端基础进阶正是围绕这条线索慢慢展开，而事件循环机制(Event Loop)，则是这条线索的最关键的知识点。所以，我就马不停蹄的去深入的学习了事件循环机制，并总结出了这篇文章跟大家分享。事件循环机制从整体上告诉了我们JavaScript代码的执行顺序。但是在我学习的过程中，找到的许多国内博客文章对于它的讲解浅尝辄止，不得其法，很多文章在图中画个圈就表示循环了，看了之后也没感觉明白了多少。但是他又如此重要，以致于当我想要面试中高级岗位时，事件循环机制总是绕不开的话题。特别是ES6中正式加入了Promise对象之后，对于新标准中事件循环机制的理解就变得更加重要。这就很尴尬了。</p>
+<blockquote>
+<p>最近有两篇比较火的文章也表达了这个问题的重要性。</p>
 </blockquote>
-<h1 id="Stream-流是什么？"><a href="#Stream-流是什么？" class="headerlink" title="Stream 流是什么？"></a>Stream 流是什么？</h1><p>stream（流）是一种抽象的数据结构。就像数组或字符串一样，流是数据的集合。</p>
-<p>不同的是，流可以每次输出少量数据，而且它不用存在内存中。</p>
-<p>比如，对服务器发起 http 请求的 <code>request/response</code> 对象就是 Stream。</p>
-<h2 id="图解-Stream"><a href="#图解-Stream" class="headerlink" title="图解 Stream"></a>图解 Stream</h2><p>stream 就像是水流，但默认是没有水的。 stream.write 可以让水流中有水，也就是写入数据。</p>
-<p>左上角是产生数据的一段，称为 source（源头）。 最下面是得到数据的一段 sink（水池）。 从上向下流动的小圆点是每次写的小数据，称为 chunk（块）。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/7/25/173869cb08686702?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
-<h2 id="为什么需要-Stream"><a href="#为什么需要-Stream" class="headerlink" title="为什么需要 Stream"></a>为什么需要 Stream</h2><p>同学们可能有这样的疑问，流的作用不就是传递数据吗，不用流 node 也可以实现读写操作啊。</p>
-<p>是的，但是读写方式是把文件内容全部读入内存，然后再写入文件，小型文件这么处理问题不大。</p>
-<p>但是遇到较大的文件，实在承受不住。</p>
-<p>而流可以把文件资源拆分成小块，一块一块的运输，资源就像水流一样进行传输，减轻服务器压力。</p>
-<h1 id="Stream-实例"><a href="#Stream-实例" class="headerlink" title="Stream 实例"></a>Stream 实例</h1><p>可能这么描述并不能让大家信服， 我们来做一个试验，看看在读写大文件时有没有必要使用流。</p>
-<p>首先创建一个大文件：</p>
-<h2 id="用-Stream-创建大文件"><a href="#用-Stream-创建大文件" class="headerlink" title="用 Stream 创建大文件"></a>用 Stream 创建大文件</h2><p>我们首先创建一个可写流，向文件里多次写入内容。 最后记得关闭流，得到一个大文件。</p>
-<pre><code>// 引入文件模块
-const fs = require('fs');
-
-const stream = fs.createWriteStream('./../big_file.txt');
-
-for (let i = 0; i &lt; 1000000; i++) &amp;#123;
-  stream.write(`这是第$&amp;#123;i&amp;#125;行内容\n`);
-&amp;#125;
-
-stream.end()
-console.log('done')
-复制代码</code></pre>
-<h2 id="使用-readFile"><a href="#使用-readFile" class="headerlink" title="使用 readFile"></a>使用 readFile</h2><p>我们先使用 fs.readFile 来读取文件内容，看看会发生什么。</p>
-<pre><code>const fs = require('fs')
-const http = require('http')
-const server = http.createServer()
-server.on('request', (request, response) =&gt; &amp;#123;
-  fs.readFile('./../big_file.txt', (error, data) =&gt; &amp;#123;
-    if (error) throw error
-    response.end(data)
-    console.log('done')
-  &amp;#125;)
-&amp;#125;)
-server.listen(8889)
-console.log(8889)
-复制代码</code></pre>
-<p>当我们访问 <code>http://localhost:8889</code> 的时候，服务器会异步读取这个大文件。</p>
-<p>看起来一切正常，没什么毛病。</p>
-<p>但是，我们用任务管理器查看 Node.js 的内存，大概占用 130Mb。</p>
-<p>服务器接收 1 次请求，占用 130 Mb；那如果接受 10 次请求，就是占用 1G。 对服务器的内存消耗是很大的。</p>
-<p>怎么解决这个问题呢？使用 Stream。</p>
-<h2 id="使用-Stream"><a href="#使用-Stream" class="headerlink" title="使用 Stream"></a>使用 Stream</h2><p>我们来试试用 Stream 改写上面的例子。</p>
-<p>创建一个可读流 <code>createReadStream</code>， 再把文件 <code>stream</code> 和 <code>response stream</code> 通过管道 <code>pipe</code> 相连。</p>
-<pre><code>const fs = require('fs')
-const http = require('http')
-const server = http.createServer()
-server.on('request', (request, response) =&gt; &amp;#123;
-    const stream = fs.createReadStream('./big_file.txt')
-    stream.pipe(response)
-&amp;#125;)
-server.listen(8888)
-复制代码</code></pre>
-<p>我们再次查看 node.js 内存占用，基本不会高于 30Mb。</p>
-<p>因为每次只传递一小段数据，不会占用很大内存。</p>
-<h1 id="管道-pipe"><a href="#管道-pipe" class="headerlink" title="管道 pipe"></a>管道 pipe</h1><p><img src="https://user-gold-cdn.xitu.io/2020/7/25/173869d998e4c5cf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
-<p>两个流可以用一个管道相连，stream1 的末尾连接上 stream2 的开端。</p>
-<p>只要 stream1 有数据，就会流到 stream2。</p>
-<p>比如上面的代码：</p>
-<pre><code>const stream = fs.createReadStream('./big_file.txt')
-stream.pipe(response)
-复制代码</code></pre>
-<p><code>stream</code> 就是一个文件流，下面的 stream 就是我们的 http 流 response。 本来这两个流是没有关系的，现在我们想把文件流的数据传递给 http 流。 很简单，用 pipe 连接就行啦。</p>
-<h2 id="常用代码"><a href="#常用代码" class="headerlink" title="常用代码"></a>常用代码</h2><p><code>stream1.pipe(stream2)</code></p>
+<blockquote>
+<p>这个前端面试在搞事&nbsp;80% 应聘者都不及格的 JS 面试题</p>
+</blockquote>
+<blockquote>
+<p>但很遗憾的是，大神们告诉了大家这个知识点很重要，却并没有告诉大家为什么会这样。所以当我们在面试遇到这样的问题时，就算你知道了结果，面试官再进一步问一下，我们依然懵逼。</p>
+</blockquote>
+<p>学习事件循环机制之前，我默认你已经懂得了如下概念</p>
 <ul>
-<li>stream1 是发出数据的流，一个可读流。</li>
-<li>stream2 是写入数据的流，一个可写流。</li>
-</ul>
-<h2 id="链式操作"><a href="#链式操作" class="headerlink" title="链式操作"></a>链式操作</h2><p>一个水流可以经过无限个管道，数据流也一样。</p>
-<p>有两种写法：</p>
-<pre><code>a.pipe(b).pipe(c)
-// 等价于
-a.pipe(b)
-b.pipe(c)
-复制代码</code></pre>
-<h2 id="管道原理"><a href="#管道原理" class="headerlink" title="管道原理"></a>管道原理</h2><p>管道也可以认为是两个事件的封装</p>
-<ul>
-<li>监听 data 事件，stream1 一有数据就塞给 stream2</li>
-<li>监听 end 事件，当 stream1 停了，就停掉 stream2</li>
-</ul>
-<pre><code>stream1.on('data', (chunk) =&gt; &amp;#123;
-    stream2.write(chunk)
-&amp;#125;)
-
-stream1.on('end', () =&gt; &amp;#123;
-    stream2.end()
-&amp;#125;)
-复制代码</code></pre>
-<h1 id="Stream-对象的原型链"><a href="#Stream-对象的原型链" class="headerlink" title="Stream 对象的原型链"></a>Stream 对象的原型链</h1><p>了解 Stream 的原型链，可以更容易地记忆 Stream 的 API。</p>
-<h2 id="fs-createReadStream-path"><a href="#fs-createReadStream-path" class="headerlink" title="fs.createReadStream(path)"></a>fs.createReadStream(path)</h2><p>如果 <code>s = fs.createReadStream(path)</code> ，那么<code>s</code>的对象层级为：</p>
-<ol>
-<li>自身的属性，由 <code>fs.ReadStream</code> 构造函数构造的</li>
-<li>原型: <code>stream.Readable.prototype</code></li>
-<li>二级原型: <code>stream.Stream.prototype</code></li>
-<li>三级原型: <code>events.EventEmitter.prototype</code> 这是所有 Stream 都继承的原型</li>
-<li>四级原型: <code>Object.prototype</code> 也就是所有对象都继承的原型</li>
-</ol>
-<h1 id="Stream-支持的事件和方法"><a href="#Stream-支持的事件和方法" class="headerlink" title="Stream 支持的事件和方法"></a>Stream 支持的事件和方法</h1><p>了解了原型链之，我们来看看 Stream 支持的事件和方法。</p>
-<p>大概有个印象就好，用到的时候再去查。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Readable Stream</th>
-<th>Writable Stream</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>事件</td>
-<td>data, end, error,close,readable</td>
-<td>drain(这一次写完),finish(整个写完),error,close,pipe,unpipe</td>
-</tr>
-<tr>
-<td>方法</td>
-<td>pipe() unpipe() read()…</td>
-<td>write() destroy() …</td>
-</tr>
-</tbody></table>
-<h1 id="Stream-分类"><a href="#Stream-分类" class="headerlink" title="Stream 分类"></a>Stream 分类</h1><p>一共分为四类</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Readable</td>
-<td>可读</td>
-</tr>
-<tr>
-<td>Writable</td>
-<td>可写</td>
-</tr>
-<tr>
-<td>Duplex</td>
-<td>可读可写（双向）</td>
-</tr>
-<tr>
-<td>Transform</td>
-<td>可读可写（变化）</td>
-</tr>
-</tbody></table>
-<p>Readable、Writable 都是单向的，其他两个是双向的。</p>
-<p>可读、可写好理解，剩下两个有什么区别呢？</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/7/25/173869e8a42d0879?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
-<p>Duplex 可以读写，但是读的内容和写的内容是相互独立的，没有交叉。</p>
-<p>而 Transform 是自己写自己读。</p>
-<p>比如一个 babel，把es6转换为，我们在左边写入 es6，从右边读取 es5。 就像洗车一样，黑车进去，白车出来。</p>
-<h2 id="Readable-Stream-可读流"><a href="#Readable-Stream-可读流" class="headerlink" title="Readable Stream 可读流"></a>Readable Stream 可读流</h2><h3 id="静止态-paused-和流动态-flowing"><a href="#静止态-paused-和流动态-flowing" class="headerlink" title="静止态 paused 和流动态 flowing"></a>静止态 paused 和流动态 flowing</h3><p>可读流有两个状态 paused 和 flowing。</p>
-<p>可以把可读流看成内容生产者，不发内容时就是静止态，内容恢复发送时就是流动态。</p>
-<ul>
-<li>可读流默认处于 paused 态。</li>
-<li>一旦添加 data 事件监听，它就变为 flowing 态。</li>
-<li>删掉 data 事件监听，paused 态。</li>
-<li>pause() 可以将它变为 paused。</li>
-<li>resume() 可以将它变为 flowing。</li>
-</ul>
-<pre><code>const http = require('http')
-const fs = require('fs')
-const server = http.createServer()
-server,on('request', (request, response) =&gt; &amp;#123;
-  // 默认处于 paused 态
-  const stream = fs.createReadStream('./big_file.txt')
-  stream.pipe(response)
-  stream.pause(); // 暂停
-  setTimeout(() =&gt; &amp;#123;
-  // 恢复
-    stream.resume()
-  &amp;#125;, 3000)
-&amp;#125;)
-server.listen(8888);
-复制代码</code></pre>
-<h1 id="Writable-Stream"><a href="#Writable-Stream" class="headerlink" title="Writable Stream"></a>Writable Stream</h1><h2 id="drain-流干了事件"><a href="#drain-流干了事件" class="headerlink" title="drain 流干了事件"></a>drain 流干了事件</h2><p>表示可以加点水了，也就是可以继续写入数据了。 我们调用 <code>stream.write(chunk)</code> 的时候，可能会得到 false。</p>
-<p>false 的意思是你写太快了，积压数据。</p>
-<p>这个时候我们就不能再 write 了，要监听 drain。</p>
-<p>等 drain 事件触发了，我们才能继续 write。</p>
-<p>光看这些有点难以理解，可以看看 <a target="_blank" rel="noopener" href="https://nodejs.org/api/stream.html#stream_event_drain">官网上的例子</a>：</p>
-<pre><code>const fs = require('fs');
-
-// 将 data 写入文件 1000000 次
-function writeOneMillionTimes(writer, data) &amp;#123;
-  let i = 1000000;
-  write();
-
-  function write() &amp;#123;
-    let ok = true;
-    do &amp;#123;
-      i--;
-      if (i === 0) &amp;#123;
-        // 最后一次写入
-        writer.write(data);
-      &amp;#125; else &amp;#123;
-        // 在这里判断是不是可以继续写
-    // ok 为 false 的意思是你写太快了，数据积压
-        ok = writer.write(data);
-        if (ok === false) &amp;#123;
-          console.log('不能再写了')
-        &amp;#125;
-      &amp;#125;
-    &amp;#125; while (i &gt; 0 &amp;&amp; ok);
-    if (i &gt; 0) &amp;#123;
-      // 干涸了,可以继续写入 
-      writer.once('drain', () =&gt; &amp;#123;
-        console.log('干涸了')
-        write()
-      &amp;#125;);
-    &amp;#125;
-  &amp;#125;
-&amp;#125;
-
-const write = fs.createWriteStream('./../big_file.txt')
-writeOneMillionTimes(write, 'hello world')
-复制代码</code></pre>
-<h2 id="finish-事件"><a href="#finish-事件" class="headerlink" title="finish 事件"></a>finish 事件</h2><p>在调用 <code>stream.end()</code> 之后，而且缓冲区数据都已经传给底层系统之后，触发 finish 事件。</p>
-<p>我们往文件中写入数据时，不是直接存入硬盘中，而是先放入缓冲区。 当数据到达一定大小后，才会写入硬盘。</p>
-<h1 id="创建自己的流"><a href="#创建自己的流" class="headerlink" title="创建自己的流"></a>创建自己的流</h1><p>下面我们来看看，如何创建自己的流。</p>
-<p>按照流的四个类型依次讲解。</p>
-<h2 id="Writable"><a href="#Writable" class="headerlink" title="Writable"></a>Writable</h2><pre><code>const &amp;#123;Writable&amp;#125; = require('stream')
-
-const outStream = new Writable(&amp;#123;
-  // 如果别人调用，我们做什么
-  write(chunk, encoding, callback) &amp;#123;
-    console.log(chunk.toString())
-    // 进入下一个流程
-    callback()
-  &amp;#125;
-&amp;#125;)
-
-process.stdin.pipe(outStream);
-复制代码</code></pre>
-<p>保存文件为 writable.js 然后用 node 运行。 不管你输入什么，都会得到相同的结果。</p>
-<h2 id="Readable"><a href="#Readable" class="headerlink" title="Readable"></a>Readable</h2><h3 id="一次读取所有数据"><a href="#一次读取所有数据" class="headerlink" title="一次读取所有数据"></a>一次读取所有数据</h3><pre><code>const &amp;#123;Readable&amp;#125; = require('stream')
-
-const inStream = new Readable()
-
-inStream.push('hello world') // 写入数据
-inStream.push('hello node')
-
-inStream.push(null) // 没有数据了
-// 将这个可读流，导入到可写流 process.stdout。
-inStream.pipe(process.stdout)
-复制代码</code></pre>
-<p>先把所有数据都 push 进 inStream，再使用管道导入到可写流 <code>process.stdout</code> 中。</p>
-<p>这样，当我们用 node 运行文件时，我们可以从 inStream 中读取所有数据，并且打印出来。</p>
-<p>这种方式非常简单，但是并不高效。</p>
-<p>更好的方式是按需 push，当用户需要的时候，我们才读取数据。</p>
-<h3 id="调用-read-才会给一次数据"><a href="#调用-read-才会给一次数据" class="headerlink" title="调用 read 才会给一次数据"></a>调用 read 才会给一次数据</h3><p>这种写法数据是按需供给的，对方调用 <code>read</code> ，我们才会给一次数据。</p>
-<p>例如下面这个例子，我们一次 <code>push</code> 一个字符，从字符码 65（代表 A） 开始。</p>
-<p>当用户读取时，会持续触发 <code>read</code>，我们会 <code>push</code> 更多地字符。</p>
-<p>当字符全部 <code>push</code> 完毕，我们 <code>push null</code>，停止 Stream。</p>
-<pre><code>const &amp;#123;Readable&amp;#125; = require('stream')
-
-const inStream = new Readable(&amp;#123;
-  read(size) &amp;#123;
-    const char = String.fromCharCode(this.currentCharCode++)
-    this.push(char);
-    console.log(`推了$&amp;#123;char&amp;#125;`)
-    // 这个时候停止
-    if (this.currentCharCode &gt; 90) &amp;#123; // Z
-      this.push(null)
-    &amp;#125;
-  &amp;#125;
-&amp;#125;)
-
-inStream.currentCharCode = 65 // A
-
-inStream.pipe(process.stdout)
-复制代码</code></pre>
-<h2 id="Duplex-Stream"><a href="#Duplex-Stream" class="headerlink" title="Duplex Stream"></a>Duplex Stream</h2><p>看完了可读流、可写流，<code>Duplex Stream</code> 就简单多了。</p>
-<p>同时实现 <code>write</code> 和 <code>read</code> 方法就好啦。</p>
-<pre><code>const &amp;#123;Duplex&amp;#125; = require('stream')
-
-const inoutStream = new Duplex(&amp;#123;
-  write(chunk, encoding, callback) &amp;#123;
-    console.log(chunk.toString())
-    callback()
-  &amp;#125;,
-  read(size) &amp;#123;
-    this.push(String.fromCharCode(this.currentCharCode++))
-    if (this.currentCharCode &gt; 90) &amp;#123;
-      this.pull(null)
-    &amp;#125;
-  &amp;#125;
-&amp;#125;)
-
-inoutStream.currentCharCode = 65;
-
-process.stdin.pipe(inoutStream).pipe(process.stdout);
-复制代码</code></pre>
-<h2 id="Transform-Stream"><a href="#Transform-Stream" class="headerlink" title="Transform Stream"></a>Transform Stream</h2><p>对于 Transform Stream，我们实现 transform 方法就好了，它结合了可读、可写两个方法。</p>
-<p>这里有一个简单的 transform 例子，会以大写的格式打印任何你键入的字符：</p>
-<pre><code>const &amp;#123;Transform&amp;#125; = require('stream')
-
-const upperCaseTr = new Transform(&amp;#123;
-  transform(chunk, encoding, callback) &amp;#123;
-    // 1. 读数据 chunk.toString()
-    // 2. 写数据 this.push(xxx)
-    this.push(chunk.toString().toUpperCase())
-    callback();
-  &amp;#125;
-&amp;#125;)
-
-// 监听用户输入，调用 upperCaseTr
-// 转化完成后，输出
-process.stdin.pipe(upperCaseTr) 
-    .pipe(process.stdout)
-复制代码</code></pre>
-<h1 id="Node-js-内置的-Transform-Stream"><a href="#Node-js-内置的-Transform-Stream" class="headerlink" title="Node.js 内置的 Transform Stream"></a>Node.js 内置的 Transform Stream</h1><p>比如面试中经常说的优化方案：gzip 压缩。</p>
-<p>在 Node.js 中用 4 行代码就可以实现</p>
-<pre><code>const fs = require('fs')
-const zlib = require('zlib')
-const file = process.argv[2]
-
-fs.createReadStream(file)
-  .pipe(zlib.createGzip())
-    .on('data', () =&gt; process.stdout.write(".")) // 打出进度条
-  .pipe(fs.createWriteStream(file + ".gz"))
-复制代码</code></pre>
-<h1 id="Stream-在-Node-js-中随处可见"><a href="#Stream-在-Node-js-中随处可见" class="headerlink" title="Stream 在 Node.js 中随处可见"></a>Stream 在 Node.js 中随处可见</h1><table>
-<thead>
-<tr>
-<th>Readable Stream</th>
-<th>Writeable Stream</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>HTTP Response 客户端</td>
-<td>HTTP Request 客户端</td>
-</tr>
-<tr>
-<td>HTTP Request 服务端</td>
-<td>HTTP Response 服务端</td>
-</tr>
-<tr>
-<td>fs read stream</td>
-<td>fs write stream</td>
-</tr>
-<tr>
-<td>zlib stream</td>
-<td>zlib stream</td>
-</tr>
-<tr>
-<td>TCP sockets</td>
-<td>TCP sockets</td>
-</tr>
-<tr>
-<td>child process stdout &amp; stderr</td>
-<td>child process stdin</td>
-</tr>
-<tr>
-<td>process.stdin</td>
-<td>process.stdout,process.stderr</td>
-</tr>
-<tr>
-<td>…</td>
-<td>…</td>
-</tr>
-</tbody></table>
-<h1 id="数据积压问题"><a href="#数据积压问题" class="headerlink" title="数据积压问题"></a>数据积压问题</h1><p>在 Stream 中，还有一个非常重要的问题：数据积压。</p>
-<p>如果数据太多，堵住了，怎么解决。</p>
-<p>Node.js 官网有一篇专门的文章解释如何解决，大家碰到问题的时候可以翻出来看看。</p>
-<p>我在这里就不赘述了，<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/docs/guides/backpressuring-in-streams/">地址在这里</a></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>来总结下到目前为止，我们了解的 Stream 对象。</p>
-<ul>
-<li><p>为什么使用 Stream 呢？</p>
-<ul>
-<li>因为读写大文件的时候，可以有效降低内存压力。</li>
-</ul>
+<li><p>执行上下文(Execution context)</p>
 </li>
-<li><p>管道 pipe 是 Stream 中的一个重要概念，可以连接流。</p>
+<li><p>函数调用栈(call stack)</p>
 </li>
-<li><p>Stream 对象都继承了 EventEmitter。</p>
+<li><p>队列数据结构(queue)</p>
 </li>
-<li><p>Stream 分为四类</p>
-<ul>
-<li>可读 Readable，有两个状态：paused、flowing。</li>
-<li>可写 Writable，两个重要事件：drain、finish。</li>
-<li>可读可写（双向）Duplex</li>
-<li>可读可写（变化）Transform</li>
-</ul>
-</li>
-<li><p>最后了解如何创建四类 Stream 和 Node.js 中的 Stream</p>
+<li><p>Promise(我会在下一篇文章专门总结Promise的详细使用)</p>
 </li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6854573219060400141">转自【掘金 <strong>Marica</strong>】</a></p>
+<blockquote>
+<p>因为chrome浏览器中新标准中的事件循环机制与nodejs类似，因此此处就整合nodejs一起来理解，其中会介绍到几个nodejs有，但是浏览器中没有的API，大家只需要了解就好，不一定非要知道她是如何使用。比如process.nextTick，setImmediate</p>
+</blockquote>
+<p>OK，那我就先抛出结论，然后以例子与图示详细给大家演示事件循环机制。我们知道JavaScript的一大特点就是单线程，而这个线程中拥有唯一的一个事件循环。</p>
+<blockquote>
+<p>当然新标准中的web worker涉及到了多线程，这里就不讨论了。</p>
+</blockquote>
+<p>JavaScript代码的执行过程中，除了依靠函数调用栈来搞定函数的执行顺序外，还依靠任务队列(task queue)来搞定另外一些代码的执行。 <img src="https://imgkr.cn-bj.ufileos.com/737ec5ce-8697-4b25-baaf-f226fec75ca2.jpg"></p>
+<ul>
+<li><p>一个线程中，事件循环是唯一的，但是任务队列可以拥有多个。</p>
+</li>
+<li><p>任务队列又分为macro-task（宏任务）与micro-task（微任务），在最新标准中，它们被分别称为task与jobs。</p>
+</li>
+<li><p>macro-task大概包括：script(整体代码), setTimeout, setInterval, setImmediate, I/O, UI rendering。</p>
+</li>
+<li><p>micro-task大概包括: process.nextTick, Promise, Object.observe(已废弃), MutationObserver(html5新特性)</p>
+</li>
+<li><p>setTimeout/Promise等我们称之为任务源。而进入任务队列的是他们指定的具体执行任务。</p>
+</li>
+</ul>
+<pre><code>// setTimeout中的回调函数才是进入任务队列的任务
+setTimeout(function() &amp;#123;
+ console.log('xxxx');
+&amp;#125;)
+// 非常多的同学对于setTimeout的理解存在偏差。所以大概说一下误解：
+// setTimeout作为一个任务分发器，这个函数会立即执行，而它所要分发的任务，也就是它的第一个参数，才是延迟执行</code></pre>
+<ul>
+<li><p>来自不同任务源的任务会进入到不同的任务队列。其中setTimeout与setInterval是同源的。</p>
+</li>
+<li><p>事件循环的顺序，决定了JavaScript代码的执行顺序。它从script(整体代码)开始第一次循环。之后全局上下文进入函数调用栈。直到调用栈清空(只剩全局)，然后执行所有的micro-task。当所有可执行的micro-task执行完毕之后。循环再次从macro-task开始，找到其中一个任务队列执行完毕，然后再执行所有的micro-task，这样一直循环下去。</p>
+</li>
+<li><p>其中每一个任务的执行，无论是macro-task还是micro-task，都是借助函数调用栈来完成。</p>
+</li>
+</ul>
+<p>「纯文字表述确实有点干涩，因此，这里我们通过2个例子，来逐步理解事件循环的具体顺序」</p>
+<p>No.1</p>
+<pre><code>// demo01  出自于上面我引用文章的一个例子，我们来根据上面的结论，一步一步分析具体的执行过程。
+// 为了方便理解，我以打印出来的字符作为当前的任务名称
+setTimeout(function() {
+ console.log('timeout1');
+})
+ new Promise(function(resolve) {
+ console.log('promise1');
+ for(var i = 0; i &lt; 1000; i++) {
+ i == 99 &amp;&amp; resolve();
+ }
+ console.log('promise2');
+}).then(function() {
+ console.log('then1');
+})
+ console.log('global1');</code></pre>
+<h3 id="首先，事件循环从宏任务队列开始，"><a href="#首先，事件循环从宏任务队列开始，" class="headerlink" title="首先，事件循环从宏任务队列开始，"></a>首先，事件循环从宏任务队列开始，</h3><p>这个时候，宏任务队列中，只有一个script(整体代码)任务。每一个任务的执行顺序，都依靠函数调用栈来搞定，而当遇到任务源时，则会先分发任务到对应的队列中去，所以，上面例子的第一步执行如下图所示。 <img src="https://imgkr.cn-bj.ufileos.com/49dc5f8c-75f2-4a99-8edd-289297862b93.jpg"></p>
+<h3 id="第二步：script任务执行时首先遇到了setTimeout，setTimeout为一个宏任务源，那么他的作用就是将任务分发到它对应的队列中。"><a href="#第二步：script任务执行时首先遇到了setTimeout，setTimeout为一个宏任务源，那么他的作用就是将任务分发到它对应的队列中。" class="headerlink" title="第二步：script任务执行时首先遇到了setTimeout，setTimeout为一个宏任务源，那么他的作用就是将任务分发到它对应的队列中。"></a>第二步：script任务执行时首先遇到了setTimeout，setTimeout为一个宏任务源，那么他的作用就是将任务分发到它对应的队列中。</h3><pre><code>setTimeout(function() {
+ console.log('timeout1');
+})</code></pre>
+<p><img src="https://imgkr.cn-bj.ufileos.com/a293239d-313e-4a40-9318-49373da2d915.jpg"></p>
+<h3 id="第三步：script执行时遇到Promise实例。"><a href="#第三步：script执行时遇到Promise实例。" class="headerlink" title="第三步：script执行时遇到Promise实例。"></a>第三步：script执行时遇到Promise实例。</h3><p>Promise构造函数中的第一个参数，是在new的时候执行，因此不会进入任何其他的队列，而是直接在当前任务直接执行了，而后续的.then则会被分发到micro-task的Promise队列中去。因此，构造函数执行时，里面的参数进入函数调用栈执行。for循环不会进入任何队列，因此代码会依次执行，所以这里的promise1和promise2会依次输出。 <img src="https://imgkr.cn-bj.ufileos.com/92b82a6f-c338-4bb0-8ae7-235178dfea66.jpg"> <img src="https://imgkr.cn-bj.ufileos.com/32ddd0aa-1de0-4a23-885b-c84012069f44.jpg"> <img src="https://imgkr.cn-bj.ufileos.com/9880500b-13b3-49d3-b5ae-02be4ea7c64f.jpg"></p>
+<p>script任务继续往下执行，最后只有一句输出了globa1，然后，全局任务就执行完毕了。</p>
+<h3 id="第四步：第一个宏任务script执行完毕之后，就开始执行所有的可执行的微任务。"><a href="#第四步：第一个宏任务script执行完毕之后，就开始执行所有的可执行的微任务。" class="headerlink" title="第四步：第一个宏任务script执行完毕之后，就开始执行所有的可执行的微任务。"></a>第四步：第一个宏任务script执行完毕之后，就开始执行所有的可执行的微任务。</h3><p>这个时候，微任务中，只有Promise队列中的一个任务then1，因此直接执行就行了，执行结果输出then1，当然，他的执行，也是进入函数调用栈中执行的。 <img src="https://imgkr.cn-bj.ufileos.com/724015c5-d642-4778-87b9-ce6f275e8e5b.jpg"></p>
+<h3 id="第五步：当所有的micro-tast执行完毕之后，表示第一轮的循环就结束了。"><a href="#第五步：当所有的micro-tast执行完毕之后，表示第一轮的循环就结束了。" class="headerlink" title="第五步：当所有的micro-tast执行完毕之后，表示第一轮的循环就结束了。"></a>第五步：当所有的micro-tast执行完毕之后，表示第一轮的循环就结束了。</h3><p>这个时候就得开始第二轮的循环。第二轮循环仍然从宏任务macro-task开始。 <img src="https://imgkr.cn-bj.ufileos.com/f8a973c8-c514-4c77-bb16-790e28d55bd4.jpg"></p>
+<p>这个时候，我们发现宏任务中，只有在setTimeout队列中还要一个timeout1的任务等待执行。因此就直接执行即可。 <img src="https://imgkr.cn-bj.ufileos.com/ba93dda8-f289-4810-8018-4b0b358293d6.jpg"></p>
+<p>这个时候宏任务队列与微任务队列中都没有任务了，所以代码就不会再输出其他东西了。那么上面这个例子的输出结果就显而易见。大家可以自行尝试体会。这个例子比较简答，涉及到的队列任务并不多，因此读懂了它还不能全面的了解到事件循环机制的全貌。所以我下面弄了一个复杂一点的例子，再给大家解析一番，相信读懂之后，事件循环这个问题，再面试中再次被问到就难不倒大家了。</p>
+<pre><code>// demo02
+console.log('golb1');
+ setTimeout(function() {
+ console.log('timeout1');
+ process.nextTick(function() {
+ console.log('timeout1_nextTick');
+ })
+ new Promise(function(resolve) {
+ console.log('timeout1_promise');
+ resolve();
+ }).then(function() {
+ console.log('timeout1_then')
+ })
+})
+ setImmediate(function() {
+ console.log('immediate1');
+ process.nextTick(function() {
+ console.log('immediate1_nextTick');
+ })
+ new Promise(function(resolve) {
+ console.log('immediate1_promise');
+ resolve();
+ }).then(function() {
+ console.log('immediate1_then')
+ })
+})
+ process.nextTick(function() {
+ console.log('glob1_nextTick');
+})
+new Promise(function(resolve) {
+ console.log('glob1_promise');
+ resolve();
+}).then(function() {
+ console.log('glob1_then')
+})
+ setTimeout(function() {
+ console.log('timeout2');
+ process.nextTick(function() {
+ console.log('timeout2_nextTick');
+ })
+ new Promise(function(resolve) {
+ console.log('timeout2_promise');
+ resolve();
+ }).then(function() {
+ console.log('timeout2_then')
+ })
+})
+ process.nextTick(function() {
+ console.log('glob2_nextTick');
+})
+new Promise(function(resolve) {
+ console.log('glob2_promise');
+ resolve();
+}).then(function() {
+ console.log('glob2_then')
+})
+ setImmediate(function() {
+ console.log('immediate2');
+ process.nextTick(function() {
+ console.log('immediate2_nextTick');
+ })
+ new Promise(function(resolve) {
+ console.log('immediate2_promise');
+ resolve();
+ }).then(function() {
+ console.log('immediate2_then')
+ })
+})</code></pre>
+<p>No.2</p>
+<p>这个例子看上去有点复杂，乱七八糟的代码一大堆，不过不用担心，我们一步一步来分析一下。</p>
+<h3 id="第一步：宏任务script首先执行。全局入栈。glob1输出。"><a href="#第一步：宏任务script首先执行。全局入栈。glob1输出。" class="headerlink" title="第一步：宏任务script首先执行。全局入栈。glob1输出。"></a>第一步：宏任务script首先执行。全局入栈。glob1输出。</h3><p><img src="https://imgkr.cn-bj.ufileos.com/a0c369f8-f700-4e55-8396-af4c8baff1fe.jpg"></p>
+<h3 id="第二步，执行过程遇到setTimeout。"><a href="#第二步，执行过程遇到setTimeout。" class="headerlink" title="第二步，执行过程遇到setTimeout。"></a>第二步，执行过程遇到setTimeout。</h3><p>setTimeout作为任务分发器，将任务分发到对应的宏任务队列中。</p>
+<pre><code>setTimeout(function() {
+ console.log('timeout1');
+ process.nextTick(function() {
+ console.log('timeout1_nextTick');
+ })
+ new Promise(function(resolve) {
+ console.log('timeout1_promise');
+ resolve();
+ }).then(function() {
+ console.log('timeout1_then')
+ })
+})</code></pre>
+<p><img src="https://imgkr.cn-bj.ufileos.com/565a3277-581d-40a3-8532-6f4831e9bce7.jpg"></p>
+<h3 id="第三步：执行过程遇到setImmediate。"><a href="#第三步：执行过程遇到setImmediate。" class="headerlink" title="第三步：执行过程遇到setImmediate。"></a>第三步：执行过程遇到setImmediate。</h3><p>setImmediate也是一个宏任务分发器，将任务分发到对应的任务队列中。setImmediate的任务队列会在setTimeout队列的后面执行。</p>
+<pre><code>setImmediate(function() {
+ console.log('immediate1');
+ process.nextTick(function() {
+ console.log('immediate1_nextTick');
+ })
+ new Promise(function(resolve) {
+ console.log('immediate1_promise');
+ resolve();
+ }).then(function() {
+ console.log('immediate1_then')
+ })
+})</code></pre>
+<p><img src="https://imgkr.cn-bj.ufileos.com/8033c7b0-53d1-486f-89a7-7749d1b9640b.jpg"></p>
+<h3 id="第四步：执行遇到nextTick，process-nextTick是一个微任务分发器，它会将任务分发到对应的微任务队列中去。"><a href="#第四步：执行遇到nextTick，process-nextTick是一个微任务分发器，它会将任务分发到对应的微任务队列中去。" class="headerlink" title="第四步：执行遇到nextTick，process.nextTick是一个微任务分发器，它会将任务分发到对应的微任务队列中去。"></a>第四步：执行遇到nextTick，process.nextTick是一个微任务分发器，它会将任务分发到对应的微任务队列中去。</h3><pre><code>process.nextTick(function() {
+ console.log('glob1_nextTick');
+})</code></pre>
+<p><img src="https://imgkr.cn-bj.ufileos.com/6fb0ee5d-5340-4116-921e-6b8e264fb040.jpg"></p>
+<h3 id="第五步：执行遇到Promise。"><a href="#第五步：执行遇到Promise。" class="headerlink" title="第五步：执行遇到Promise。"></a>第五步：执行遇到Promise。</h3><p>Promise的then方法会将任务分发到对应的微任务队列中，但是它构造函数中的方法会直接执行。因此，glob1_promise会第二个输出。</p>
+<pre><code>new Promise(function(resolve) {
+ console.log('glob1_promise');
+ resolve();
+}).then(function() {
+ console.log('glob1_then')
+})</code></pre>
+<p><img src="https://imgkr.cn-bj.ufileos.com/c794abc1-c4b2-4d3a-8ddb-8e4ce7d6203f.jpg"> <img src="https://imgkr.cn-bj.ufileos.com/0581a264-4b85-448d-a1e0-f0b786d1cf43.jpg"></p>
+<h3 id="第六步：执行遇到第二个setTimeout。"><a href="#第六步：执行遇到第二个setTimeout。" class="headerlink" title="第六步：执行遇到第二个setTimeout。"></a>第六步：执行遇到第二个setTimeout。</h3><pre><code>setTimeout(function() {
+ console.log('timeout2');
+ process.nextTick(function() {
+ console.log('timeout2_nextTick');
+ })
+ new Promise(function(resolve) {
+ console.log('timeout2_promise');
+ resolve();
+ }).then(function() {
+ console.log('timeout2_then')
+ })
+})</code></pre>
+<p><img src="https://imgkr.cn-bj.ufileos.com/1c10b483-a625-42e2-b7c6-1299f04206e2.jpg"></p>
+<h3 id="第七步：先后遇到nextTick与Promise"><a href="#第七步：先后遇到nextTick与Promise" class="headerlink" title="第七步：先后遇到nextTick与Promise"></a>第七步：先后遇到nextTick与Promise</h3><pre><code>process.nextTick(function() {
+ console.log('glob2_nextTick');
+})
+new Promise(function(resolve) {
+ console.log('glob2_promise');
+ resolve();
+}).then(function() {
+ console.log('glob2_then')
+})</code></pre>
+<p><img src="https://imgkr.cn-bj.ufileos.com/853be2c7-2132-4c09-b49e-97676d248077.jpg"></p>
+<h3 id="第八步：再次遇到setImmediate。"><a href="#第八步：再次遇到setImmediate。" class="headerlink" title="第八步：再次遇到setImmediate。"></a>第八步：再次遇到setImmediate。</h3><pre><code>setImmediate(function() {
+ console.log('immediate2');
+ process.nextTick(function() {
+ console.log('immediate2_nextTick');
+ })
+ new Promise(function(resolve) {
+ console.log('immediate2_promise');
+ resolve();
+ }).then(function() {
+ console.log('immediate2_then')
+ })
+})</code></pre>
+<p><img src="https://imgkr.cn-bj.ufileos.com/d53d1692-c699-48fb-b91f-04be13e27720.jpg"></p>
+<p>这个时候，script中的代码就执行完毕了，执行过程中，遇到不同的任务分发器，就将任务分发到各自对应的队列中去。接下来，将会执行所有的微任务队列中的任务。其中，nextTick队列会比Promie先执行。nextTick中的可执行任务执行完毕之后，才会开始执行Promise队列中的任务。当所有可执行的微任务执行完毕之后，这一轮循环就表示结束了。下一轮循环继续从宏任务队列开始执行。这个时候，script已经执行完毕，所以就从setTimeout队列开始执行。 <img src="https://imgkr.cn-bj.ufileos.com/3df3f688-bc58-4b76-a782-1c5da678b28a.jpg"></p>
+<p>setTimeout任务的执行，也依然是借助函数调用栈来完成，并且遇到任务分发器的时候也会将任务分发到对应的队列中去。只有当setTimeout中所有的任务执行完毕之后，才会再次开始执行微任务队列。并且清空所有的可执行微任务。setTiemout队列产生的微任务执行完毕之后，循环则回过头来开始执行setImmediate队列。仍然是先将setImmediate队列中的任务执行完毕，再执行所产生的微任务。当setImmediate队列执行产生的微任务全部执行之后，第二轮循环也就结束了。</p>
+<blockquote>
+<p>大家需要注意这里的循环结束的时间节点。</p>
+</blockquote>
+<blockquote>
+<p>当我们在执行setTimeout任务中遇到setTimeout时，它仍然会将对应的任务分发到setTimeout队列中去，但是该任务就得等到下一轮事件循环执行了。例子中没有涉及到这么复杂的嵌套，大家可以动手添加或者修改他们的位置来感受一下循环的变化。</p>
+</blockquote>
+<p>OK，到这里，事件循环我想我已经表述得很清楚了，能不能理解就看读者老爷们有没有耐心了。我估计很多人会理解不了循环结束的节点。当然，这些顺序都是v8的一些实现。我们也可以根据上面的规则，来尝试实现一下事件循环的机制。</p>
+<pre><code>// 用数组模拟一个队列
+var tasks = [];
+ // 模拟一个事件分发器
+var addFn1 = function(task) {
+ tasks.push(task);
+}
+ // 执行所有的任务
+var flush = function() {
+ tasks.map(function(task) {
+ task();
+ })
+}
+ // 最后利用setTimeout/或者其他你认为合适的方式丢入事件循环中
+setTimeout(function() {
+ flush();
+})
+ // 当然，也可以不用丢进事件循环，而是我们自己手动在适当的时机去执行对应的某一个方法
+ var dispatch = function(name) {
+ tasks.map(function(item) {
+ if(item.name == name) {
+ item.handler();
+ }
+ })
+}
+ // 当然，我们把任务丢进去的时候，多保存一个name即可。
+// 这时候，task的格式就如下
+demoTask =  {
+ name: 'demo',
+ handler: function() {}
+}
+ // 于是，一个订阅-通知的设计模式就这样轻松的被实现了</code></pre>
+<p>这样，我们就模拟了一个任务队列。我们还可以定义另外一个队列，利用上面的各种方式来规定他们的优先级。</p>
+<blockquote>
+<p>需要注意的是，这里的执行顺序，或者执行的优先级在不同的场景里由于实现的不同会导致不同的结果，包括node的不同版本，不同浏览器等都有不同的结果。</p>
+</blockquote>
+<p>「<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/xkgmPcPBv3ENlBtWuLP7-Q">转自 图雀社区</a>」</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -908,7 +792,7 @@ fs.createReadStream(file)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://simple-delfino.github.io/blog/blog/backend/20200730004/">https://simple-delfino.github.io/blog/blog/backend/20200730004/</a>
+                    <a href="https://simple-delfino.github.io/blog/blog/web/20200730003/">https://simple-delfino.github.io/blog/blog/web/20200730003/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -946,8 +830,8 @@ fs.createReadStream(file)
                     
                         <div class="article-tag">
                             
-                                <a href="/blog/tags/node/">
-                                    <span class="chip bg-color">node</span>
+                                <a href="/blog/tags/javascript/">
+                                    <span class="chip bg-color">javascript</span>
                                 </a>
                             
                         </div>
@@ -1119,32 +1003,33 @@ fs.createReadStream(file)
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog/other/20200731001/">
+                <a href="/blog/web/20200730001/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/3.jpg" class="responsive-img" alt="hexo+github+matery搭建自己的个人博客">
+                        <img src="/blog/medias/featureimages/2.jpg" class="responsive-img" alt="对象深拷贝和浅拷贝">
                         
-                        <span class="card-title">hexo+github+matery搭建自己的个人博客</span>
+                        <span class="card-title">对象深拷贝和浅拷贝</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-之前用wordpress折腾了个博客，服务器、域名、备案、docker、乱七八糟的折腾了好久，现在推荐一个生成静态网站的工具，用来写博客，简直不需要太爽，Hexo配合github以及配合 Travis CI 工具自动打包，happy啊….
+                            各类技术论坛关于深拷贝的博客有很多,有些写的也比我好,那为什么我还要坚持写这篇博客呢,之前看到的一篇博客中有句话写的非常好
+
+学习就好比是座大山，人们沿着不同的路登山，分享着自己看到的风景。你不一定能看到别人看到的风景，体会到别人的心情。只
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-31
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/other/" class="post-category">
-                                    other
+                            <a href="/blog/categories/web/" class="post-category">
+                                    web
                                 </a>
                             
                             
@@ -1154,8 +1039,8 @@ fs.createReadStream(file)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/blog/">
-                        <span class="chip bg-color">blog</span>
+                    <a href="/blog/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
                     </a>
                     
                 </div>
@@ -1169,32 +1054,34 @@ fs.createReadStream(file)
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/other/20200730003/">
+                <a href="/blog/web/20200729002/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/23.jpg" class="responsive-img" alt="webpack性能优化">
+                        <img src="/blog/medias/featureimages/23.jpg" class="responsive-img" alt="你知道vue中key的作用和工作原理吗？说说你对它的理解。">
                         
-                        <span class="card-title">webpack性能优化</span>
+                        <span class="card-title">你知道vue中key的作用和工作原理吗？说说你对它的理解。</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1. 剔除不必要的代码1.1 引入未使用对于js，tree-shaking 贯穿整个依赖树，检查被使用的依赖，移除无用的依赖。 对于css,purifycss-webpack未使用的css不会被打包进来
-1.2 避免重复引入1.2.1 ex
+                            先写测试案例代码
+&lt;body&gt;
+ &lt;div id="demo"&gt;
+ &lt;p v-for="item in items" :key="item"&gt;&amp;#123;&amp;#123;item&amp;#1
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/other/" class="post-category">
-                                    other
+                            <a href="/blog/categories/web/" class="post-category">
+                                    web
                                 </a>
                             
                             
@@ -1204,8 +1091,8 @@ fs.createReadStream(file)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/webpack/">
-                        <span class="chip bg-color">webpack</span>
+                    <a href="/blog/tags/interview/">
+                        <span class="chip bg-color">interview</span>
                     </a>
                     
                 </div>
