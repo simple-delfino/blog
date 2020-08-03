@@ -1,0 +1,1491 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="标签: webpack, delfino">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>标签: webpack | delfino</title>
+    <link rel="icon" type="image/png" href="/blog/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/blog/css/my.css">
+
+    <script src="/blog/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="stylesheet" href="/blog/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/blog/" class="waves-effect waves-light">
+                    
+                    <img src="/blog/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">delfino</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/blog/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">delfino</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/simple-delfino/blog" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #F062A7;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/simple-delfino/blog" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Webpack常用插件总结</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/blog/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/blog/tags/webpack/">
+                                <span class="chip bg-color">webpack</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/blog/categories/other/" class="post-category">
+                                other
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-18
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-08-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    19 分
+                </div>
+                
+
+                <div class="info-break-policy">
+                    
+                    <i class="fa fa-pencil"></i> 作者: delfino
+                    
+                </div>
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>刚完成一个基于React+Webpack的项目，渐渐地熟悉了Webpack的一些配置，开发过程中用到了不少Webpack插件，现在把觉得有用的Webpack插件总结一下当巩固学习啦，主要涉及热模块替换[Hot Module Replacement]、ProvidePlugin、CommonsChunkPlugin、UglifyJsPlugin 、ExtractTextWebpackPlugin、DefinePlugin、DllPlugin等。</p>
+<h2 id="1、热模块替换Hot-Module-Replacement"><a href="#1、热模块替换Hot-Module-Replacement" class="headerlink" title="1、热模块替换Hot Module Replacement"></a>1、热模块替换Hot Module Replacement</h2><p>热模块替换（HMR）是webpack提供的最有用的特性之一，热模块替换可以让模块在没有页面刷新的情况下实时更新代码改动结果；</p>
+<h4 id="安装webpack-dev-server"><a href="#安装webpack-dev-server" class="headerlink" title="安装webpack-dev-server"></a>安装webpack-dev-server</h4><p>webpack-dev-server 是一个小型的Node.js Express服务器，它通过使用webpack-dev-middleware来为webpack打包的资源文件提供服务。可以认为webpack-dev-server就是一个拥有实时重载能力的静态资源服务器（建议只在开发环境使用）<br>通过npm安装：</p>
+<pre><code>npm install webpack-dev-server --save-dev</code></pre>
+<p>运行</p>
+<pre><code>
+webpack-dev-server \--open
+</code></pre>
+<p>/*<br> 热更新授权<br>一个简单webpackHMR实例，这里感觉官方代码比较简单明了，直接复制过来啦<br>*/<br>const path = require(‘path’);<br>const webpack = require(‘webpack’);</p>
+<p>module.exports = {<br>  entry: ‘./index.js’,</p>
+<p>  plugins: [<br>    new webpack.HotModuleReplacementPlugin() // Enable HMR<br>  ],</p>
+<p>  output: {<br>    filename: ‘main.js’,<br>    path: path.resolve(__dirname, ‘dist’),<br>    publicPath: ‘/‘<br>  },</p>
+<p>  devServer: {<br>    hot: true, // Tell the dev-server we’re using HMR<br>    contentBase: resolve(__dirname, ‘dist’),<br>    publicPath: ‘/‘<br>  }<br>};</p>
+<pre><code>
+上述代码配置中需要注意两个地方：  
+（1）plugins：添加webpack.HotModuleReplacementPlugin模块热更新插件  
+（2）devServer配置hot:true 开启模块热更新配置，更多配置详见devServer  
+同时还需注意的几个devServer配置属性
+</code></pre>
+<p>inline: true|false</p>
+<pre><code>
+inline属性用于切换webpack-der-server编译并刷新浏览器的两种不同模式：  
+（1）第一种也是默认的inline模式，这种模式是将脚本插入打包资源文件中复制热更新，并在浏览器控制台中输出过程信息，访问格式访问格式是http://:/；  
+（2）iframe 模式：使用iframe加载页面，访问格式http://:/webpack-dev-server/  
+可以通过配置
+</code></pre>
+<p>inline: false//启用iframe</p>
+<pre><code>
+![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/280923-e36e18e6ebe08e87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp)  
+官方还是推荐使用inline模式
+
+
+在你的代码中插入热替换代码  
+index.js 在入口文件结尾处插入
+</code></pre>
+<p>if (module.hot) {<br>    module.hot.accept();<br>}</p>
+<pre><code>
+只有被 "accept"的代码模块才会被热更新，所以你需要在父节点或者父节点的父节点… module.hot.accept 调用模块。如以上代码所示，在入口文件加入 module.hot.accept之后在入口文件引用的任何子模块更新都会触发热更新。模块更新完成，浏览器会输出类型以下信息
+
+![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/280923-9ab2ffb00c080f14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp)  
+也可以像官方提供的实例一样accept特定的模块，如下实例，当’./library’有任何更新是都会触发热模块更新  
+import Lib from ‘./library’;
+</code></pre>
+<p>if (module.hot) {<br>  module.hot.accept(‘./library’, function() {<br>    console.log(‘Accepting the updated library module!’);<br>    Library.log();<br>  })<br>}</p>
+<pre><code>
+###### 更多Hot Module Replacement资料参考
+
+[Hot Module Replacement](https://link.jianshu.com/?t=https://webpack.js.org/guides/hot-module-replacement/)  
+[hot module replacement with webpack](https://link.jianshu.com/?t=https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack)  
+[webpack 热加载你站住，我对你好奇很久了](https://link.jianshu.com/?t=https://sanwen.net/a/wflzwqo.html)
+
+
+## 2、ProvidePlugin
+
+ProvidePlugin 可以在任何地方自动加载模块而不需要import 或 require 方法:  
+例如：通过如下定义，在任何代码中使用identifier变量，'module1’模块都会被加载，identifier所代表的正式‘module1’模块export的内容
+</code></pre>
+<p>new webpack.ProvidePlugin({<br>  identifier: ‘module1’,<br>  // …<br>})</p>
+<pre><code>
+#### 用途
+
+#### \(1）全局变量
+
+如果你的项目里需要使用jQuery，如果每次使用的时候都需要通过import 或 require 去引入jQuery的话未免也太麻烦。这时候ProvidePlugin就可以帮上大忙了
+</code></pre>
+<p>//Webpack plugins定义<br>new webpack.ProvidePlugin({<br>  $: ‘jquery’,<br>  jQuery: ‘jquery’<br>})</p>
+<p>// 代码模块中调用<br>$(‘#item’); // &lt;= 生效<br>jQuery(‘#item’); // &lt;= just works<br>// $ is automatically set to the exports of module “jquery”</p>
+<pre><code>
+上述代码可以看出通过ProvidePlugin定义的‘’被调用时是直接生效的，webpack会自动把\&amp;quot;jquery\&amp;quot;给注入进模块，而‘’被调用时是直接生效的，webpack会自动把\&amp;quot;jquery\&amp;quot;给注入进模块，而‘ ’被调用时是直接生效的，webpack会自动把\&amp;quot;jquery\&amp;quot;给注入进模块，而‘\&lt;math&gt;\&lt;semantics&gt;\&lt;mrow&gt;\&lt;mi mathvariant="normal"&gt;’\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;被\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;调\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;用\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;时\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;是\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;直\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;接\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;生\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;效\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;的\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;，\&lt;/mi&gt;\&lt;mi&gt;w\&lt;/mi&gt;\&lt;mi&gt;e\&lt;/mi&gt;\&lt;mi&gt;b\&lt;/mi&gt;\&lt;mi&gt;p\&lt;/mi&gt;\&lt;mi&gt;a\&lt;/mi&gt;\&lt;mi&gt;c\&lt;/mi&gt;\&lt;mi&gt;k\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;会\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;自\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;动\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;把\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;\&amp;#x26;quot;\&lt;/mi&gt;\&lt;mi&gt;j\&lt;/mi&gt;\&lt;mi&gt;q\&lt;/mi&gt;\&lt;mi&gt;u\&lt;/mi&gt;\&lt;mi&gt;e\&lt;/mi&gt;\&lt;mi&gt;r\&lt;/mi&gt;\&lt;mi&gt;y\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;\&amp;#x26;quot;\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;给\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;注\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;入\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;进\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;模\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;块\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;，\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;而\&lt;/mi&gt;\&lt;mi mathvariant="normal"&gt;‘\&lt;/mi&gt;\&lt;/mrow&gt;\&lt;annotation encoding="application/x-tex"&gt;’被调用时是直接生效的，webpack会自动把\&amp;#x26;quot;jquery\&amp;#x26;quot;给注入进模块，而‘\&lt;/annotation&gt;\&lt;/semantics&gt;\&lt;/math&gt;’被调用时是直接生效的，webpack会自动把"jquery"给注入进模块，而‘’在模块中则代表了‘jquery’ export的内容。这样就不需要先let \$=require\(‘jquery’\)再调用啦。
+
+#### （2）ProvidePlugin还可以根据不同环境使用不同配置
+
+在实际的项目开发中我们通常会根据不同环境采用不同的webpack配置文件，如下代码使用了三个不同文件代表了不同环境的配置，development.js、test.js、production.js分别代表了开发、测试、线上环境它们都输出了一个包含name属性的对象：
+</code></pre>
+<p>//development.js开发<br>module.exports = {<br>    name:’development’<br>};<br>//test.js测试<br>module.exports = {<br>    name:’test’<br>};</p>
+<p>//production.js线上<br>module.exports = {<br>    name:’production’<br>};</p>
+<p>//webpack.dev.config.js 开发环境<br>    new webpack.ProvidePlugin({<br>            ENV: ‘development’<br>        })<br>//webpack.test.config.js 测试环境<br>new webpack.ProvidePlugin({<br>            ENV: “test”<br>        })<br>//webpack.pub.config.js 线上环境<br>    new webpack.ProvidePlugin({<br>            ENV: “production”<br>        })</p>
+<pre><code>
+假如在代码模块中这么调用</code></pre>
+<p>if (<a target="_blank" rel="noopener" href="http://env.name/">ENV.name</a> == ‘development’) {<br>console.log(‘做一些开发环境的事情’)<br>} else if (<a target="_blank" rel="noopener" href="http://env.name/">ENV.name</a> == ‘test’) {<br>console.log(‘做一些测试环境的事情’)<br>} else if (<a target="_blank" rel="noopener" href="http://env.name/">ENV.name</a> == ‘production’) {<br>console.log(‘有些事情必须留到线上环境做’)<br>}</p>
+<pre><code>如上ProvidePlugin中定义的ENV在不同环境中就代表了不同模块，这样就可以区别的做一些开发、测试、生产环境不同的事情啦。
+
+###### 更多ProvidePlugin资料参考
+
+[ProvidePlugin](https://link.jianshu.com/?t=https://webpack.js.org/plugins/provide-plugin/)  
+[webpack 巧解环境配置问题](https://link.jianshu.com/?t=https://segmentfault.com/a/1190000004053607?utm_source=tuicool&amp;utm_medium=referral)
+
+
+
+## 3、CommonsChunkPlugin
+
+CommonsChunkPlugin是一个可以用来提取公共模块的插件，配置：
+</code></pre>
+<p>{<br>  name: string, // or<br>  names: string[],<br>  // 这是 common chunk 的名称。已经存在的 chunk 可以通过传入一个已存在的 chunk 名称而被选择。<br>  // 如果一个字符串数组被传入，这相当于插件针对每个 chunk 名被多次调用<br>  // 如果该选项被忽略，同时 <code>options.async</code> 或者 <code>options.children</code> 被设置，所有的 chunk 都会被使用，否则 <code>options.filename</code> 会用于作为 chunk 名。</p>
+<p>  filename: string,<br>  // common chunk 的文件名模板。可以包含与 <code>output.filename</code> 相同的占位符。<br>  // 如果被忽略，原本的文件名不会被修改(通常是 <code>output.filename</code> 或者 <code>output.chunkFilename</code>)</p>
+<p>  minChunks: number|Infinity|function(module, count) -&gt; boolean,<br>  // 在传入  公共chunk(commons chunk) 之前所需要包含的最少数量的 chunks 。<br>  // 数量必须大于等于2，或者少于等于 chunks的数量<br>  // 传入 <code>Infinity</code> 会马上生成 公共chunk，但里面没有模块。<br>  // 你可以传入一个 <code>function</code> ，以添加定制的逻辑（默认是 chunk 的数量）</p>
+<p>  chunks: string[],<br>  // 通过 chunk name 去选择 chunks 的来源。chunk 必须是  公共chunk 的子模块。<br>  // 如果被忽略，所有的，所有的 入口chunk (entry chunk) 都会被选择。</p>
+<p>  children: boolean,<br>  // 如果设置为 <code>true</code>，所有  公共chunk 的子模块都会被选择</p>
+<p>  async: boolean|string,<br>  // 如果设置为 <code>true</code>，一个异步的  公共chunk 会作为 <code>options.name</code> 的子模块，和 <code>options.chunks</code> 的兄弟模块被创建。<br>  // 它会与 <code>options.chunks</code> 并行被加载。可以通过提供想要的字符串，而不是 <code>true</code> 来对输出的文件进行更换名称。</p>
+<p>  minSize: number,<br>  // 在 公共chunk 被创建立之前，所有 公共模块 (common module) 的最少大小。<br>}</p>
+<pre><code>
+webpack用插件CommonsChunkPlugin进行打包的时候，将符合引用次数\(minChunks\)的模块打包到name参数的数组的第一个块里（chunk）,然后数组后面的块依次打包\(查找entry里的key,没有找到相关的key就生成一个空的块\)，最后一个块包含webpack生成的在浏览器上使用各个块的加载代码，所以页面上使用的时候最后一个块必须最先加载。  
+打包公共文件
+</code></pre>
+<p>new webpack.optimize.CommonsChunkPlugin({<br>  name: “commons”,<br>  // ( 公共chunk(commnons chunk) 的名称)</p>
+<p>  filename: “commons.js”,<br>  // ( 公共chunk 的文件名)</p>
+<p>  // minChunks: 3,<br>  // (模块必须被3个 入口chunk 共享)</p>
+<p>  // chunks: [“pageA”, “pageB”],<br>  // (只使用这些 入口chunk)<br>})</p>
+<pre><code>
+配置例子：  
+文件目录结构  
+![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/280923-37515c561433b583.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/408/format/webp)
+</code></pre>
+<p>//main.js<br>import A from ‘./a’</p>
+<p>//main1.js<br>import A from ‘./a’<br>import B from ‘./b’</p>
+<p>//a.js<br>var A = 1;<br>exports.A = A;</p>
+<p>//b.js<br>var B = 1;<br>exports.B = B;</p>
+<p>//lib/jquery.js<br>var Jquery = ‘fake jquery’;<br>exports.$ = Jquery;</p>
+<p>//lib/vue.js<br>var Vue = ‘Fake Vue’;<br>exports.Vue = Vue;</p>
+<p>//package.json<br>{<br>  “name”: “CommonsChunkPluginExample”,<br>  “version”: “1.0.0”,<br>  “main”: “main.js”,<br>  “license”: “MIT”,<br>  “scripts”: {<br>    “start”: “webpack  –config webpack.dev.config.js “<br>  },<br>  “dependencies”: {<br>    “webpack”: “^2.6.1”<br>  }<br>}</p>
+<pre><code>
+实例代码，以上main.js、main1.js为入口文件；a.js、b.js为代码模块文件；lib/jquery.js、lib/vue.js模拟代码库文件
+
+#### 打包main.js、main1.js的的公共模块
+</code></pre>
+<p>var path = require(‘path’)<br>var webpack = require(‘webpack’)</p>
+<p>module.exports = {<br>  entry: {<br>    main: ‘./main.js’,<br>    main1: ‘./main1.js’,<br> },<br>  output: {<br>    path: path.join(__dirname, ‘dist’),<br>    filename: ‘[name].js’,<br>    chunkFilename: ‘[name].js’,<br>  },<br>  resolve: {<br>    extensions: [‘ ‘, ‘*’, ‘.js’, ‘.jsx’],<br>  },<br>  plugins: [<br>    new webpack.optimize.CommonsChunkPlugin({<br>      name: ‘commons’<br>    }),<br>    new webpack.optimize.CommonsChunkPlugin({<br>      name: ‘load’<br>    })</p>
+<p>  ],<br>}</p>
+<pre><code>
+按照预期  
+main.js、main1.js都引用了a.js，所以a.js被打包进commons.js中；b.js只被main1.js引用，将会被打包进main1.js中；打包生成的/dist/load.js包含了Webpack的加载代码：
+
+![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/280923-5dbf39acfa7a8089.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp)
+</code></pre>
+<p>///dist/commons.js<br>webpackJsonp([2],[<br>/* 0 <em>/<br>/**</em>/ (function(module, exports) {</p>
+<p>/**</p>
+<ul>
+<li>Created by thea on 2017/6/9.</li>
+<li>/<br>var A = 1;<br>exports.A = A;</li>
+</ul>
+<p>/***/ })<br>]);</p>
+<p>//dist/main1.js</p>
+<p>webpackJsonp([0],[<br>/* 0 <em>/,<br>/</em> 1 <em>/<br>/**</em>/ (function(module, exports) {</p>
+<p>var B = 1;<br>exports.B = B;</p>
+<p>/<strong><em>/ }),<br>/</em> 2 <em>/,<br>/</em> 3 <em>/<br>/</em></strong>/ (function(module, <strong>webpack_exports__, __webpack_require</strong>) {</p>
+<p>“use strict”;<br>Object.defineProperty(<strong>webpack_exports__, “__esModule”, { value: true });<br>/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__a</strong> = <strong>webpack_require__(0);<br>/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__a___default = __webpack_require</strong>.n(<strong>WEBPACK_IMPORTED_MODULE_0__a__);<br>/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__b</strong> = <strong>webpack_require__(1);<br>/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__b___default = __webpack_require</strong>.n(__WEBPACK_IMPORTED_MODULE_1__b__);</p>
+<p>/***/ })<br>],[3]);</p>
+<pre><code>
+#### 提取第三方库
+
+在通常的项目开发中我们通常会引入一些第三方库，在打包的时候我们通常也会希望将代码拆分成公共代码和应用代码。将webpack.dev.config.js文件配置变化如下：
+</code></pre>
+<p>//webpack.dev.config.js<br>var path = require(‘path’)<br>var webpack = require(‘webpack’)</p>
+<p>module.exports = {<br>  entry: {<br>    main: ‘./main.js’,<br>    main1: ‘./main1.js’,<br>    lib:[‘./lib/jquery.js’,’./lib/vue.js’]//第三方库<br>  },<br>  output: {<br>    path: path.join(__dirname, ‘dist’),<br>    filename: ‘[name].js’,<br>    chunkFilename: ‘[name].js’,<br>  },<br>  resolve: {<br>    extensions: [‘ ‘, ‘*’, ‘.js’, ‘.jsx’],<br>  },<br>  plugins: [<br>    new webpack.optimize.CommonsChunkPlugin({<br>      names:[‘commons’,’lib’]//‘lib’提取入口entry key ‘lib’代表的文件单独打包<br>    }),<br>    new webpack.optimize.CommonsChunkPlugin({<br>      name: ‘load’<br>    })<br>  ],<br>}</p>
+<pre><code>
+预期/lib/jquery.js、/lib/vue.js共同打包成为/dist/lib.js
+
+![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/280923-64f11075587a9406.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/478/format/webp)
+</code></pre>
+<p>///dist/lib.js<br>webpackJsonp([0],[<br>/* 0 <em>/,<br>/</em> 1 <em>/,<br>/</em> 2 <em>/<br>/**</em>/ (function(module, exports) {</p>
+<p>var Jquery = ‘fake jquery’;<br>exports.$ = Jquery;</p>
+<p>/<strong><em>/ }),<br>/</em> 3 <em>/<br>/</em></strong>/ (function(module, exports) {</p>
+<p>var Vue = ‘Fake Vue’;<br>exports.Vue = Vue;</p>
+<p>/<strong><em>/ }),<br>/</em> 4 <em>/,<br>/</em> 5 <em>/,<br>/</em> 6 <em>/<br>/</em></strong>/ (function(module, exports, __webpack_require__) {</p>
+<p><strong>webpack_require__(2);<br>module.exports = __webpack_require</strong>(3);</p>
+<p>/***/ })<br>],[6]);</p>
+<pre><code>
+#### CommonsChunkPlugin更多资料参考
+
+[CommonsChunkPlugin](https://link.jianshu.com/?t=https://webpack.js.org/plugins/commons-chunk-plugin/)  
+[webpack CommonsChunkPlugin详细教程](https://segmentfault.com/a/1190000006808865)
+
+
+## 4、ExtractTextWebpackPlugin 分离 CSS
+
+Webpack打包默认会把css和js打包在一块，然而我们通常习惯将css代码中放在标签中，而将js引用放在页面底部；将css代码放在页面头部可以避免 FOUC 问题\(表现为页面内容已经加载出来，但是没有样式，过了一会儿样式文件加载出来之后页面回复正常\)；同时如果css和js分离也有利于这加强样式的可缓存性；这是我们需要ExtractTextWebpackPlugin来分离js与css使得样式文件单独打包。
+
+#### webpack处理css
+
+在代码中想JavaScript模块一样引入css文件  
+import styles from ‘./style.css’
+
+需要借助css-loader  
+和 style-loader  
+：
+</code></pre>
+<p>npm install –save-dev css-loader style-loader</p>
+<pre><code>
+在 webpack.config.js 中配置如下：
+</code></pre>
+<p>module.exports = {<br>    module: {<br>        rules: [{<br>            test: /.css$/,<br>            use: [ ‘style-loader’, ‘css-loader’ ]<br>        }]<br>    }<br>}</p>
+<pre><code>
+这样，CSS 会跟你的 JavaScript 打包在一起，并且在初始加载后，通过一个
+
+#### 使用 ExtractTextWebpackPlugin
+
+安装
+</code></pre>
+<p>npm install –save-dev extract-text-webpack-plugin</p>
+<pre><code>
+为了使用这个插件，它需要通过三步被配置到 webpack.config.js 文件中。
+</code></pre>
+<p>var ExtractTextPlugin = require(‘extract-text-webpack-plugin’);<br>module.exports = {<br>    module: {<br>         rules: [{<br>             test: /.css$/,<br>            use: ExtractTextPlugin.extract({<br>                     fallback: ‘style-loader’,<br>                    use: [<br>                        {<br>                            loader: ‘css-loader’,<br>                            options: {<br>                                sourceMap: true,<br>                                importLoaders: 1,<br>                                modules: true,<br>                                localIdentName: “[local]—[hash:base64:5]”,<br>                                camelCase: true<br>                            }<br>                        }]<br>            })<br>         }]<br>     },<br>    plugins: [<br>        new ExtractTextPlugin( ({<br>            filename: ‘[name].css’,//使用模块名命名<br>            allChunks: true<br>        })<br>    ]<br>}</p>
+<pre><code>
+通过加入ExtractTextWebpackPlugin，每个模块的css都会生成一个新文件，此时你可以作为一个单独标签添加到html文件中。
+
+#### 更多ExtractTextWebpackPlugin资料参考
+
+[webpack-contrib/extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin)  
+[webpack ExtractTextWebpackPlugin](https://link.jianshu.com/?t=https://webpack.js.org/plugins/extract-text-webpack-plugin/)
+
+
+
+## 5、UglifyJsPlugin代码压缩输出
+
+代码压缩插件UglifyJsPlugin通过UglifyJS2来完成代码压缩，配置参考UglifyJS2，  
+调用例子：
+</code></pre>
+<p> new webpack.optimize.UglifyJsPlugin({<br>      compress: {<br>        warnings: false<br>      }<br>    })</p>
+<pre><code>
+
+
+##6、设置全局变量插件  
+[DefinePlugin](https://webpack.js.org/plugins/define-plugin)
+</code></pre>
+<p>// webpack.config.js<br>const webpack = require(‘webpack’);</p>
+<p>module.exports = {<br>  /<em>…</em>/<br>  plugins:[<br>    new webpack.DefinePlugin({<br>      ‘process.env.NODE_ENV’: JSON.stringify(‘production’)<br>    })<br>  ]<br>};</p>
+<pre><code>
+通过DefinePlugin定义的变量可在全局代码中使用，例如Webpack配置文件定义了process.env.NODE\_ENV=‘production’，如果代码中存在如下调用：
+</code></pre>
+<p>if (process.env.NODE_ENV !== ‘production’) console.log(‘…’) </p>
+<pre><code>
+即等同于
+</code></pre>
+<p>if (false) console.log(‘…’)</p>
+<pre><code>
+原理：DefinePlugin做的工作是在源代码基础上执行的全局查找替换工作，将DefinePlugin插件中定义的变量替换为插件中定义的变量值。  
+参考  
+[DefinePlugin](https://webpack.js.org/plugins/define-plugin)
+
+
+
+## DllPlugin\&amp; DllReferencePlugin
+
+在前端项目构建中，为了提高打包效率，往往会将业务代码合第三方库打包。  
+之前有将将到过CommonsChunkPlugin可提供第三方库单独打包方法。但是由于每次运行Webpack，即使没有代码更新，也会重新打包，Webpack打包慢也是一直被诟病的问题，竟然减少打包内容才是王道；  
+其实Webpack还提供了一个提供了另外一个配置项Externals，提供了「从输出的 bundle 中排除依赖」的方法：  
+如
+</code></pre>
+<p>index.html<br>…</p>
+<script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<p>…</p>
+<p>webpack.config.js<br>externals: {<br>  jquery: ‘jQuery’<br>}</p>
+<pre><code>
+这样就剥离了那些不需要改动的依赖模块，换句话，下面展示的代码还可以正常运行：
+</code></pre>
+<p>import $ from ‘jquery’;</p>
+<p>$(‘.my-element’).animate(…);</p>
+<pre><code>
+不过externals虽然解决了外部引用问题，但如果遇到像react模块本身引入react入口文件，但是 Webpack 不知道这个入口文件等效于 react 模块本身时，会出现重复打包现象，详见彻底解决 Webpack 打包性能问题。  
+Webpack提供了DllPlugin、DllReferencePlugin两个插件，既能解决第三方库代码无变化仍然要打包增加打包时间问题，也能解决通过外链引用但可能第三方库还是被打包进来的问题。  
+DllPlugin插件用来把需要独立打包的第三方库分离出来单独打包最后会输出两个文件，一个是打包好的第三方库bundle还有一个是用来给 DllReferencePlugin  
+映射依赖的manifest.json  
+使用方法：  
+（1）新建一个专门用来打包第三方库的Webpack配置文件
+</code></pre>
+<p>//webpack.dll.config.js<br>const webpack = require(‘webpack’);<br>module.exports = {<br>    entry: {<br>        react: [‘./res/polyfill.js’, ‘react’, ‘react-dom’, ‘redux’, ‘react-redux’, ‘react-router’]<br>    },<br>    output: {<br>          filename: ‘[name].bundle.js’,<br>        path: path.join(__dirname, ‘res’),<br>        library: ‘[name]_lib’<br>    },<br>    plugins: [<br>        new webpack.DllPlugin({<br>            path: ‘.res/[name]-manifest.json’,//manifest.json输出路径，DllReferencePlugin需要用到</p>
+<pre><code>        name: '[name]_library',//打包库文件名
+       context：__dirname//可选，引用manifest.json的上下文,默认为Webpack配置文件上下文
+    })
+]</code></pre>
+<p>};</p>
+<pre><code>
+运行webpack.dll.config.js
+</code></pre>
+<p>webpack –config webpack.dll.config.js</p>
+<pre><code>
+生成打包好的库bundle，和manifest.json文件 ‘bundle.manifest.json’，大致内容如下：
+</code></pre>
+<p>{<br> “name”: “react_lib”,<br>  “content”: {<br>    “./node_modules/core-js/modules/_export.js”: {<br>      “id”: 0,<br>      “meta”: {}<br>    },<br>    “./node_modules/core-js/modules/_global.js”: {<br>      “id”: 1,<br>      “meta”: {}<br>    },<br>    “./node_modules/preact-compat/dist/preact-compat.es.js”: {<br>      “id”: 2,<br>      “meta”: {<br>        “harmonyModule”: true<br>      },<br>//其他引用<br>}</p>
+<pre><code>
+2、配置webpack.config.js中的插件DllReferencePlugin
+</code></pre>
+<p> plugins: [<br>        new webpack.DllReferencePlugin({<br>            context: ‘.’,//需要与webpack.dll.config.js中DllPlugin上下文一致<br>            manifest: require(‘./res/react-manifest.json’)//DllPlugin输出的manifest.json文件<br>        })]</p>
+<p>```</p>
+<p>通过两步完美分离第三方库~~~~</p>
+<h6 id="DllPlugin-amp-DllReferencePlugin资料"><a href="#DllPlugin-amp-DllReferencePlugin资料" class="headerlink" title="DllPlugin&amp;DllReferencePlugin资料"></a>DllPlugin&amp;DllReferencePlugin资料</h6><p><a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=https://webpack.js.org/plugins/dll-plugin/#components/sidebar/sidebar.jsx">DllPlugin</a><br><a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=https://juejin.im/entry/57996222128fe1005411c649">彻底解决 Webpack 打包性能问题</a><br><a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=https://github.com/chenchunyong/webpack-dllPlugin">webpack dllPlugin 使用</a></p>
+<p><a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=https://github.com/chenchunyong/webpack-dllPlugin">转自：清晓凝露 链接：https://www.jianshu.com/p/08859e5651fc 来源：简书</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/blog/about" rel="external nofollow noreferrer">delfino</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://simple-delfino.github.io/blog/blog/other/20200718001/">https://simple-delfino.github.io/blog/blog/other/20200718001/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/blog/about" target="_blank">delfino</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/blog/tags/webpack/">
+                                    <span class="chip bg-color">webpack</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/blog/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/blog/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: auto;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: auto;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/blog/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/blog/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/blog/other/20200720002/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/14.jpg" class="responsive-img" alt="框架类书籍">
+                        
+                        <span class="card-title">框架类书籍</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Angular权威教程   链接：https://pan.baidu.com/s/1\_40vBlTUA1rDVHnnNIsVpA提取码：fk1s
+BOOTSTRAP入门经典   链接：https://pan.baidu.com/s/1e5
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/other/" class="post-category">
+                                    other
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/ebook/">
+                        <span class="chip bg-color">ebook</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/blog/other/20200718001/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/15.jpg" class="responsive-img" alt="Webpack常用插件总结">
+                        
+                        <span class="card-title">Webpack常用插件总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            刚完成一个基于React+Webpack的项目，渐渐地熟悉了Webpack的一些配置，开发过程中用到了不少Webpack插件，现在把觉得有用的Webpack插件总结一下当巩固学习啦，主要涉及热模块替换[Hot Module Replacem
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/other/" class="post-category">
+                                    other
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: delfino<br />'
+            + '文章作者: delfino<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/blog/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/blog/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/blog/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/blog/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/blog/about" target="_blank">delfino</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">47.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/simple-delfino" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1319879149@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1319879149" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1319879149" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/blog/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/blog/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/blog/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/blog/libs/materialize/materialize.min.js"></script>
+    <script src="/blog/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/blog/libs/aos/aos.js"></script>
+    <script src="/blog/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/blog/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/blog/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/blog/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/blog/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/blog/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/blog/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/blog/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

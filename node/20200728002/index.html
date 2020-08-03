@@ -1,0 +1,2019 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="标签: WebSocket, delfino">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>标签: WebSocket | delfino</title>
+    <link rel="icon" type="image/png" href="/blog/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/blog/css/my.css">
+
+    <script src="/blog/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="stylesheet" href="/blog/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/blog/" class="waves-effect waves-light">
+                    
+                    <img src="/blog/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">delfino</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/blog/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">delfino</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/simple-delfino/blog" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #F062A7;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/simple-delfino/blog" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">你不知道的 WebSocket</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/blog/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/blog/tags/WebSocket/">
+                                <span class="chip bg-color">WebSocket</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/blog/categories/node/" class="post-category">
+                                node
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-28
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-08-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    11.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    46 分
+                </div>
+                
+
+                <div class="info-break-policy">
+                    
+                    <i class="fa fa-pencil"></i> 作者: delfino
+                    
+                </div>
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本文阿宝哥将从多个方面入手，全方位带你一起探索 WebSocket 技术。阅读完本文，你将了解以下内容：</p>
+<ul>
+<li>了解 WebSocket 的诞生背景、WebSocket 是什么及它的优点；</li>
+<li>了解 WebSocket 含有哪些 API 及如何使用 WebSocket API 发送普通文本和二进制数据；</li>
+<li>了解 WebSocket 的握手协议和数据帧格式、掩码算法等相关知识；</li>
+<li>了解如何实现一个支持发送普通文本的 WebSocket 服务器。</li>
+</ul>
+<p>在最后的 <strong>阿宝哥有话说</strong> 环节，阿宝哥将介绍 WebSocket 与 HTTP 之间的关系、WebSocket 与长轮询有什么区别、什么是 WebSocket 心跳及 Socket 是什么等内容。</p>
+<p>推荐阅读（感谢掘友的鼓励与支持🌹🌹🌹）：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904198639714311">你不知道的 Web Workers （上）[7.8K 字 | 多图预警]</a>（424+ 个👍）</li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904198639714311">你不知道的 Blob</a>（215+ 个👍）</li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904198639714311">你不知道的 WeakMap</a>（55+ 个👍）</li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6850037275579121671">玩转前端 Video 播放器 | 多图预警</a>（708+ 个👍）</li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6846687590783909902">玩转前端二进制</a>（359+ 个👍）</li>
+</ul>
+<p>下面我们进入正题，为了让大家能够更好地理解和掌握 WebSocket 技术，我们先来介绍一下什么是 WebSocket。</p>
+<h3 id="一、什么是-WebSocket"><a href="#一、什么是-WebSocket" class="headerlink" title="一、什么是 WebSocket"></a>一、什么是 WebSocket</h3><h4 id="1-1-WebSocket-诞生背景"><a href="#1-1-WebSocket-诞生背景" class="headerlink" title="1.1 WebSocket 诞生背景"></a>1.1 WebSocket 诞生背景</h4><p>早期，很多网站为了实现推送技术，所用的技术都是轮询。轮询是指由浏览器每隔一段时间向服务器发出 HTTP 请求，然后服务器返回最新的数据给客户端。常见的轮询方式分为轮询与长轮询，它们的区别如下图所示：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e1a4971badd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>为了更加直观感受轮询与长轮询之间的区别，我们来看一下具体的代码：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e1a49cab9d5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>这种传统的模式带来很明显的缺点，即浏览器需要不断的向服务器发出请求，然而 HTTP 请求与响应可能会包含较长的头部，其中真正有效的数据可能只是很小的一部分，所以这样会消耗很多带宽资源。</p>
+<p>比较新的轮询技术是 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Comet_(web%E6%8A%80%E6%9C%AF)">Comet</a>。这种技术虽然可以实现双向通信，但仍然需要反复发出请求。而且在 Comet 中普遍采用的 HTTP 长连接也会消耗服务器资源。</p>
+<p>在这种情况下，HTML5 定义了 WebSocket 协议，能更好的节省服务器资源和带宽，并且能够更实时地进行通讯。Websocket 使用 ws 或 wss 的统一资源标志符（URI），其中 wss 表示使用了 TLS 的 Websocket。如：</p>
+<pre><code>ws://echo.websocket.org
+wss://echo.websocket.org
+复制代码</code></pre>
+<p>WebSocket 与 HTTP 和 HTTPS 使用相同的 TCP 端口，可以绕过大多数防火墙的限制。默认情况下，WebSocket 协议使用 80 端口；若运行在 TLS 之上时，默认使用 443 端口。</p>
+<h4 id="1-2-WebSocket-简介"><a href="#1-2-WebSocket-简介" class="headerlink" title="1.2 WebSocket 简介"></a>1.2 WebSocket 简介</h4><p>WebSocket 是一种网络传输协议，可在单个 TCP 连接上进行全双工通信，位于 OSI 模型的应用层。WebSocket 协议在 2011 年由 IETF 标准化为 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6455">RFC 6455</a>，后由 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7936">RFC 7936</a> 补充规范。</p>
+<p>WebSocket 使得客户端和服务器之间的数据交换变得更加简单，允许服务端主动向客户端推送数据。在 WebSocket API 中，浏览器和服务器只需要完成一次握手，两者之间就可以创建持久性的连接，并进行双向数据传输。</p>
+<p>介绍完轮询和 WebSocket 的相关内容之后，接下来我们来看一下 XHR Polling 与 WebSocket 之间的区别：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e1a49d7b0ad?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<h4 id="1-3-WebSocket-优点"><a href="#1-3-WebSocket-优点" class="headerlink" title="1.3 WebSocket 优点"></a>1.3 WebSocket 优点</h4><ul>
+<li>较少的控制开销。在连接创建后，服务器和客户端之间交换数据时，用于协议控制的数据包头部相对较小。</li>
+<li>更强的实时性。由于协议是全双工的，所以服务器可以随时主动给客户端下发数据。相对于 HTTP 请求需要等待客户端发起请求服务端才能响应，延迟明显更少。</li>
+<li>保持连接状态。与 HTTP 不同的是，WebSocket 需要先创建连接，这就使得其成为一种有状态的协议，之后通信时可以省略部分状态信息。</li>
+<li>更好的二进制支持。WebSocket 定义了二进制帧，相对 HTTP，可以更轻松地处理二进制内容。</li>
+<li>可以支持扩展。WebSocket 定义了扩展，用户可以扩展协议、实现部分自定义的子协议。</li>
+</ul>
+<p>由于 WebSocket 拥有上述的优点，所以它被广泛地应用在即时通信、实时音视频、在线教育和游戏等领域。对于前端开发者来说，要想使用 WebSocket 提供的强大能力，就必须先掌握 WebSocket API，下面阿宝哥带大家一起来认识一下 WebSocket API。</p>
+<h3 id="二、WebSocket-API"><a href="#二、WebSocket-API" class="headerlink" title="二、WebSocket API"></a>二、WebSocket API</h3><p>在介绍 WebSocket API 之前，我们先来了解一下它的兼容性：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e1a4c1ef050?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>（图片来源：<a target="_blank" rel="noopener" href="https://caniuse.com/#search=WebSocket%EF%BC%89">https://caniuse.com/#search=WebSocket）</a></p>
+<p>从上图可知，目前主流的 Web 浏览器都支持 WebSocket，所以我们可以在大多数项目中放心地使用它。</p>
+<p>在浏览器中要使用 WebSocket 提供的能力，我们就必须先创建 WebSocket 对象，该对象提供了用于创建和管理 WebSocket 连接，以及可以通过该连接发送和接收数据的 API。</p>
+<p>使用 WebSocket 构造函数，我们就能轻易地构造一个 WebSocket 对象。接下来我们将从 WebSocket 构造函数、WebSocket 对象的属性、方法及 WebSocket 相关的事件四个方面来介绍 WebSocket API，首先我们从 WebSocket 的构造函数入手：</p>
+<h4 id="2-1-构造函数"><a href="#2-1-构造函数" class="headerlink" title="2.1 构造函数"></a>2.1 构造函数</h4><p>WebSocket 构造函数的语法为：</p>
+<pre><code>const myWebSocket = new WebSocket(url [, protocols]);
+复制代码</code></pre>
+<p>相关参数说明如下：</p>
+<ul>
+<li>url：表示连接的 URL，这是 WebSocket 服务器将响应的 URL。</li>
+<li>protocols（可选）：一个协议字符串或者一个包含协议字符串的数组。这些字符串用于指定子协议，这样单个服务器可以实现多个 WebSocket 子协议。比如，你可能希望一台服务器能够根据指定的协议（protocol）处理不同类型的交互。如果不指定协议字符串，则假定为空字符串。</li>
+</ul>
+<p>当尝试连接的端口被阻止时，会抛出 <code>SECURITY_ERR</code> 异常。</p>
+<h4 id="2-2-属性"><a href="#2-2-属性" class="headerlink" title="2.2 属性"></a>2.2 属性</h4><p>WebSocket 对象包含以下属性：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e1a4c51c721?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>每个属性的具体含义如下：</p>
+<ul>
+<li><p>binaryType：使用二进制的数据类型连接。</p>
+</li>
+<li><p>bufferedAmount（只读）：未发送至服务器的字节数。</p>
+</li>
+<li><p>extensions（只读）：服务器选择的扩展。</p>
+</li>
+<li><p>onclose：用于指定连接关闭后的回调函数。</p>
+</li>
+<li><p>onerror：用于指定连接失败后的回调函数。</p>
+</li>
+<li><p>onmessage：用于指定当从服务器接受到信息时的回调函数。</p>
+</li>
+<li><p>onopen：用于指定连接成功后的回调函数。</p>
+</li>
+<li><p>protocol（只读）：用于返回服务器端选中的子协议的名字。</p>
+</li>
+<li><p>readyState（只读）：返回当前 WebSocket 的连接状态，共有 4 种状态：</p>
+<ul>
+<li>CONNECTING — 正在连接中，对应的值为 0；</li>
+<li>OPEN — 已经连接并且可以通讯，对应的值为 1；</li>
+<li>CLOSING — 连接正在关闭，对应的值为 2；</li>
+<li>CLOSED — 连接已关闭或者没有连接成功，对应的值为 3。</li>
+</ul>
+</li>
+<li><p>url（只读）：返回值为当构造函数创建 WebSocket 实例对象时 URL 的绝对路径。</p>
+</li>
+</ul>
+<h4 id="2-3-方法"><a href="#2-3-方法" class="headerlink" title="2.3 方法"></a>2.3 方法</h4><ul>
+<li>close([code[, reason]])：该方法用于关闭 WebSocket 连接，如果连接已经关闭，则此方法不执行任何操作。</li>
+<li>send(data)：该方法将需要通过 WebSocket 链接传输至服务器的数据排入队列，并根据所需要传输的数据的大小来增加 bufferedAmount 的值 。若数据无法传输（比如数据需要缓存而缓冲区已满）时，套接字会自行关闭。</li>
+</ul>
+<h4 id="2-4-事件"><a href="#2-4-事件" class="headerlink" title="2.4 事件"></a>2.4 事件</h4><p>使用 addEventListener() 或将一个事件监听器赋值给 WebSocket 对象的 oneventname 属性，来监听下面的事件。</p>
+<ul>
+<li>close：当一个 WebSocket 连接被关闭时触发，也可以通过 onclose 属性来设置。</li>
+<li>error：当一个 WebSocket 连接因错误而关闭时触发，也可以通过 onerror 属性来设置。</li>
+<li>message：当通过 WebSocket 收到数据时触发，也可以通过 onmessage 属性来设置。</li>
+<li>open：当一个 WebSocket 连接成功时触发，也可以通过 onopen 属性来设置。</li>
+</ul>
+<p>介绍完 WebSocket API，我们来举一个使用 WebSocket 发送普通文本的示例。</p>
+<h4 id="2-5-发送普通文本"><a href="#2-5-发送普通文本" class="headerlink" title="2.5 发送普通文本"></a>2.5 发送普通文本</h4><p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e1a4c7a5bee?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>在以上示例中，我们在页面上创建了两个 textarea，分别用于存放 <strong>待发送的数据</strong> 和 <strong>服务器返回的数据</strong>。当用户输入完待发送的文本之后，点击 <strong>发送</strong> 按钮时会把输入的文本发送到服务端，而服务端成功接收到消息之后，会把收到的消息原封不动地回传到客户端。</p>
+<pre><code>// const socket = new WebSocket("ws://echo.websocket.org");
+// const sendMsgContainer = document.querySelector("#sendMessage");
+function send() &amp;#123;
+  const message = sendMsgContainer.value;
+  if (socket.readyState !== WebSocket.OPEN) &amp;#123;
+    console.log("连接未建立，还不能发送消息");
+    return;
+  &amp;#125;
+  if (message) socket.send(message);
+&amp;#125;
+复制代码</code></pre>
+<p>当然客户端接收到服务端返回的消息之后，会把对应的文本内容保存到 <strong>接收的数据</strong> 对应的 textarea 文本框中。</p>
+<pre><code>// const socket = new WebSocket("ws://echo.websocket.org");
+// const receivedMsgContainer = document.querySelector("#receivedMessage");    
+socket.addEventListener("message", function (event) &amp;#123;
+  console.log("Message from server ", event.data);
+  receivedMsgContainer.value = event.data;
+&amp;#125;);
+复制代码</code></pre>
+<p>为了更加直观地理解上述的数据交互过程，我们使用 Chrome 浏览器的开发者工具来看一下相应的过程：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e1907772eaa?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>以上示例对应的完整代码如下所示：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;WebSocket 发送普通文本示例&lt;/title&gt;
+    &lt;style&gt;
+      .block &amp;#123;
+        flex: 1;
+      &amp;#125;
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h3&gt;阿宝哥：WebSocket 发送普通文本示例&lt;/h3&gt;
+    &lt;div style="display: flex;"&gt;
+      &lt;div class="block"&gt;
+        &lt;p&gt;即将发送的数据：&lt;button onclick="send()"&gt;发送&lt;/button&gt;&lt;/p&gt;
+        &lt;textarea id="sendMessage" rows="5" cols="15"&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+      &lt;div class="block"&gt;
+        &lt;p&gt;接收的数据：&lt;/p&gt;
+        &lt;textarea id="receivedMessage" rows="5" cols="15"&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+      const sendMsgContainer = document.querySelector("#sendMessage");
+      const receivedMsgContainer = document.querySelector("#receivedMessage");
+      const socket = new WebSocket("ws://echo.websocket.org");
+
+      // 监听连接成功事件
+      socket.addEventListener("open", function (event) &amp;#123;
+        console.log("连接成功，可以开始通讯");
+      &amp;#125;);
+
+      // 监听消息
+      socket.addEventListener("message", function (event) &amp;#123;
+        console.log("Message from server ", event.data);
+        receivedMsgContainer.value = event.data;
+      &amp;#125;);
+
+      function send() &amp;#123;
+        const message = sendMsgContainer.value;
+        if (socket.readyState !== WebSocket.OPEN) &amp;#123;
+          console.log("连接未建立，还不能发送消息");
+          return;
+        &amp;#125;
+        if (message) socket.send(message);
+      &amp;#125;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+复制代码</code></pre>
+<p>其实 WebSocket 除了支持发送普通的文本之外，它还支持发送二进制数据，比如 ArrayBuffer 对象、Blob 对象或者 ArrayBufferView 对象：</p>
+<pre><code>const socket = new WebSocket("ws://echo.websocket.org");
+socket.onopen = function () &amp;#123;
+  // 发送UTF-8编码的文本信息
+  socket.send("Hello Echo Server!");
+  // 发送UTF-8编码的JSON数据
+  socket.send(JSON.stringify(&amp;#123; msg: "我是阿宝哥" &amp;#125;));
+
+  // 发送二进制ArrayBuffer
+  const buffer = new ArrayBuffer(128);
+  socket.send(buffer);
+
+  // 发送二进制ArrayBufferView
+  const intview = new Uint32Array(buffer);
+  socket.send(intview);
+
+  // 发送二进制Blob
+  const blob = new Blob([buffer]);
+  socket.send(blob);
+&amp;#125;;
+复制代码</code></pre>
+<p>以上代码成功运行后，通过 Chrome 开发者工具，我们可以看到对应的数据交互过程：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e1906c605c4?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>下面阿宝哥以发送 Blob 对象为例，来介绍一下如何发送二进制数据。</p>
+<blockquote>
+<p>Blob（Binary Large Object）表示二进制类型的大对象。在数据库管理系统中，将二进制数据存储为一个单一个体的集合。Blob 通常是影像、声音或多媒体文件。<strong>在 JavaScript 中 Blob 类型的对象表示不可变的类似文件对象的原始数据。</strong></p>
+<p>对 Blob 感兴趣的小伙伴，可以阅读 <a target="_blank" rel="noopener" href="https://juejin.im/post/6844904178725158926">“你不知道的 Blob”</a> 这篇文章。</p>
+</blockquote>
+<h4 id="2-6-发送二进制数据"><a href="#2-6-发送二进制数据" class="headerlink" title="2.6 发送二进制数据"></a>2.6 发送二进制数据</h4><p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e1907e4cb3e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>在以上示例中，我们在页面上创建了两个 textarea，分别用于存放 <strong>待发送的数据</strong> 和 <strong>服务器返回的数据</strong>。当用户输入完待发送的文本之后，点击 <strong>发送</strong> 按钮时，我们会先获取输入的文本并把文本包装成 Blob 对象然后发送到服务端，而服务端成功接收到消息之后，会把收到的消息原封不动地回传到客户端。</p>
+<p>当浏览器接收到新消息后，如果是文本数据，会自动将其转换成 DOMString 对象，如果是二进制数据或 Blob 对象，会直接将其转交给应用，由应用自身来根据返回的数据类型进行相应的处理。</p>
+<p><strong>数据发送代码</strong></p>
+<pre><code>// const socket = new WebSocket("ws://echo.websocket.org");
+// const sendMsgContainer = document.querySelector("#sendMessage");
+function send() &amp;#123;
+  const message = sendMsgContainer.value;
+  if (socket.readyState !== WebSocket.OPEN) &amp;#123;
+    console.log("连接未建立，还不能发送消息");
+    return;
+  &amp;#125;
+  const blob = new Blob([message], &amp;#123; type: "text/plain" &amp;#125;);
+  if (message) socket.send(blob);
+  console.log(`未发送至服务器的字节数：$&amp;#123;socket.bufferedAmount&amp;#125;`);
+&amp;#125;
+复制代码</code></pre>
+<p>当然客户端接收到服务端返回的消息之后，会判断返回的数据类型，如果是 Blob 类型的话，会调用 Blob 对象的 text() 方法，获取 Blob 对象中保存的 UTF-8 格式的内容，然后把对应的文本内容保存到 <strong>接收的数据</strong> 对应的 textarea 文本框中。</p>
+<p><strong>数据接收代码</strong></p>
+<pre><code>// const socket = new WebSocket("ws://echo.websocket.org");
+// const receivedMsgContainer = document.querySelector("#receivedMessage");
+socket.addEventListener("message", async function (event) &amp;#123;
+  console.log("Message from server ", event.data);
+  const receivedData = event.data;
+  if (receivedData instanceof Blob) &amp;#123;
+    receivedMsgContainer.value = await receivedData.text();
+  &amp;#125; else &amp;#123;
+    receivedMsgContainer.value = receivedData;
+  &amp;#125;
+ &amp;#125;);
+复制代码</code></pre>
+<p>同样，我们使用 Chrome 浏览器的开发者工具来看一下相应的过程：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e1912c4f2e5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>通过上图我们可以很明显地看到，当使用发送 Blob 对象时，Data 栏位的信息显示的是 <strong>Binary Message</strong>，而对于发送普通文本来说，Data 栏位的信息是直接显示发送的文本消息。</p>
+<p>以上示例对应的完整代码如下所示：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;WebSocket 发送二进制数据示例&lt;/title&gt;
+    &lt;style&gt;
+      .block &amp;#123;
+        flex: 1;
+      &amp;#125;
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h3&gt;阿宝哥：WebSocket 发送二进制数据示例&lt;/h3&gt;
+    &lt;div style="display: flex;"&gt;
+      &lt;div class="block"&gt;
+        &lt;p&gt;待发送的数据：&lt;button onclick="send()"&gt;发送&lt;/button&gt;&lt;/p&gt;
+        &lt;textarea id="sendMessage" rows="5" cols="15"&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+      &lt;div class="block"&gt;
+        &lt;p&gt;接收的数据：&lt;/p&gt;
+        &lt;textarea id="receivedMessage" rows="5" cols="15"&gt;&lt;/textarea&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+      const sendMsgContainer = document.querySelector("#sendMessage");
+      const receivedMsgContainer = document.querySelector("#receivedMessage");
+      const socket = new WebSocket("ws://echo.websocket.org");
+
+      // 监听连接成功事件
+      socket.addEventListener("open", function (event) &amp;#123;
+        console.log("连接成功，可以开始通讯");
+      &amp;#125;);
+
+      // 监听消息
+      socket.addEventListener("message", async function (event) &amp;#123;
+        console.log("Message from server ", event.data);
+        const receivedData = event.data;
+        if (receivedData instanceof Blob) &amp;#123;
+          receivedMsgContainer.value = await receivedData.text();
+        &amp;#125; else &amp;#123;
+          receivedMsgContainer.value = receivedData;
+        &amp;#125;
+      &amp;#125;);
+
+      function send() &amp;#123;
+        const message = sendMsgContainer.value;
+        if (socket.readyState !== WebSocket.OPEN) &amp;#123;
+          console.log("连接未建立，还不能发送消息");
+          return;
+        &amp;#125;
+        const blob = new Blob([message], &amp;#123; type: "text/plain" &amp;#125;);
+        if (message) socket.send(blob);
+        console.log(`未发送至服务器的字节数：$&amp;#123;socket.bufferedAmount&amp;#125;`);
+      &amp;#125;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+复制代码</code></pre>
+<p>可能有一些小伙伴了解完 WebSocket API 之后，觉得还不够过瘾。下面阿宝哥将带大家来实现一个支持发送普通文本的 WebSocket 服务器。</p>
+<h3 id="三、手写-WebSocket-服务器"><a href="#三、手写-WebSocket-服务器" class="headerlink" title="三、手写 WebSocket 服务器"></a>三、手写 WebSocket 服务器</h3><p>在介绍如何手写 WebSocket 服务器前，我们需要了解一下 WebSocket 连接的生命周期。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e192b2cc1a2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>从上图可知，在使用 WebSocket 实现全双工通信之前，客户端与服务器之间需要先进行握手（Handshake），在完成握手之后才能开始进行数据的双向通信。</p>
+<p>握手是在通信电路创建之后，信息传输开始之前。<strong>握手用于达成参数，如信息传输率，字母表，奇偶校验，中断过程，和其他协议特性。</strong> 握手有助于不同结构的系统或设备在通信信道中连接，而不需要人为设置参数。</p>
+<p>既然握手是 WebSocket 连接生命周期的第一个环节，接下来我们就先来分析 WebSocket 的握手协议。</p>
+<h4 id="3-1-握手协议"><a href="#3-1-握手协议" class="headerlink" title="3.1 握手协议"></a>3.1 握手协议</h4><p>WebSocket 协议属于应用层协议，它依赖于传输层的 TCP 协议。WebSocket 通过 HTTP/1.1 协议的 <strong>101</strong> 状态码进行握手。为了创建 WebSocket 连接，需要通过浏览器发出请求，之后服务器进行回应，这个过程通常称为 “握手”（Handshaking）。</p>
+<p>利用 HTTP 完成握手有几个好处。首先，让 WebSocket 与现有 HTTP 基础设施兼容：使得 WebSocket 服务器可以运行在 80 和 443 端口上，这通常是对客户端唯一开放的端口。其次，让我们可以重用并扩展 HTTP 的 Upgrade 流，为其添加自定义的 WebSocket 首部，以完成协商。</p>
+<p>下面我们以前面已经演示过的发送普通文本的例子为例，来具体分析一下握手过程。</p>
+<h5 id="3-1-1-客户端请求"><a href="#3-1-1-客户端请求" class="headerlink" title="3.1.1 客户端请求"></a>3.1.1 客户端请求</h5><pre><code>GET ws://echo.websocket.org/ HTTP/1.1
+Host: echo.websocket.org
+Origin: file://
+Connection: Upgrade
+Upgrade: websocket
+Sec-WebSocket-Version: 13
+Sec-WebSocket-Key: Zx8rNEkBE4xnwifpuh8DHQ==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+复制代码</code></pre>
+<blockquote>
+<p>备注：已忽略部分 HTTP 请求头</p>
+</blockquote>
+<p><strong>字段说明</strong></p>
+<ul>
+<li>Connection 必须设置 Upgrade，表示客户端希望连接升级。</li>
+<li>Upgrade 字段必须设置 websocket，表示希望升级到 WebSocket 协议。</li>
+<li>Sec-WebSocket-Version 表示支持的 WebSocket 版本。RFC6455 要求使用的版本是 13，之前草案的版本均应当弃用。</li>
+<li>Sec-WebSocket-Key 是随机的字符串，服务器端会用这些数据来构造出一个 SHA-1 的信息摘要。把 “Sec-WebSocket-Key” 加上一个特殊字符串 <strong>“258EAFA5-E914-47DA-95CA-C5AB0DC85B11”</strong>，然后计算 SHA-1 摘要，之后进行 Base64 编码，将结果做为 “Sec-WebSocket-Accept” 头的值，返回给客户端。如此操作，可以尽量避免普通 HTTP 请求被误认为 WebSocket 协议。</li>
+<li>Sec-WebSocket-Extensions 用于协商本次连接要使用的 WebSocket 扩展：客户端发送支持的扩展，服务器通过返回相同的首部确认自己支持一个或多个扩展。</li>
+<li>Origin 字段是可选的，通常用来表示在浏览器中发起此 WebSocket 连接所在的页面，类似于 Referer。但是，与 Referer 不同的是，Origin 只包含了协议和主机名称。</li>
+</ul>
+<h5 id="3-1-2-服务端响应"><a href="#3-1-2-服务端响应" class="headerlink" title="3.1.2 服务端响应"></a>3.1.2 服务端响应</h5><pre><code>HTTP/1.1 101 Web Socket Protocol Handshake ①
+Connection: Upgrade ②
+Upgrade: websocket ③
+Sec-WebSocket-Accept: 52Rg3vW4JQ1yWpkvFlsTsiezlqw= ④
+复制代码</code></pre>
+<blockquote>
+<p>备注：已忽略部分 HTTP 响应头</p>
+</blockquote>
+<ul>
+<li>① 101 响应码确认升级到 WebSocket 协议。</li>
+<li>② 设置 Connection 头的值为 “Upgrade” 来指示这是一个升级请求。HTTP 协议提供了一种特殊的机制，这一机制允许将一个已建立的连接升级成新的、不相容的协议。</li>
+<li>③ Upgrade 头指定一项或多项协议名，按优先级排序，以逗号分隔。这里表示升级为 WebSocket 协议。</li>
+<li>④ 签名的键值验证协议支持。</li>
+</ul>
+<p>介绍完 WebSocket 的握手协议，接下来阿宝哥将使用 Node.js 来开发我们的 WebSocket 服务器。</p>
+<h4 id="3-2-实现握手功能"><a href="#3-2-实现握手功能" class="headerlink" title="3.2 实现握手功能"></a>3.2 实现握手功能</h4><p>要开发一个 WebSocket 服务器，首先我们需要先实现握手功能，这里阿宝哥使用 Node.js 内置的 <strong>http</strong> 模块来创建一个 HTTP 服务器，具体代码如下所示：</p>
+<pre><code>const http = require("http");
+
+const port = 8888;
+const &amp;#123; generateAcceptValue &amp;#125; = require("./util");
+
+const server = http.createServer((req, res) =&gt; &amp;#123;
+  res.writeHead(200, &amp;#123; "Content-Type": "text/plain; charset=utf-8" &amp;#125;);
+  res.end("大家好，我是阿宝哥。感谢你阅读“你不知道的WebSocket”");
+&amp;#125;);
+
+server.on("upgrade", function (req, socket) &amp;#123;
+  if (req.headers["upgrade"] !== "websocket") &amp;#123;
+    socket.end("HTTP/1.1 400 Bad Request");
+    return;
+  &amp;#125;
+  // 读取客户端提供的Sec-WebSocket-Key
+  const secWsKey = req.headers["sec-websocket-key"];
+  // 使用SHA-1算法生成Sec-WebSocket-Accept
+  const hash = generateAcceptValue(secWsKey);
+  // 设置HTTP响应头
+  const responseHeaders = [
+    "HTTP/1.1 101 Web Socket Protocol Handshake",
+    "Upgrade: WebSocket",
+    "Connection: Upgrade",
+    `Sec-WebSocket-Accept: $&amp;#123;hash&amp;#125;`,
+  ];
+  // 返回握手请求的响应信息
+  socket.write(responseHeaders.join("\r\n") + "\r\n\r\n");
+&amp;#125;);
+
+server.listen(port, () =&gt;
+  console.log(`Server running at http://localhost:$&amp;#123;port&amp;#125;`)
+);
+复制代码</code></pre>
+<p>在以上代码中，我们首先引入了 <strong>http</strong> 模块，然后通过调用该模块的 <code>createServer()</code> 方法创建一个 HTTP 服务器，接着我们监听 <code>upgrade</code> 事件，每次服务器响应升级请求时就会触发该事件。由于我们的服务器只支持升级到 WebSocket 协议，所以如果客户端请求升级的协议非 WebSocket 协议，我们将会返回 “400 Bad Request”。</p>
+<p>当服务器接收到升级为 WebSocket 的握手请求时，会先从请求头中获取 <strong>“Sec-WebSocket-Key”</strong> 的值，然后把该值加上一个特殊字符串 <strong>“258EAFA5-E914-47DA-95CA-C5AB0DC85B11”</strong>，然后计算 SHA-1 摘要，之后进行 Base64 编码，将结果做为 <strong>“Sec-WebSocket-Accept”</strong> 头的值，返回给客户端。</p>
+<p>上述的过程看起来好像有点繁琐，其实利用 Node.js 内置的 <strong>crypto</strong> 模块，几行代码就可以搞定了：</p>
+<pre><code>// util.js
+const crypto = require("crypto");
+const MAGIC_KEY = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
+
+function generateAcceptValue(secWsKey) &amp;#123;
+  return crypto
+    .createHash("sha1")
+    .update(secWsKey + MAGIC_KEY, "utf8")
+    .digest("base64");
+&amp;#125;
+复制代码</code></pre>
+<p>开发完握手功能之后，我们可以使用前面的示例来测试一下该功能。待服务器启动之后，我们只要对 “发送普通文本” 示例，做简单地调整，即把先前的 URL 地址替换成 <code>ws://localhost:8888</code>，就可以进行功能验证。</p>
+<p>感兴趣的小伙们可以试试看，以下是阿宝哥本地运行后的结果：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e19930d1e9d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>从上图可知，我们实现的握手功能已经可以正常工作了。那么握手有没有可能失败呢？答案是肯定的。比如网络问题、服务器异常或 <strong>Sec-WebSocket-Accept</strong> 的值不正确。</p>
+<p>下面阿宝哥修改一下 <strong>“Sec-WebSocket-Accept”</strong> 生成规则，比如修改 <strong>MAGIC_KEY</strong> 的值，然后重新验证一下握手功能。此时，浏览器的控制台会输出以下异常信息：</p>
+<pre><code>WebSocket connection to 'ws://localhost:8888/' failed: Error during WebSocket handshake: Incorrect 'Sec-WebSocket-Accept' header value
+复制代码</code></pre>
+<p>如果你的 WebSocket 服务器要支持子协议的话，你可以参考以下代码进行子协议的处理，阿宝哥就不继续展开介绍了。</p>
+<pre><code>// 从请求头中读取子协议
+const protocol = req.headers["sec-websocket-protocol"];
+// 如果包含子协议，则解析子协议
+const protocols = !protocol ? [] : protocol.split(",").map((s) =&gt; s.trim());
+
+// 简单起见，我们仅判断是否含有JSON子协议
+if (protocols.includes("json")) &amp;#123;
+  responseHeaders.push(`Sec-WebSocket-Protocol: json`);
+&amp;#125;
+复制代码</code></pre>
+<p>好的，WebSocket 握手协议相关的内容基本已经介绍完了。下一步我们来介绍开发消息通信功能需要了解的一些基础知识。</p>
+<h4 id="3-3-消息通信基础"><a href="#3-3-消息通信基础" class="headerlink" title="3.3 消息通信基础"></a>3.3 消息通信基础</h4><p>在 WebSocket 协议中，数据是通过一系列数据帧来进行传输的。为了避免由于网络中介（例如一些拦截代理）或者一些安全问题，客户端必须在它发送到服务器的所有帧中添加掩码。服务端收到没有添加掩码的数据帧以后，必须立即关闭连接。</p>
+<h5 id="3-3-1-数据帧格式"><a href="#3-3-1-数据帧格式" class="headerlink" title="3.3.1 数据帧格式"></a>3.3.1 数据帧格式</h5><p>要实现消息通信，我们就必须了解 WebSocket 数据帧的格式：</p>
+<pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-------+-+-------------+-------------------------------+
+|F|R|R|R| opcode|M| Payload len |    Extended payload length    |
+|I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
+|N|V|V|V|       |S|             |   (if payload len==126/127)   |
+| |1|2|3|       |K|             |                               |
++-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +
+|     Extended payload length continued, if payload len == 127  |
++ - - - - - - - - - - - - - - - +-------------------------------+
+|                               |Masking-key, if MASK set to 1  |
++-------------------------------+-------------------------------+
+| Masking-key (continued)       |          Payload Data         |
++-------------------------------- - - - - - - - - - - - - - - - +
+:                     Payload Data continued ...                :
++ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+|                     Payload Data continued ...                |
++---------------------------------------------------------------+
+复制代码</code></pre>
+<p>可能有一些小伙伴看到上面的内容之后，就开始有点 “懵逼” 了。下面我们来结合实际的数据帧来进一步分析一下：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e199a03ed41?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>在上图中，阿宝哥简单分析了 “发送普通文本” 示例对应的数据帧格式。这里我们来进一步介绍一下 Payload length，因为在后面开发数据解析功能的时候，需要用到该知识点。</p>
+<p>Payload length 表示以字节为单位的 “有效负载数据” 长度。它有以下几种情形：</p>
+<ul>
+<li>如果值为 0-125，那么就表示负载数据的长度。</li>
+<li>如果是 126，那么接下来的 2 个字节解释为 16 位的无符号整形作为负载数据的长度。</li>
+<li>如果是 127，那么接下来的 8 个字节解释为一个 64 位的无符号整形（最高位的 bit 必须为 0）作为负载数据的长度。</li>
+</ul>
+<p>多字节长度量以网络字节顺序表示，有效负载长度是指 “扩展数据” + “应用数据” 的长度。“扩展数据” 的长度可能为 0，那么有效负载长度就是 “应用数据” 的长度。</p>
+<p>另外，除非协商过扩展，否则 “扩展数据” 长度为 0 字节。在握手协议中，任何扩展都必须指定 “扩展数据” 的长度，这个长度如何进行计算，以及这个扩展如何使用。如果存在扩展，那么这个 “扩展数据” 包含在总的有效负载长度中。</p>
+<h5 id="3-3-2-掩码算法"><a href="#3-3-2-掩码算法" class="headerlink" title="3.3.2 掩码算法"></a>3.3.2 掩码算法</h5><p>掩码字段是一个由客户端随机选择的 32 位的值。掩码值必须是不可被预测的。因此，掩码必须来自强大的熵源（entropy），并且给定的掩码不能让服务器或者代理能够很容易的预测到后续帧。掩码的不可预测性对于预防恶意应用的作者在网上暴露相关的字节数据至关重要。</p>
+<p>掩码不影响数据荷载的长度，对数据进行掩码操作和对数据进行反掩码操作所涉及的步骤是相同的。掩码、反掩码操作都采用如下算法：</p>
+<pre><code>j = i MOD 4
+transformed-octet-i = original-octet-i XOR masking-key-octet-j
+复制代码</code></pre>
+<ul>
+<li>original-octet-i：为原始数据的第 i 字节。</li>
+<li>transformed-octet-i：为转换后的数据的第 i 字节。</li>
+<li>masking-key-octet-j：为 mask key 第 j 字节。</li>
+</ul>
+<p>为了让小伙伴们能够更好的理解上面掩码的计算过程，我们来对示例中 <strong>“我是阿宝哥”</strong> 数据进行掩码操作。这里 <strong>“我是阿宝哥”</strong> 对应的 UTF-8 编码如下所示：</p>
+<pre><code>E6 88 91 E6 98 AF E9 98 BF E5 AE 9D E5 93 A5
+复制代码</code></pre>
+<p>而对应的 Masking-Key 为 <code>0x08f6efb1</code>，根据上面的算法，我们可以这样进行掩码运算：</p>
+<pre><code>let uint8 = new Uint8Array([0xE6, 0x88, 0x91, 0xE6, 0x98, 0xAF, 0xE9, 0x98, 
+  0xBF, 0xE5, 0xAE, 0x9D, 0xE5, 0x93, 0xA5]);
+let maskingKey = new Uint8Array([0x08, 0xf6, 0xef, 0xb1]);
+let maskedUint8 = new Uint8Array(uint8.length);
+
+for (let i = 0, j = 0; i &lt; uint8.length; i++, j = i % 4) &amp;#123;
+  maskedUint8[i] = uint8[i] ^ maskingKey[j];
+&amp;#125;
+
+console.log(Array.from(maskedUint8).map(num=&gt;Number(num).toString(16)).join(' '));
+复制代码</code></pre>
+<p>以上代码成功运行后，控制台会输出以下结果：</p>
+<pre><code>ee 7e 7e 57 90 59 6 29 b7 13 41 2c ed 65 4a
+复制代码</code></pre>
+<p>上述结果与 WireShark 中的 Masked payload 对应的值是一致的，具体如下图所示：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e19aab98024?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>在 WebSocket 协议中，数据掩码的作用是增强协议的安全性。但数据掩码并不是为了保护数据本身，因为算法本身是公开的，运算也不复杂。那么为什么还要引入数据掩码呢？引入数据掩码是为了防止早期版本的协议中存在的代理缓存污染攻击等问题。</p>
+<p>了解完 WebSocket 掩码算法和数据掩码的作用之后，我们再来介绍一下数据分片的概念。</p>
+<h5 id="3-3-3-数据分片"><a href="#3-3-3-数据分片" class="headerlink" title="3.3.3 数据分片"></a>3.3.3 数据分片</h5><p>WebSocket 的每条消息可能被切分成多个数据帧。当 WebSocket 的接收方收到一个数据帧时，会根据 FIN 的值来判断，是否已经收到消息的最后一个数据帧。</p>
+<p>利用 FIN 和 Opcode，我们就可以跨帧发送消息。操作码告诉了帧应该做什么。如果是 0x1，有效载荷就是文本。如果是 0x2，有效载荷就是二进制数据。但是，如果是 0x0，则该帧是一个延续帧。这意味着服务器应该将帧的有效负载连接到从该客户机接收到的最后一个帧。</p>
+<p>为了让大家能够更好地理解上述的内容，我们来看一个来自 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebSockets_API/Writing_WebSocket_servers">MDN</a> 上的示例：</p>
+<pre><code>Client: FIN=1, opcode=0x1, msg="hello"
+Server: (process complete message immediately) Hi.
+Client: FIN=0, opcode=0x1, msg="and a"
+Server: (listening, new message containing text started)
+Client: FIN=0, opcode=0x0, msg="happy new"
+Server: (listening, payload concatenated to previous message)
+Client: FIN=1, opcode=0x0, msg="year!"
+Server: (process complete message) Happy new year to you too!
+复制代码</code></pre>
+<p>在以上示例中，客户端向服务器发送了两条消息。第一个消息在单个帧中发送，而第二个消息跨三个帧发送。</p>
+<p>其中第一个消息是一个完整的消息（FIN=1 且 opcode != 0x0)，因此服务器可以根据需要进行处理或响应。而第二个消息是文本消息（opcode=0x1）且 FIN=0，表示消息还没发送完成，还有后续的数据帧。该消息的所有剩余部分都用延续帧（opcode=0x0）发送，消息的最终帧用 FIN=1 标记。</p>
+<p>好的，简单介绍了数据分片的相关内容。接下来，我们来开始实现消息通信功能。</p>
+<h4 id="3-4-实现消息通信功能"><a href="#3-4-实现消息通信功能" class="headerlink" title="3.4 实现消息通信功能"></a>3.4 实现消息通信功能</h4><p>阿宝哥把实现消息通信功能，分解为消息解析与消息响应两个子功能，下面我们分别来介绍如何实现这两个子功能。</p>
+<h5 id="3-4-1-消息解析"><a href="#3-4-1-消息解析" class="headerlink" title="3.4.1 消息解析"></a>3.4.1 消息解析</h5><p>利用消息通信基础环节中介绍的相关知识，阿宝哥实现了一个 parseMessage 函数，用来解析客户端传过来的 WebSocket 数据帧。出于简单考虑，这里只处理文本帧，具体代码如下所示：</p>
+<pre><code>function parseMessage(buffer) &amp;#123;
+  // 第一个字节，包含了FIN位，opcode, 掩码位
+  const firstByte = buffer.readUInt8(0);
+  // [FIN, RSV, RSV, RSV, OPCODE, OPCODE, OPCODE, OPCODE];
+  // 右移7位取首位，1位，表示是否是最后一帧数据
+  const isFinalFrame = Boolean((firstByte &gt;&gt;&gt; 7) &amp; 0x01);
+  console.log("isFIN: ", isFinalFrame);
+  // 取出操作码，低四位
+  /**
+   * %x0：表示一个延续帧。当 Opcode 为 0 时，表示本次数据传输采用了数据分片，当前收到的数据帧为其中一个数据分片；
+   * %x1：表示这是一个文本帧（text frame）；
+   * %x2：表示这是一个二进制帧（binary frame）；
+   * %x3-7：保留的操作代码，用于后续定义的非控制帧；
+   * %x8：表示连接断开；
+   * %x9：表示这是一个心跳请求（ping）；
+   * %xA：表示这是一个心跳响应（pong）；
+   * %xB-F：保留的操作代码，用于后续定义的控制帧。
+   */
+  const opcode = firstByte &amp; 0x0f;
+  if (opcode === 0x08) &amp;#123;
+    // 连接关闭
+    return;
+  &amp;#125;
+  if (opcode === 0x02) &amp;#123;
+    // 二进制帧
+    return;
+  &amp;#125;
+  if (opcode === 0x01) &amp;#123;
+    // 目前只处理文本帧
+    let offset = 1;
+    const secondByte = buffer.readUInt8(offset);
+    // MASK: 1位，表示是否使用了掩码，在发送给服务端的数据帧里必须使用掩码，而服务端返回时不需要掩码
+    const useMask = Boolean((secondByte &gt;&gt;&gt; 7) &amp; 0x01);
+    console.log("use MASK: ", useMask);
+    const payloadLen = secondByte &amp; 0x7f; // 低7位表示载荷字节长度
+    offset += 1;
+    // 四个字节的掩码
+    let MASK = [];
+    // 如果这个值在0-125之间，则后面的4个字节（32位）就应该被直接识别成掩码；
+    if (payloadLen &lt;= 0x7d) &amp;#123;
+      // 载荷长度小于125
+      MASK = buffer.slice(offset, 4 + offset);
+      offset += 4;
+      console.log("payload length: ", payloadLen);
+    &amp;#125; else if (payloadLen === 0x7e) &amp;#123;
+      // 如果这个值是126，则后面两个字节（16位）内容应该，被识别成一个16位的二进制数表示数据内容大小；
+      console.log("payload length: ", buffer.readInt16BE(offset));
+      // 长度是126， 则后面两个字节作为payload length，32位的掩码
+      MASK = buffer.slice(offset + 2, offset + 2 + 4);
+      offset += 6;
+    &amp;#125; else &amp;#123;
+      // 如果这个值是127，则后面的8个字节（64位）内容应该被识别成一个64位的二进制数表示数据内容大小
+      MASK = buffer.slice(offset + 8, offset + 8 + 4);
+      offset += 12;
+    &amp;#125;
+    // 开始读取后面的payload，与掩码计算，得到原来的字节内容
+    const newBuffer = [];
+    const dataBuffer = buffer.slice(offset);
+    for (let i = 0, j = 0; i &lt; dataBuffer.length; i++, j = i % 4) &amp;#123;
+      const nextBuf = dataBuffer[i];
+      newBuffer.push(nextBuf ^ MASK[j]);
+    &amp;#125;
+    return Buffer.from(newBuffer).toString();
+  &amp;#125;
+  return "";
+&amp;#125;
+复制代码</code></pre>
+<p>创建完 parseMessage 函数，我们来更新一下之前创建的 WebSocket 服务器：</p>
+<pre><code>server.on("upgrade", function (req, socket) &amp;#123;
+  socket.on("data", (buffer) =&gt; &amp;#123;
+    const message = parseMessage(buffer);
+    if (message) &amp;#123;
+      console.log("Message from client:" + message);
+    &amp;#125; else if (message === null) &amp;#123;
+      console.log("WebSocket connection closed by the client.");
+    &amp;#125;
+  &amp;#125;);
+  if (req.headers["upgrade"] !== "websocket") &amp;#123;
+    socket.end("HTTP/1.1 400 Bad Request");
+    return;
+  &amp;#125;
+  // 省略已有代码
+&amp;#125;);
+复制代码</code></pre>
+<p>更新完成之后，我们重新启动服务器，然后继续使用 “发送普通文本” 的示例来测试消息解析功能。以下发送 “我是阿宝哥” 文本消息后，WebSocket 服务器输出的信息。</p>
+<pre><code>Server running at http://localhost:8888
+isFIN:  true
+use MASK:  true
+payload length:  15
+Message from client:我是阿宝哥
+复制代码</code></pre>
+<p>通过观察以上的输出信息，我们的 WebSocket 服务器已经可以成功解析客户端发送包含普通文本的数据帧，下一步我们来实现消息响应的功能。</p>
+<h5 id="3-4-2-消息响应"><a href="#3-4-2-消息响应" class="headerlink" title="3.4.2 消息响应"></a>3.4.2 消息响应</h5><p>要把数据返回给客户端，我们的 WebSocket 服务器也得按照 WebSocket 数据帧的格式来封装数据。与前面介绍的 parseMessage 函数一样，阿宝哥也封装了一个 constructReply 函数用来封装返回的数据，该函数的具体代码如下：</p>
+<pre><code>function constructReply(data) &amp;#123;
+  const json = JSON.stringify(data);
+  const jsonByteLength = Buffer.byteLength(json);
+  // 目前只支持小于65535字节的负载
+  const lengthByteCount = jsonByteLength &lt; 126 ? 0 : 2;
+  const payloadLength = lengthByteCount === 0 ? jsonByteLength : 126;
+  const buffer = Buffer.alloc(2 + lengthByteCount + jsonByteLength);
+  // 设置数据帧首字节，设置opcode为1，表示文本帧
+  buffer.writeUInt8(0b10000001, 0);
+  buffer.writeUInt8(payloadLength, 1);
+  // 如果payloadLength为126，则后面两个字节（16位）内容应该，被识别成一个16位的二进制数表示数据内容大小
+  let payloadOffset = 2;
+  if (lengthByteCount &gt; 0) &amp;#123;
+    buffer.writeUInt16BE(jsonByteLength, 2);
+    payloadOffset += lengthByteCount;
+  &amp;#125;
+  // 把JSON数据写入到Buffer缓冲区中
+  buffer.write(json, payloadOffset);
+  return buffer;
+&amp;#125;
+复制代码</code></pre>
+<p>创建完 constructReply 函数，我们再来更新一下之前创建的 WebSocket 服务器：</p>
+<pre><code>server.on("upgrade", function (req, socket) &amp;#123;
+  socket.on("data", (buffer) =&gt; &amp;#123;
+    const message = parseMessage(buffer);
+    if (message) &amp;#123;
+      console.log("Message from client:" + message);
+      // 新增以下👇代码
+      socket.write(constructReply(&amp;#123; message &amp;#125;));
+    &amp;#125; else if (message === null) &amp;#123;
+      console.log("WebSocket connection closed by the client.");
+    &amp;#125;
+  &amp;#125;);
+&amp;#125;);
+复制代码</code></pre>
+<p>到这里，我们的 WebSocket 服务器已经开发完成了，接下来我们来完整验证一下它的功能。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e19b333840e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>从图中可知，我们的开发的简易版 WebSocket 服务器已经可以正常处理普通文本消息了。最后我们来看一下完整的代码：</p>
+<p><strong>custom-websocket-server.js</strong></p>
+<pre><code>const http = require("http");
+
+const port = 8888;
+const &amp;#123; generateAcceptValue, parseMessage, constructReply &amp;#125; = require("./util");
+
+const server = http.createServer((req, res) =&gt; &amp;#123;
+  res.writeHead(200, &amp;#123; "Content-Type": "text/plain; charset=utf-8" &amp;#125;);
+  res.end("大家好，我是阿宝哥。感谢你阅读“你不知道的WebSocket”");
+&amp;#125;);
+
+server.on("upgrade", function (req, socket) &amp;#123;
+  socket.on("data", (buffer) =&gt; &amp;#123;
+    const message = parseMessage(buffer);
+    if (message) &amp;#123;
+      console.log("Message from client:" + message);
+      socket.write(constructReply(&amp;#123; message &amp;#125;));
+    &amp;#125; else if (message === null) &amp;#123;
+      console.log("WebSocket connection closed by the client.");
+    &amp;#125;
+  &amp;#125;);
+  if (req.headers["upgrade"] !== "websocket") &amp;#123;
+    socket.end("HTTP/1.1 400 Bad Request");
+    return;
+  &amp;#125;
+  // 读取客户端提供的Sec-WebSocket-Key
+  const secWsKey = req.headers["sec-websocket-key"];
+  // 使用SHA-1算法生成Sec-WebSocket-Accept
+  const hash = generateAcceptValue(secWsKey);
+  // 设置HTTP响应头
+  const responseHeaders = [
+    "HTTP/1.1 101 Web Socket Protocol Handshake",
+    "Upgrade: WebSocket",
+    "Connection: Upgrade",
+    `Sec-WebSocket-Accept: $&amp;#123;hash&amp;#125;`,
+  ];
+  // 返回握手请求的响应信息
+  socket.write(responseHeaders.join("\r\n") + "\r\n\r\n");
+&amp;#125;);
+
+server.listen(port, () =&gt;
+  console.log(`Server running at http://localhost:$&amp;#123;port&amp;#125;`)
+);
+复制代码</code></pre>
+<p><strong>util.js</strong></p>
+<pre><code>const crypto = require("crypto");
+
+const MAGIC_KEY = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
+
+function generateAcceptValue(secWsKey) &amp;#123;
+  return crypto
+    .createHash("sha1")
+    .update(secWsKey + MAGIC_KEY, "utf8")
+    .digest("base64");
+&amp;#125;
+
+function parseMessage(buffer) &amp;#123;
+  // 第一个字节，包含了FIN位，opcode, 掩码位
+  const firstByte = buffer.readUInt8(0);
+  // [FIN, RSV, RSV, RSV, OPCODE, OPCODE, OPCODE, OPCODE];
+  // 右移7位取首位，1位，表示是否是最后一帧数据
+  const isFinalFrame = Boolean((firstByte &gt;&gt;&gt; 7) &amp; 0x01);
+  console.log("isFIN: ", isFinalFrame);
+  // 取出操作码，低四位
+  /**
+   * %x0：表示一个延续帧。当 Opcode 为 0 时，表示本次数据传输采用了数据分片，当前收到的数据帧为其中一个数据分片；
+   * %x1：表示这是一个文本帧（text frame）；
+   * %x2：表示这是一个二进制帧（binary frame）；
+   * %x3-7：保留的操作代码，用于后续定义的非控制帧；
+   * %x8：表示连接断开；
+   * %x9：表示这是一个心跳请求（ping）；
+   * %xA：表示这是一个心跳响应（pong）；
+   * %xB-F：保留的操作代码，用于后续定义的控制帧。
+   */
+  const opcode = firstByte &amp; 0x0f;
+  if (opcode === 0x08) &amp;#123;
+    // 连接关闭
+    return;
+  &amp;#125;
+  if (opcode === 0x02) &amp;#123;
+    // 二进制帧
+    return;
+  &amp;#125;
+  if (opcode === 0x01) &amp;#123;
+    // 目前只处理文本帧
+    let offset = 1;
+    const secondByte = buffer.readUInt8(offset);
+    // MASK: 1位，表示是否使用了掩码，在发送给服务端的数据帧里必须使用掩码，而服务端返回时不需要掩码
+    const useMask = Boolean((secondByte &gt;&gt;&gt; 7) &amp; 0x01);
+    console.log("use MASK: ", useMask);
+    const payloadLen = secondByte &amp; 0x7f; // 低7位表示载荷字节长度
+    offset += 1;
+    // 四个字节的掩码
+    let MASK = [];
+    // 如果这个值在0-125之间，则后面的4个字节（32位）就应该被直接识别成掩码；
+    if (payloadLen &lt;= 0x7d) &amp;#123;
+      // 载荷长度小于125
+      MASK = buffer.slice(offset, 4 + offset);
+      offset += 4;
+      console.log("payload length: ", payloadLen);
+    &amp;#125; else if (payloadLen === 0x7e) &amp;#123;
+      // 如果这个值是126，则后面两个字节（16位）内容应该，被识别成一个16位的二进制数表示数据内容大小；
+      console.log("payload length: ", buffer.readInt16BE(offset));
+      // 长度是126， 则后面两个字节作为payload length，32位的掩码
+      MASK = buffer.slice(offset + 2, offset + 2 + 4);
+      offset += 6;
+    &amp;#125; else &amp;#123;
+      // 如果这个值是127，则后面的8个字节（64位）内容应该被识别成一个64位的二进制数表示数据内容大小
+      MASK = buffer.slice(offset + 8, offset + 8 + 4);
+      offset += 12;
+    &amp;#125;
+    // 开始读取后面的payload，与掩码计算，得到原来的字节内容
+    const newBuffer = [];
+    const dataBuffer = buffer.slice(offset);
+    for (let i = 0, j = 0; i &lt; dataBuffer.length; i++, j = i % 4) &amp;#123;
+      const nextBuf = dataBuffer[i];
+      newBuffer.push(nextBuf ^ MASK[j]);
+    &amp;#125;
+    return Buffer.from(newBuffer).toString();
+  &amp;#125;
+  return "";
+&amp;#125;
+
+function constructReply(data) &amp;#123;
+  const json = JSON.stringify(data);
+  const jsonByteLength = Buffer.byteLength(json);
+  // 目前只支持小于65535字节的负载
+  const lengthByteCount = jsonByteLength &lt; 126 ? 0 : 2;
+  const payloadLength = lengthByteCount === 0 ? jsonByteLength : 126;
+  const buffer = Buffer.alloc(2 + lengthByteCount + jsonByteLength);
+  // 设置数据帧首字节，设置opcode为1，表示文本帧
+  buffer.writeUInt8(0b10000001, 0);
+  buffer.writeUInt8(payloadLength, 1);
+  // 如果payloadLength为126，则后面两个字节（16位）内容应该，被识别成一个16位的二进制数表示数据内容大小
+  let payloadOffset = 2;
+  if (lengthByteCount &gt; 0) &amp;#123;
+    buffer.writeUInt16BE(jsonByteLength, 2);
+    payloadOffset += lengthByteCount;
+  &amp;#125;
+  // 把JSON数据写入到Buffer缓冲区中
+  buffer.write(json, payloadOffset);
+  return buffer;
+&amp;#125;
+
+module.exports = &amp;#123;
+  generateAcceptValue,
+  parseMessage,
+  constructReply,
+&amp;#125;;
+复制代码</code></pre>
+<p>其实服务器向浏览器推送信息，除了使用 WebSocket 技术之外，还可以使用 SSE（Server-Sent Events）。它让服务器可以向客户端流式发送文本消息，比如服务器上生成的实时消息。为实现这个目标，SSE 设计了两个组件：<strong>浏览器中的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Server-sent_events/EventSource">EventSource API</a> 和新的 “事件流” 数据格式（text/event-stream）</strong>。其中，EventSource 可以让客户端以 DOM 事件的形式接收到服务器推送的通知，而新数据格式则用于交付每一次数据更新。</p>
+<p>实际上，SSE 提供的是一个高效、跨浏览器的 XHR 流实现，消息交付只使用一个长 HTTP 连接。然而，与我们自己实现 XHR 流不同，浏览器会帮我们管理连接、 解析消息，从而让我们只关注业务逻辑。篇幅有限，关于 SSE 的更多细节，阿宝哥就不展开介绍了，对 SSE 感兴趣的小伙伴可以自行查阅相关资料。</p>
+<h3 id="四、阿宝哥有话说"><a href="#四、阿宝哥有话说" class="headerlink" title="四、阿宝哥有话说"></a>四、阿宝哥有话说</h3><h4 id="4-1-WebSocket-与-HTTP-有什么关系"><a href="#4-1-WebSocket-与-HTTP-有什么关系" class="headerlink" title="4.1 WebSocket 与 HTTP 有什么关系"></a>4.1 WebSocket 与 HTTP 有什么关系</h4><p>WebSocket 是一种与 HTTP 不同的协议。两者都位于 OSI 模型的应用层，并且都依赖于传输层的 TCP 协议。 虽然它们不同，但是 RFC 6455 中规定：WebSocket 被设计为在 HTTP 80 和 443 端口上工作，并支持 HTTP 代理和中介，从而使其与 HTTP 协议兼容。 为了实现兼容性，WebSocket 握手使用 HTTP Upgrade 头，从 HTTP 协议更改为 WebSocket 协议。</p>
+<p>既然已经提到了 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/OSI%E6%A8%A1%E5%9E%8B">OSI（Open System Interconnection Model）模型</a>，这里阿宝哥来分享一张很生动、很形象描述 OSI 模型的示意图：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e19b626b49b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>（图片来源：<a target="_blank" rel="noopener" href="https://www.networkingsphere.com/2019/07/what-is-osi-model.html%EF%BC%89">https://www.networkingsphere.com/2019/07/what-is-osi-model.html）</a></p>
+<h4 id="4-2-WebSocket-与长轮询有什么区别"><a href="#4-2-WebSocket-与长轮询有什么区别" class="headerlink" title="4.2 WebSocket 与长轮询有什么区别"></a>4.2 WebSocket 与长轮询有什么区别</h4><p>长轮询就是客户端发起一个请求，服务器收到客户端发来的请求后，服务器端不会直接进行响应，而是先将这个请求挂起，然后判断请求的数据是否有更新。如果有更新，则进行响应，如果一直没有数据，则等待一定的时间后才返回。</p>
+<p>长轮询的本质还是基于 HTTP 协议，它仍然是一个一问一答（请求 — 响应）的模式。而 WebSocket 在握手成功后，就是全双工的 TCP 通道，数据可以主动从服务端发送到客户端。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/27/17390e19c4b15f3a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<h4 id="4-3-什么是-WebSocket-心跳"><a href="#4-3-什么是-WebSocket-心跳" class="headerlink" title="4.3 什么是 WebSocket 心跳"></a>4.3 什么是 WebSocket 心跳</h4><p>网络中的接收和发送数据都是使用 SOCKET 进行实现。但是如果此套接字已经断开，那发送数据和接收数据的时候就一定会有问题。可是如何判断这个套接字是否还可以使用呢？这个就需要在系统中创建心跳机制。所谓 “心跳” 就是定时发送一个自定义的结构体（心跳包或心跳帧），让对方知道自己 “在线”。 以确保链接的有效性。</p>
+<p>而所谓的心跳包就是客户端定时发送简单的信息给服务器端告诉它我还在而已。代码就是每隔几分钟发送一个固定信息给服务端，服务端收到后回复一个固定信息，如果服务端几分钟内没有收到客户端信息则视客户端断开。</p>
+<p>在 WebSocket 协议中定义了 <strong>心跳 Ping</strong> 和 <strong>心跳 Pong</strong> 的控制帧：</p>
+<ul>
+<li>心跳 Ping 帧包含的操作码是 0x9。如果收到了一个心跳 Ping 帧，那么终端必须发送一个心跳 Pong 帧作为回应，除非已经收到了一个关闭帧。否则终端应该尽快回复 Pong 帧。</li>
+<li>心跳 Pong 帧包含的操作码是 0xA。作为回应发送的 Pong 帧必须完整携带 Ping 帧中传递过来的 “应用数据” 字段。如果终端收到一个 Ping 帧但是没有发送 Pong 帧来回应之前的 Ping 帧，那么终端可以选择仅为最近处理的 Ping 帧发送 Pong 帧。此外，可以自动发送一个 Pong 帧，这用作单向心跳。</li>
+</ul>
+<h4 id="4-4-Socket-是什么"><a href="#4-4-Socket-是什么" class="headerlink" title="4.4 Socket 是什么"></a>4.4 Socket 是什么</h4><p>网络上的两个程序通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个 socket（套接字），因此建立网络通信连接至少要一对端口号。<strong>socket 本质是对 TCP/IP 协议栈的封装，它提供了一个针对 TCP 或者 UDP 编程的接口，并不是另一种协议</strong>。通过 socket，你可以使用 TCP/IP 协议。</p>
+<blockquote>
+<p>Socket 的英文原义是“孔”或“插座”。作为 BSD UNIX 的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1">进程通信</a>机制，取后一种意思。通常也称作”<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A5%97%E6%8E%A5%E5%AD%97">套接字</a>“，用于描述IP地址和端口，是一个通信链的句柄，可以用来实现不同虚拟机或不同计算机之间的通信。</p>
+<p>在Internet 上的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA">主机</a>一般运行了多个服务软件，同时提供几种服务。每种服务都打开一个Socket，并绑定到一个端口上，不同的端口对应于不同的服务。Socket 正如其英文原义那样，像一个多孔插座。一台主机犹如布满各种插座的房间，每个插座有一个编号，有的插座提供 220 伏交流电， 有的提供 110 伏交流电，有的则提供有线电视节目。 客户软件将插头插到不同编号的插座，就可以得到不同的服务。—— <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/socket/281150">百度百科</a></p>
+</blockquote>
+<p>关于 Socket，可以总结以下几点：</p>
+<ul>
+<li>它可以实现底层通信，几乎所有的应用层都是通过 socket 进行通信的。</li>
+<li>对 TCP/IP 协议进行封装，便于应用层协议调用，属于二者之间的中间抽象层。</li>
+<li>TCP/IP 协议族中，传输层存在两种通用协议: TCP、UDP，两种协议不同，因为不同参数的 socket 实现过程也不一样。</li>
+</ul>
+<p>下图说明了面向连接的协议的套接字 API 的客户端/服务器关系。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/7/26/17389e7e394ad059?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<h3 id="五、参考资源"><a href="#五、参考资源" class="headerlink" title="五、参考资源"></a>五、参考资源</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/WebSocket">维基百科 - WebSocket</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket">MDN - WebSocket</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Protocol_upgrade_mechanism">MDN - Protocol_upgrade_mechanism</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebSockets_API/Writing_WebSocket_servers">MDN - 编写 WebSocket 服务器</a></li>
+<li><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6455">rfc6455</a></li>
+<li>Web 性能权威指南</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2020/6/22/172dc5bb94585adf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6854573221241421838">转自 【掘金】阿宝哥</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/blog/about" rel="external nofollow noreferrer">delfino</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://simple-delfino.github.io/blog/blog/node/20200728002/">https://simple-delfino.github.io/blog/blog/node/20200728002/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/blog/about" target="_blank">delfino</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/blog/tags/WebSocket/">
+                                    <span class="chip bg-color">WebSocket</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/blog/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/blog/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: auto;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: auto;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/blog/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/blog/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/blog/backend/20200728001/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/1.jpg" class="responsive-img" alt="封装 axios 拦截器实现用户无感刷新 access_token">
+                        
+                        <span class="card-title">封装 axios 拦截器实现用户无感刷新 access_token</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言最近做项目的时候，涉及到一个单点登录，即是项目的登录页面，用的是公司共用的一个登录页面，在该页面统一处理逻辑。最终实现用户只需登录一次，就可以以登录状态访问公司旗下的所有网站。
+
+❝
+单点登录( Single Sign On ，简称 S
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/backend/" class="post-category">
+                                    backend
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/axios/">
+                        <span class="chip bg-color">axios</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog/web/20200725001/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/19.jpg" class="responsive-img" alt="今天谈谈作用域和作用域链">
+                        
+                        <span class="card-title">今天谈谈作用域和作用域链</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+JavaScript 中有一个被称为作用域(Scope)的特性。虽然对于许多新手开发者来说，作用域的概念并不是很容易理解，本文我会尽我所能用最简单的方式来解释作用域和作用域链，希望大家有所收获！
+
+前言JavaScript 中有一个被称为
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/web/" class="post-category">
+                                    web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/interview/">
+                        <span class="chip bg-color">interview</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: delfino<br />'
+            + '文章作者: delfino<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/blog/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/blog/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/blog/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/blog/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/blog/about" target="_blank">delfino</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">47.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/simple-delfino" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1319879149@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1319879149" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1319879149" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/blog/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/blog/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/blog/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/blog/libs/materialize/materialize.min.js"></script>
+    <script src="/blog/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/blog/libs/aos/aos.js"></script>
+    <script src="/blog/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/blog/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/blog/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/blog/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/blog/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/blog/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/blog/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/blog/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

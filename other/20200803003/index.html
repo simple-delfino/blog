@@ -1,0 +1,1311 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="标签: linux, delfino">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>标签: linux | delfino</title>
+    <link rel="icon" type="image/png" href="/blog/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/blog/css/my.css">
+
+    <script src="/blog/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="stylesheet" href="/blog/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/blog/" class="waves-effect waves-light">
+                    
+                    <img src="/blog/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">delfino</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/blog/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">delfino</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/simple-delfino/blog" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #F062A7;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/simple-delfino/blog" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">linux常用基本命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/blog/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/blog/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/blog/categories/other/" class="post-category">
+                                other
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-08-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-08-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 分
+                </div>
+                
+
+                <div class="info-break-policy">
+                    
+                    <i class="fa fa-pencil"></i> 作者: delfino
+                    
+                </div>
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Linux中许多常用命令是必须掌握的，这里将我学linux入门时学的一些常用的基本命令分享给大家一下，希望可以帮助你们。</p>
+<p>这个是我将鸟哥书上的进行了一下整理的，希望不要涉及到版权问题。</p>
+<h1 id="1、显示日期的指令：-date"><a href="#1、显示日期的指令：-date" class="headerlink" title="1、显示日期的指令： date"></a>1、显示日期的指令： date</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363935954_6311.png"></p>
+<h1 id="2、显示日历的指令：cal"><a href="#2、显示日历的指令：cal" class="headerlink" title="2、显示日历的指令：cal"></a>2、显示日历的指令：cal</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363935980_1369.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363935990_8670.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363935996_9522.png"></p>
+<h1 id="3、简单好用的计算器：bc"><a href="#3、简单好用的计算器：bc" class="headerlink" title="3、简单好用的计算器：bc"></a>3、简单好用的计算器：bc</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936042_6658.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936054_8908.png"></p>
+<p>怎么10/100会变成0呢？这是因为bc预设仅输出整数，如果要输出小数点下位数，那么就必须要执行 scale=number ，那个number就是小数点位数，例如：</p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936069_2896.png"></p>
+<h1 id="4、重要的几个热键-Tab-ctrl-c-ctrl-d"><a href="#4、重要的几个热键-Tab-ctrl-c-ctrl-d" class="headerlink" title="4、重要的几个热键[Tab],[ctrl]-c, [ctrl]-d&nbsp;"></a>4、重要的几个热键[Tab],[ctrl]-c, [ctrl]-d&nbsp;</h1><p>[Tab]按键—具有『命令补全』不『档案补齐』的功能</p>
+<p>[Ctrl]-c按键—让当前的程序『停掉』</p>
+<p>[Ctrl]-d按键—通常代表着：『键盘输入结束(End Of File, EOF 戒 End OfInput)』的意思；另外，他也可以用来取代exit</p>
+<h1 id="5、man"><a href="#5、man" class="headerlink" title="5、man"></a>5、man</h1><p>退出用q，</p>
+<p>man -f man</p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936109_3235.png"></p>
+<h1 id="6、数据同步写入磁盘：-sync"><a href="#6、数据同步写入磁盘：-sync" class="headerlink" title="6、数据同步写入磁盘：&nbsp;sync"></a>6、数据同步写入磁盘：&nbsp;sync</h1><p>输入sync，那举在内存中尚未被更新的数据，就会被写入硬盘中；所以，这个挃令在系统关机戒重新启劢乀前， 径重要喔！最好多执行几次！</p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936120_9820.png"></p>
+<h1 id="7、惯用的关机指令：shutdown"><a href="#7、惯用的关机指令：shutdown" class="headerlink" title="7、惯用的关机指令：shutdown"></a>7、惯用的关机指令：shutdown</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936132_1780.png"></p>
+<p>此外，需要注意的是，时间参数请务必加入指令中，否则shutdown会自动跳到 run-level 1 (就是单人维护的登入情况)，这样就伤脑筋了！底下提供几个时间参数的例子吧：</p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936145_2758.png"></p>
+<p>重启，关机： reboot, halt,poweroff</p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936158_4694.png"></p>
+<h1 id="8、切换执行等级：-init"><a href="#8、切换执行等级：-init" class="headerlink" title="8、切换执行等级： init"></a>8、切换执行等级： init</h1><p>Linux共有七种执行等级：</p>
+<p>--run level 0 :关机</p>
+<p>--run level 3 :纯文本模式</p>
+<p>--run level 5 :含有图形接口模式</p>
+<p>--run level 6 :重新启动</p>
+<p>使用init这个指令来切换各模式：</p>
+<p>如果你想要关机的话，除了上述的shutdown -h now以及poweroff之外，你也可以使用如下的指令来关机：&nbsp;&nbsp;</p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936183_6281.png"></p>
+<h1 id="9、改变文件的所属群组：chgrp"><a href="#9、改变文件的所属群组：chgrp" class="headerlink" title="9、改变文件的所属群组：chgrp"></a>9、改变文件的所属群组：chgrp</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936198_8642.png"></p>
+<h1 id="10、改变文件拥有者：chown"><a href="#10、改变文件拥有者：chown" class="headerlink" title="10、改变文件拥有者：chown"></a>10、改变文件拥有者：chown</h1><p>他还可以顸便直接修改群组的名称</p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936213_8090.png"></p>
+<h1 id="11、改变文件的权限：chmod"><a href="#11、改变文件的权限：chmod" class="headerlink" title="11、改变文件的权限：chmod"></a>11、改变文件的权限：chmod</h1><table border="0" cellspacing="0" cellpadding="0" width="722"><tbody><tr><td valign="top"><p align="left"><span style="font-size:18px;">权限的设定方法有两种， 分别可以使用数字或者是符号来进行权限的变更。</span></p></td></tr></tbody></table>
+
+
+
+<p>--数字类型改变档案权限：</p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936248_2355.png"></p>
+<p>--符号类型改变档案权限：</p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936259_4661.png"></p>
+<h1 id="12、查看版本信息等"><a href="#12、查看版本信息等" class="headerlink" title="12、查看版本信息等"></a>12、查看版本信息等</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936285_4549.png"></p>
+<h1 id="13、变换目录：cd"><a href="#13、变换目录：cd" class="headerlink" title="13、变换目录：cd"></a>13、变换目录：cd</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936297_1247.png"></p>
+<h1 id="14、显示当前所在目录：pwd"><a href="#14、显示当前所在目录：pwd" class="headerlink" title="14、显示当前所在目录：pwd"></a>14、显示当前所在目录：pwd</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936306_6088.png"></p>
+<h1 id="15、建立新目录：mkdir"><a href="#15、建立新目录：mkdir" class="headerlink" title="15、建立新目录：mkdir"></a>15、建立新目录：mkdir</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936321_4240.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936335_4740.png"></p>
+<p>不建议常用-p这个选项，因为担心如果你打错字，那么目录名称就回变得乱七八糟的</p>
+<h1 id="16、删除『空』的目录：rmdir"><a href="#16、删除『空』的目录：rmdir" class="headerlink" title="16、删除『空』的目录：rmdir"></a>16、删除『空』的目录：rmdir</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936353_8065.png"></p>
+<h1 id="17、档案与目录的显示：ls"><a href="#17、档案与目录的显示：ls" class="headerlink" title="17、档案与目录的显示：ls"></a>17、档案与目录的显示：ls</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936364_8540.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936378_2040.png"></p>
+<h1 id="18、复制档案或目录：cp"><a href="#18、复制档案或目录：cp" class="headerlink" title="18、复制档案或目录：cp"></a>18、复制档案或目录：cp</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936391_3459.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936405_1275.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936421_3936.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936434_7475.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936447_1389.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936473_8128.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936488_3487.png"></p>
+<h1 id="19、移除档案或目录：rm"><a href="#19、移除档案或目录：rm" class="headerlink" title="19、移除档案或目录：rm"></a>19、移除档案或目录：rm</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936513_9642.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936523_3283.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936534_8970.png"></p>
+<h1 id="20、移动档案与目录，或更名：mv"><a href="#20、移动档案与目录，或更名：mv" class="headerlink" title="20、移动档案与目录，或更名：mv"></a>20、移动档案与目录，或更名：mv</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936546_1932.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936558_1163.png"></p>
+<h1 id="21、取得路径的文件名与目录名：basename，dirname"><a href="#21、取得路径的文件名与目录名：basename，dirname" class="headerlink" title="21、取得路径的文件名与目录名：basename，dirname"></a>21、取得路径的文件名与目录名：basename，dirname</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936571_2352.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936582_4520.png"></p>
+<h1 id="22、由第一行开始显示档案内容：cat"><a href="#22、由第一行开始显示档案内容：cat" class="headerlink" title="22、由第一行开始显示档案内容：cat"></a>22、由第一行开始显示档案内容：cat</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936609_6282.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936621_3423.png"></p>
+<h1 id="23、从最后一行开始显示：tac（可以看出-tac-是-cat-的倒着写）"><a href="#23、从最后一行开始显示：tac（可以看出-tac-是-cat-的倒着写）" class="headerlink" title="23、从最后一行开始显示：tac（可以看出 tac 是 cat 的倒着写）"></a>23、从最后一行开始显示：tac（可以看出 tac 是 cat 的倒着写）</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936634_1541.png"></p>
+<h1 id="24、显示的时候，顺道输出行号：nl"><a href="#24、显示的时候，顺道输出行号：nl" class="headerlink" title="24、显示的时候，顺道输出行号：nl"></a>24、显示的时候，顺道输出行号：nl</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936651_6458.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936671_4557.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936684_7797.png"></p>
+<h1 id="25、一页一页的显示档案内容：more"><a href="#25、一页一页的显示档案内容：more" class="headerlink" title="25、一页一页的显示档案内容：more"></a>25、一页一页的显示档案内容：more</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936710_9067.png"></p>
+<h1 id="26、与-more-类似，但是比-more-更好的是，他可以往前翻页：less"><a href="#26、与-more-类似，但是比-more-更好的是，他可以往前翻页：less" class="headerlink" title="26、与 more 类似，但是比 more 更好的是，他可以往前翻页：less"></a>26、与 more 类似，但是比 more 更好的是，他可以往前翻页：less</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936728_2729.png"></p>
+<h1 id="27、只看头几行：head"><a href="#27、只看头几行：head" class="headerlink" title="27、只看头几行：head"></a>27、只看头几行：head</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936748_3301.png"></p>
+<h1 id="28、只看尾几行：tail"><a href="#28、只看尾几行：tail" class="headerlink" title="28、只看尾几行：tail"></a>28、只看尾几行：tail</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936798_8160.png"></p>
+<h1 id="29、以二进制的放置读取档案内容：od"><a href="#29、以二进制的放置读取档案内容：od" class="headerlink" title="29、以二进制的放置读取档案内容：od"></a>29、以二进制的放置读取档案内容：od</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936808_2619.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936819_8586.png"></p>
+<h1 id="30、修改档案时间或新建档案：touch"><a href="#30、修改档案时间或新建档案：touch" class="headerlink" title="30、修改档案时间或新建档案：touch"></a>30、修改档案时间或新建档案：touch</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936832_1025.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936847_2396.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936857_7179.png"></p>
+<h1 id="31、档案预设权限：umask"><a href="#31、档案预设权限：umask" class="headerlink" title="31、档案预设权限：umask"></a>31、档案预设权限：umask</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936868_1680.png"></p>
+<h1 id="32、配置文件档案隐藏属性：chattr"><a href="#32、配置文件档案隐藏属性：chattr" class="headerlink" title="32、配置文件档案隐藏属性：chattr"></a>32、配置文件档案隐藏属性：chattr</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936877_4715.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936886_3351.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936897_2939.png"></p>
+<h1 id="33、显示档案隐藏属性：lsattr"><a href="#33、显示档案隐藏属性：lsattr" class="headerlink" title="33、显示档案隐藏属性：lsattr"></a>33、显示档案隐藏属性：lsattr</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936910_4210.png"></p>
+<h1 id="34、观察文件类型：file"><a href="#34、观察文件类型：file" class="headerlink" title="34、观察文件类型：file"></a>34、观察文件类型：file</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936923_3379.png"></p>
+<h1 id="35、寻找【执行挡】：which"><a href="#35、寻找【执行挡】：which" class="headerlink" title="35、寻找【执行挡】：which"></a>35、寻找【执行挡】：which</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936932_2949.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363936946_1973.png"></p>
+<h1 id="36、寻找特定档案：whereis"><a href="#36、寻找特定档案：whereis" class="headerlink" title="36、寻找特定档案：whereis"></a>36、寻找特定档案：whereis</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363936956_5666.png"></p>
+<h1 id="37、寻找特定档案：locate"><a href="#37、寻找特定档案：locate" class="headerlink" title="37、寻找特定档案：locate"></a>37、寻找特定档案：locate</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363937757_9288.png"></p>
+<h1 id="38、寻找特定档案：find"><a href="#38、寻找特定档案：find" class="headerlink" title="38、寻找特定档案：find"></a>38、寻找特定档案：find</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363937773_3082.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363937784_2757.png"></p>
+<h1 id="39、压缩文件和读取压缩文件：gzip，zcat"><a href="#39、压缩文件和读取压缩文件：gzip，zcat" class="headerlink" title="39、压缩文件和读取压缩文件：gzip，zcat"></a>39、压缩文件和读取压缩文件：gzip，zcat</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363937793_4694.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363937802_1953.png"></p>
+<h1 id="40、压缩文件和读取压缩文件：bzip2，bzcat"><a href="#40、压缩文件和读取压缩文件：bzip2，bzcat" class="headerlink" title="40、压缩文件和读取压缩文件：bzip2，bzcat"></a>40、压缩文件和读取压缩文件：bzip2，bzcat</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363937816_9269.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363937900_4463.png"></p>
+<h1 id="41、压缩文件和读取压缩文件：tar"><a href="#41、压缩文件和读取压缩文件：tar" class="headerlink" title="41、压缩文件和读取压缩文件：tar"></a>41、压缩文件和读取压缩文件：tar</h1><p><img src="https://img-my.csdn.net/uploads/201303/22/1363937990_3354.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363938001_5653.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363938031_1319.png">  </p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363938044_9852.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363938052_3223.png"></p>
+<p><img src="https://img-my.csdn.net/uploads/201303/22/1363938061_6833.png"></p>
+<p>好了，累死了，终于搞完了，希望能对的大家有所帮助。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaoguaihai/article/details/8705992">转自 【csdn】 xiaoguaihai</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/blog/about" rel="external nofollow noreferrer">delfino</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://simple-delfino.github.io/blog/blog/other/20200803003/">https://simple-delfino.github.io/blog/blog/other/20200803003/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/blog/about" target="_blank">delfino</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/blog/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/blog/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/blog/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: auto;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: auto;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/blog/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/blog/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/blog/other/20200803003/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/5.jpg" class="responsive-img" alt="linux常用基本命令">
+                        
+                        <span class="card-title">linux常用基本命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Linux中许多常用命令是必须掌握的，这里将我学linux入门时学的一些常用的基本命令分享给大家一下，希望可以帮助你们。
+这个是我将鸟哥书上的进行了一下整理的，希望不要涉及到版权问题。
+1、显示日期的指令： date
+2、显示日历的指令：c
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/other/" class="post-category">
+                                    other
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog/web/20200803002/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/0.jpg" class="responsive-img" alt="什么是BFC">
+                        
+                        <span class="card-title">什么是BFC</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            BFC 定义
+BFC(Block formatting context)直译为”块级格式化上下文”。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/web/" class="post-category">
+                                    web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/css/">
+                        <span class="chip bg-color">css</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: delfino<br />'
+            + '文章作者: delfino<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/blog/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/blog/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/blog/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/blog/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/blog/about" target="_blank">delfino</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">47.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/simple-delfino" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1319879149@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1319879149" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1319879149" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/blog/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/blog/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/blog/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/blog/libs/materialize/materialize.min.js"></script>
+    <script src="/blog/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/blog/libs/aos/aos.js"></script>
+    <script src="/blog/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/blog/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/blog/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/blog/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/blog/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/blog/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/blog/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/blog/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

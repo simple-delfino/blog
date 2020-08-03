@@ -1,0 +1,1896 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="标签: node, delfino">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>标签: node | delfino</title>
+    <link rel="icon" type="image/png" href="/blog/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/blog/css/my.css">
+
+    <script src="/blog/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="stylesheet" href="/blog/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/blog/" class="waves-effect waves-light">
+                    
+                    <img src="/blog/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">delfino</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/blog/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">delfino</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/simple-delfino/blog" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #F062A7;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/simple-delfino/blog" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">基于 Egg.js 框架的 Node.js 服务构建之用户管理设计</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/blog/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/blog/tags/node/">
+                                <span class="chip bg-color">node</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/blog/categories/backend/" class="post-category">
+                                backend
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-08-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-08-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    27 分
+                </div>
+                
+
+                <div class="info-break-policy">
+                    
+                    <i class="fa fa-pencil"></i> 作者: delfino
+                    
+                </div>
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>近来公司需要构建一套 EMM（Enterprise Mobility Management）的管理平台，就这种面向企业的应用管理本身需要考虑的需求是十分复杂的，技术层面管理端和服务端构建是架构核心，客户端本身初期倒不需要那么复杂，作为移动端的负责人（其实也就是一个打杂的小组长），这个平台架构我自然是免不了去参与的，作为一个前端 jser 来公司这边总是接到这种不太像前端的工作，要是以前我可能会有些抵触这种业务层面需要考虑的很多，技术实现本身又不太容易积累技术成长的活。这一年我成长了太多，总是尝试着去做一些可能自己谈不上喜欢但还是有意义的事情，所以这次接手这个任务还是想好好把这个事情做好，所以想考虑参与到 EMM 服务端构建。其实话又说回来，任何事只要想去把它做好，怎么会存在有意义还是没意义的区别呢？</p>
+</blockquote>
+<p>考虑到基于 Node.js 构建的服务目前越来越流行，也方便后续放在平台容器云上构建微服务，另外作为一个前端 jser 出身的程序员，使用 Node.js 来构建服务格外熟悉。之前学习过一段时间 Egg.js，这次毫不犹豫的选择了基于 Egg.js 框架来搭建。</p>
+<h2 id="为什么是-Egg-js-？"><a href="#为什么是-Egg-js-？" class="headerlink" title="为什么是 Egg.js ？"></a>为什么是 Egg.js ？</h2><p>去年在 gitchat <a target="_blank" rel="noopener" href="http://gitbook.cn/books/598144f5e64f69311fe1a813/index.html">JavaScript 进阶之 Vue.js + Node.js 入门实战开发</a> 中安利过 Egg.js，那个时候是初接触 Egg.js，但是还是被它惊艳到了，<strong>Egg 继承于 Koa，奉行『约定优于配置』，按照一套统一的约定进行应用开发，插件机制也比较完善</strong>。虽然说 Egg 继承于 Koa，大家可能觉得完全可以自己基于 Koa 去实现一套，没必要基于这个框架去搞，但是其实自己去设计一套这样的框架，最终也是需要去借鉴各家所长，时间成本上短期是划不来的。Koa 是一个小而精的框架，而 Egg 正如文档说的<strong>为企业级框架和应用而生</strong>，对于我们快速搭建一个完备的企业级应用还是很方便的。Egg 功能已经比较完善，另外如果没有实现的功能，自己根据 Koa 社区提供的插件封装一下也是不难的。</p>
+<h2 id="ORM-设计选型"><a href="#ORM-设计选型" class="headerlink" title="ORM 设计选型"></a>ORM 设计选型</h2><p>在数据库选择上本次项目考虑使用 MySQL，而不是 MongoDB，开始使用的是 egg-mysql 插件，写了一部分后发现 service 里面写了太多东西，表字段修改会影响太多代码，在设计上缺乏对 Model 的管理，看到资料说可以引入 ORM 框架，比如 sequelize，而 Egg 官方恰好提供了 egg-sequelize 插件。</p>
+<h3 id="什么是-ORM"><a href="#什么是-ORM" class="headerlink" title="什么是 ORM ?"></a>什么是 ORM ?</h3><p>首先了解一下什么是 ORM ?</p>
+<blockquote>
+<p>对象关系映射（英语：Object Relational Mapping，简称 ORM，或 O/RM，或 O/R mapping），是一种程序设计技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换。从效果上说，它其实是创建了一个可在编程语言里使用的“虚拟对象数据库”。</p>
+</blockquote>
+<p>类似于 J2EE 中的 DAO 设计模式，将程序中的数据对象自动地转化为关系型数据库中对应的表和列，数据对象间的引用也可以通过这个工具转化为表。这样就可以很好的解决我遇到的那个问题，对于表结构修改和数据对象操作是两个独立的部分，从而使得代码更好维护。其实是否选择 ORM 框架，和以前前端是选择模板引擎还是手动拼字符串一样，ORM 框架避免了在开发的时候手动拼接 SQL 语句，可以防止 SQL 注入，另外也将数据库和数据 CRUD 解耦，更换数据库也相对更容易。</p>
+<h3 id="sequelize-框架"><a href="#sequelize-框架" class="headerlink" title="sequelize 框架"></a>sequelize 框架</h3><p>sequelize 是 Node.js 社区比较流行的一个 ORM 框架，相关文档：</p>
+<ul>
+<li>sequelize.js 文档：<a target="_blank" rel="noopener" href="http://docs.sequelizejs.com/">http://docs.sequelizejs.com/</a></li>
+</ul>
+<h4 id="sequelize-使用"><a href="#sequelize-使用" class="headerlink" title="sequelize 使用"></a>sequelize 使用</h4><p><strong>安装：</strong></p>
+<pre><code>$ npm install --save sequelize
+</code></pre>
+<p><strong>建立连接：</strong></p>
+<pre><code>const Sequelize = require("sequelize");
+
+// 完整用法
+const sequelize = new Sequelize("database", "username", "password", &amp;#123;
+  host: "localhost",
+  dialect: "mysql" | "sqlite" | "postgres" | "mssql",
+  operatorsAliases: false,
+  pool: &amp;#123;
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  &amp;#125;,
+  // SQLite only
+  storage: "path/to/database.sqlite"
+);</code></pre>
+<p>// 简单用法</p>
+<pre><code>const sequelize = new Sequelize("postgres://user:pass@example.com:5432dbname");</code></pre>
+<p><strong>校验连接是否正确：</strong></p>
+<pre><code>sequelize
+  .authenticate()
+  .then(() =&gt; &amp;#123;
+    console.log("Connection has been established successfully.");
+  &amp;#125;)
+  .catch(err =&gt; &amp;#123;
+    console.error("Unable to connect to the database:", err);
+  &amp;#125;);</code></pre>
+<p><strong>定义 Model ：</strong></p>
+<p>定义一个 Model 的基本语法：</p>
+<pre><code>sequelize.define("name", &amp;#123; attributes &amp;#125;, &amp;#123; options &amp;#125;);</code></pre>
+<p>例如：</p>
+<pre><code>const User = sequelize.define("user", &amp;#123;
+  username: &amp;#123;
+    type: Sequelize.STRING
+  &amp;#125;,
+  password: &amp;#123;
+    type: Sequelize.STRING
+  &amp;#125;
+&amp;#125;);</code></pre>
+<p>对于一个 Model 字段类型设计，主要考虑以下几个方面：</p>
+<p>Sequelize 默认会添加 createdAt 和 updatedAt，这样可以很方便的知道数据创建和更新的时间。如果不想使用可以通过设置 attributes 的 timestamps: false；</p>
+<p>Sequelize 支持丰富的数据类型，例如：STRING、CHAR、TEXT、INTEGER、FLOAT、DOUBLE、BOOLEAN、DATE、UUID 、JSON 等多种不同的数据类型，具体可以看文档：<a target="_blank" rel="noopener" href="http://docs.sequelizejs.com/variable/index.html#static-variable-DataTypes">DataTypes</a> 。</p>
+<p>Getters &amp; setters 支持，当我们需要对字段进行处理的时候十分有用，例如：对字段值大小写转换处理。</p>
+<pre><code>const Employee = sequelize.define("employee", &amp;#123;
+  name: &amp;#123;
+    type: Sequelize.STRING,
+    allowNull: false,
+    get() &amp;#123;
+      const title = this.getDataValue("title");
+      return this.getDataValue("name") + " (" + title + ")";
+    &amp;#125;
+  &amp;#125;,
+  title: &amp;#123;
+    type: Sequelize.STRING,
+    allowNull: false,
+    set(val) &amp;#123;
+      this.setDataValue("title", val.toUpperCase());
+    &amp;#125;
+  &amp;#125;
+&amp;#125;);</code></pre>
+<p>字段校验有两种类型：非空校验及类型校验，Sequelize 中非空校验通过字段的 allowNull 属性判定，类型校验是通过 validate 进行判定，底层是通过 <a target="_blank" rel="noopener" href="https://github.com/chriso/validator.js">validator.js</a> 实现的。如果模型的特定字段设置为允许 null（allowNull：true），并且该值已设置为 null，则 validate 属性不生效。例如，有一个字符串字段，allowNull 设置为 true，validate 验证其长度至少为 5 个字符，但也允许为空。</p>
+<pre><code>const ValidateMe = sequelize.define("foo", &amp;#123;
+  foo: &amp;#123;
+    type: Sequelize.STRING,
+    validate: &amp;#123;
+      is: \["^\[a-z\]+$", "i"\], // will only allow letters
+      is: /^\[a-z\]+$/i, // same as the previous example using real RegExp
+      not: \["\[a-z\]", "i"\], // will not allow letters
+      isEmail: true, // checks for email format (foo@bar.com)
+      isUrl: true, // checks for url format (http://foo.com)
+      isIP: true, // checks for IPv4 (129.89.23.1) or IPv6 format
+      isIPv4: true, // checks for IPv4 (129.89.23.1)
+      isIPv6: true, // checks for IPv6 format
+      isAlpha: true, // will only allow letters
+      isAlphanumeric: true, // will only allow alphanumeric characters, so "\_abc" will fail
+      isNumeric: true, // will only allow numbers
+      isInt: true, // checks for valid integers
+      isFloat: true, // checks for valid floating point numbers
+      isDecimal: true, // checks for any numbers
+      isLowercase: true, // checks for lowercase
+      isUppercase: true, // checks for uppercase
+      notNull: true, // won't allow null
+      isNull: true, // only allows null
+      notEmpty: true, // don't allow empty strings
+      equals: "specific value", // only allow a specific value
+      contains: "foo", // force specific substrings
+      notIn: \[\["foo", "bar"\]\], // check the value is not one of these
+      isIn: \[\["foo", "bar"\]\], // check the value is one of these
+      notContains: "bar", // don't allow specific substrings
+      len: \[2, 10\], // only allow values with length between 2 and 10
+      isUUID: 4, // only allow uuids
+      isDate: true, // only allow date strings
+      isAfter: "2011-11-05", // only allow date strings after a specific date
+      isBefore: "2011-11-05", // only allow date strings before a specific date
+      max: 23, // only allow values &lt;= 23
+      min: 23, // only allow values &gt;= 23
+      isCreditCard: true, // check for valid credit card numbers
+
+      // custom validations are also possible:
+      isEven(value) &amp;#123;
+        if (parseInt(value) % 2 != 0) &amp;#123;
+          throw new Error("Only even values are allowed!");
+          // we also are in the model's context here, so this.otherField
+          // would get the value of otherField if it existed
+        &amp;#125;
+      &amp;#125;
+    &amp;#125;
+
+  &amp;#125;
+&amp;#125;);</code></pre>
+<p>最后我们说明一个最重要的字段<strong>主键 id</strong> 的设计， 需要通过字段 <code>primaryKey: true</code> 指定为主键。MySQL 里面主键设计主要有两种方式：<strong>自动递增</strong>；<strong>UUID</strong>。</p>
+<p>自动递增设置 <code>autoIncrement: true</code> 即可，对于一般的小型系统这种方式是最方便，查询效率最高的，但是这种不利于分布式集群部署，这种基本用过 MySQL 里面应用都用过，这里不做深入讨论。</p>
+<p>UUID, 又名全球独立标识(Globally Unique Identifier)，UUID 是 128 位(长度固定)unsigned integer, 能够保证在空间(Space)与时间(Time)上的唯一性。而且无需注册机制保证, 可以按需随时生成。据 WIKI, 随机算法生成的 UUID 的重复概率为 170 亿分之一。Sequelize 数据类型中有 UUID，UUID1，UUID4 三种类型，基于<a target="_blank" rel="noopener" href="https://github.com/kelektiv/node-uuid">node-uuid</a> 遵循 <a target="_blank" rel="noopener" href="http://www.ietf.org/rfc/rfc4122.txt">RFC4122</a> 。例如：</p>
+<pre><code>const User = sequelize.define("user", &amp;#123;
+  id: &amp;#123;
+    type: Sequelize.UUID,
+    primaryKey: true,
+    allowNull: false,
+    defaultValue: Sequelize.UUID1
+  &amp;#125;
+&amp;#125;);</code></pre>
+<p>这样 id 默认值生成一个 uuid 字符串，例如：’1c572360-faca-11e7-83ee-9d836d45ff41’，很多时候我们不太想要这个 <code>-</code> 字符，我们可以通过设置 defaultValue 实现，例如：</p>
+<pre><code>const uuidv1 = require("uuid/v1");
+
+const User = sequelize.define("user", &amp;#123;
+  id: &amp;#123;
+    type: Sequelize.UUID,
+    primaryKey: true,
+    allowNull: false,
+    defaultValue: function() &amp;#123;
+      return uuidv1().replace(/-/g, "");
+    &amp;#125;
+  &amp;#125;
+&amp;#125;);</code></pre>
+<p><strong>使用 Model 对象：</strong></p>
+<p>对于 Model 对象操作，Sequelize 提供了一系列的方法：</p>
+<ul>
+<li>find：搜索数据库中的一个特定元素，可以通过 findById 或 findOne；</li>
+<li>findOrCreate：搜索特定元素或在不可用时创建它；</li>
+<li>findAndCountAll：搜索数据库中的多个元素，返回数据和总数；</li>
+<li>findAll：在数据库中搜索多个元素；</li>
+<li>复杂的过滤/ OR / NOT 查询；</li>
+<li>使用 limit(限制)，offset(偏移量)，order(顺序)和 group(组)操作数据集;</li>
+<li>count：计算数据库中元素的出现次数；</li>
+<li>max：获取特定表格中特定属性的最大值；</li>
+<li>min：获取特定表格中特定属性的最小值；</li>
+<li>sum：特定属性的值求和；</li>
+<li>create：创建数据库 Model 实例；</li>
+<li>update：更新数据库 Model 实例；</li>
+<li>destroy：销毁数据库 Model 实例。</li>
+</ul>
+<p>通过上述提供的一系列方法可以实现数据的增删改查（CRUD），例如：</p>
+<pre><code>User.create(&amp;#123; username: "fnord", job: "omnomnom" &amp;#125;)
+  .then(() =&gt;
+    User.findOrCreate(&amp;#123;
+      where: &amp;#123; username: "fnord" &amp;#125;,
+      defaults: &amp;#123; job: "something else" &amp;#125;
+    &amp;#125;)
+  )
+  .spread((user, created) =&gt; &amp;#123;
+    console.log(
+      user.get(&amp;#123;
+        plain: true
+      &amp;#125;)
+    );
+    console.log(created);
+    /\*
+    In this example, findOrCreate returns an array like this:
+    \[ &amp;#123;
+        username: 'fnord',
+        job: 'omnomnom',
+        id: 2,
+        createdAt: Fri Mar 22 2013 21: 28: 34 GMT + 0100(CET),
+        updatedAt: Fri Mar 22 2013 21: 28: 34 GMT + 0100(CET)
+      &amp;#125;,
+      false
+    \]
+    \*/
+  &amp;#125;);</code></pre>
+<h3 id="egg-sequelize-插件"><a href="#egg-sequelize-插件" class="headerlink" title="egg-sequelize 插件"></a>egg-sequelize 插件</h3><p>文档：egg-sequelize：<a target="_blank" rel="noopener" href="https://github.com/eggjs/egg-sequelize">https://github.com/eggjs/egg-sequelize</a></p>
+<h5 id="源码简析"><a href="#源码简析" class="headerlink" title="源码简析"></a>源码简析</h5><p>这里我们暂时先不分析 egg 插件规范，暂时先只看看 egg-sequelize/lib/loader.js 里面的实现：</p>
+<pre><code>"use strict";
+
+const path = require("path");
+const Sequelize = require("sequelize");
+const MODELS = Symbol("loadedModels");
+const chalk = require("chalk");
+
+Sequelize.prototype.log = function() &amp;#123;
+  if (this.options.logging === false) &amp;#123;
+    return;
+  &amp;#125;
+  const args = Array.prototype.slice.call(arguments);
+  const sql = args\[0\].replace(/Executed \\(.+?\\):\\s&amp;#123;0,1&amp;#125;/, "");
+  this.options.logging.info("\[model\]", chalk.magenta(sql), \`($&amp;#123;args\[1\]&amp;#125;ms)\`);
+&amp;#125;;
+
+module.exports = app =&gt; &amp;#123;
+  const defaultConfig = &amp;#123;
+    logging: app.logger,
+    host: "localhost",
+    port: 3306,
+    username: "root",
+    benchmark: true,
+    define: &amp;#123;
+      freezeTableName: false,
+      underscored: true
+    &amp;#125;
+  &amp;#125;;
+  const config = Object.assign(defaultConfig, app.config.sequelize);
+
+  app.Sequelize = Sequelize;
+
+  const sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
+
+  // app.sequelize
+  Object.defineProperty(app, "model", &amp;#123;
+    value: sequelize,
+    writable: false,
+    configurable: false
+  &amp;#125;);
+
+  loadModel(app);
+
+  app.beforeStart(function\*() &amp;#123;
+    yield app.model.authenticate();
+  &amp;#125;);
+&amp;#125;;
+
+function loadModel(app) &amp;#123;
+  const modelDir = path.join(app.baseDir, "app/model");
+  app.loader.loadToApp(modelDir, MODELS, &amp;#123;
+    inject: app,
+    caseStyle: "upper",
+    ignore: "index.js"
+  &amp;#125;);
+
+  for (const name of Object.keys(app\[MODELS\])) &amp;#123;
+    const klass = app\[MODELS\]\[name\];
+
+    // only this Sequelize Model class
+    if ("sequelize" in klass) &amp;#123;
+      app.model\[name\] = klass;
+
+      if (
+        "classMethods" in klass.options ||
+        "instanceMethods" in klass.options
+      ) &amp;#123;
+        app.logger
+          .error(\`$&amp;#123;name&amp;#125; model has classMethods/instanceMethods, but it was removed supports in Sequelize V4.\\
+
+see: http://docs.sequelizejs.com/manual/tutorial/models-definition.html#expansion-of-models\`);
+      &amp;#125;
+    &amp;#125;
+  &amp;#125;
+
+  for (const name of Object.keys(app\[MODELS\])) &amp;#123;
+    const klass = app\[MODELS\]\[name\];
+
+    if ("associate" in klass) &amp;#123;
+      klass.associate();
+    &amp;#125;
+
+  &amp;#125;
+&amp;#125;</code></pre>
+<p>很明显在插件初始化的时候进行了 Sequelize 对象的实例化，并将 Sequelize 对象挂载在 app 对象下，即我们可以通过 app.Sequelize 访问 Sequelize 对象，同时我们可以通过 app.model 对 Sequelize 实例化进行访问，app/model 文件夹下存放 model 对象文件。</p>
+<h5 id="用户-Model-设计"><a href="#用户-Model-设计" class="headerlink" title="用户 Model 设计"></a>用户 Model 设计</h5><p>这里我们以 egg-sequelize 的使用为例加以说明。</p>
+<p><strong>安装：</strong></p>
+<pre><code>$ npm i --save egg-sequelize
+$ npm install --save mysql2 # For both mysql and mariadb dialects</code></pre>
+<p><strong>配置：</strong></p>
+<pre><code>app/config/plugin.js 配置：
+
+exports.sequelize = &amp;#123;
+  enable: true,
+  package: "egg-sequelize"
+&amp;#125;;
+
+app/config/config.default.js 配置：
+
+// 数据库信息配置
+exports.sequelize = &amp;#123;
+  // 数据库类型
+  dialect: "mysql",
+  // host
+  host: "localhost",
+  // 端口号
+  port: "3306",
+  // 用户名
+  username: "root",
+  // 密码
+  password: "xxx",
+  // 数据库名
+  database: "AEMM"
+&amp;#125;;</code></pre>
+<p><strong>Model 层：</strong></p>
+<p>直接使用 Sequelize 虽然可以，但是存在一些问题。团队开发时，有人喜欢自己加 timestamp，有人又喜欢自增主键，并且自定义表名。一个大型 Web App 通常都有几十个映射表，一个映射表就是一个 Model。如果按照各自喜好，那业务代码就不好写。Model 不统一，很多代码也无法复用。所以我们需要一个统一的模型，强迫所有 Model 都遵守同一个规范，这样不但实现简单，而且容易统一风格。</p>
+<p>我们首先要定义的就是 Model 存放的文件夹必须在 models 内，并且以 Model 名字命名，例如：Pet.js，User.js 等等。其次，每个 Model 必须遵守一套规范：</p>
+<ul>
+<li>统一主键，名称必须是 id，类型必须是 UUID；</li>
+<li>所有字段默认为 NULL，除非显式指定；</li>
+<li>统一 timestamp 机制，每个 Model 必须有 createdAt、updatedAt 和 version，分别记录创建时间、修改时间和版本号。</li>
+</ul>
+<p>所以，我们不要直接使用 Sequelize 的 API，而是通过 db.js 间接地定义 Model。例如，User.js 应该定义如下：</p>
+<pre><code>app/db.js：
+
+const uuidv1 = require("uuid/v1");
+
+function generateUUID() &amp;#123;
+  return uuidv1().replace(/-/g, "");
+&amp;#125;
+
+function defineModel(app, name, attributes) &amp;#123;
+  const &amp;#123; UUID &amp;#125; = app.Sequelize;
+
+  let attrs = &amp;#123;&amp;#125;;
+  for (let key in attributes) &amp;#123;
+    let value = attributes\[key\];
+    if (typeof value === "object" &amp;&amp; value\["type"\]) &amp;#123;
+      value.allowNull = value.allowNull || true;
+      attrs\[key\] = value;
+    &amp;#125; else &amp;#123;
+      attrs\[key\] = &amp;#123;
+        type: value,
+        allowNull: true
+      &amp;#125;;
+    &amp;#125;
+  &amp;#125;
+
+  attrs.id = &amp;#123;
+    type: UUID,
+    primaryKey: true,
+    defaultValue: () =&gt; &amp;#123;
+      return generateUUID();
+    &amp;#125;
+  &amp;#125;;
+
+  return app.model.define(name, attrs, &amp;#123;
+    createdAt: "createdAt",
+    updatedAt: "updatedAt",
+    version: true,
+    freezeTableName: true
+  &amp;#125;);
+&amp;#125;
+
+module.exports = &amp;#123; defineModel &amp;#125;;</code></pre>
+<p>我们定义的 defineModel 就是为了强制实现上述规则。</p>
+<pre><code>app/model/User.js：
+
+const db = require("../db");
+
+module.exports = app =&gt; &amp;#123;
+  const &amp;#123; STRING, INTEGER, DATE, BOOLEAN &amp;#125; = app.Sequelize;
+
+  const User = db.defineModel(app, "users", &amp;#123;
+    username: &amp;#123; type: STRING, unique: true, allowNull: false &amp;#125;, // 用户名
+    email: &amp;#123; type: STRING, unique: true, allowNull: false &amp;#125;, // 邮箱
+    password: &amp;#123; type: STRING, allowNull: false &amp;#125;, // 密码
+    name: STRING, // 姓名
+    sex: INTEGER, // 用户性别：1男性, 2女性, 0未知
+    age: INTEGER, // 年龄
+    avatar: STRING, // 头像
+    company: STRING, // 公司
+    department: STRING, // 部门
+    telePhone: STRING, // 联系电话
+    mobilePhone: STRING, // 手机号码
+    info: STRING, // 备注说明
+    roleId: STRING, // 角色id
+    status: STRING, // 用户状态
+    token: STRING, // 认证 token
+    lastSignInAt: DATE // 上次登录时间
+  &amp;#125;);
+
+  return User;
+&amp;#125;;</code></pre>
+<p>在数据库操作设计中，我们一般是通过脚本提前生成表结构，如果手动写创建表的 SQL，每次修改表结构其实是一件麻烦事。Sequelize 提供了<a target="_blank" rel="noopener" href="http://docs.sequelizejs.com/manual/tutorial/migrations.html">Migrations</a> 帮助创建或迁移数据库，egg-sequelize 里面也提供了方便的方法。如果是开发阶段，可以使用下面的方法自动执行：</p>
+<pre><code>// &amp;#123;app\_root&amp;#125;/app.js
+module.exports = app =&gt; &amp;#123;
+  if (app.config.env === "local") &amp;#123;
+    app.beforeStart(function\*() &amp;#123;
+      yield app.model.sync(&amp;#123; force: true &amp;#125;);
+    &amp;#125;);
+  &amp;#125;
+&amp;#125;;</code></pre>
+<p>当然也可以在 package.json 里面添加下面的脚本：</p>
+<p>命令</p>
+<p>说明</p>
+<pre><code>npm run migrate:new</code></pre>
+<p>在 ./migrations/ 中创建一个 迁移文件 to</p>
+<pre><code>npm run migrate:up</code></pre>
+<p>执行迁移</p>
+<pre><code>npm run migrate:down</code></pre>
+<p>回滚一次迁移</p>
+<pre><code>package.json：
+
+...
+"scripts": &amp;#123;
+  "migrate:new": "egg-sequelize migration:create --name init",
+  "migrate:up": "egg-sequelize db:migrate",
+  "migrate:down": "egg-sequelize db:migrate:undo"
+&amp;#125;
+...</code></pre>
+<p>执行 npm run migrate:new 后修改 migrations 文件夹下的文件：</p>
+<pre><code>module.exports = &amp;#123;
+  async up(queryInterface, Sequelize) &amp;#123;
+    const &amp;#123; UUID, STRING, INTEGER, DATE, BOOLEAN &amp;#125; = Sequelize;
+
+    await queryInterface.createTable("users", &amp;#123;
+      id: &amp;#123;
+        type: UUID,
+        primaryKey: true,
+        allowNull: false
+      &amp;#125;, // 用户 ID（主键）
+      username: &amp;#123; 
+        type: STRING, 
+        unique: true, 
+        allowNull: false 
+      &amp;#125;, // 用户名
+      email: &amp;#123; 
+        type: STRING, 
+        unique: true, 
+        allowNull: false
+      &amp;#125;, // 邮箱
+      password: &amp;#123; 
+        type: STRING, 
+        allowNull: false 
+      &amp;#125;, // 登录密码
+      name: STRING, // 姓名
+      age: INTEGER, // 用户年龄
+      info: STRING, // 备注说明
+      sex: INTEGER, // 用户性别：1男性, 2女性, 0未知
+      telePhone: STRING, // 联系电话
+      mobilePhone: STRING, // 手机号码
+      roleId: STRING, // 角色ID
+      location: STRING, // 常住地
+      avatar: STRING, // 头像
+      company: STRING, // 公司
+      department: STRING, // 部门
+      emailVerified: BOOLEAN, // 邮箱验证
+      token: STRING, // 身份认证令牌
+      status: &amp;#123; type: INTEGER, allowNull: false &amp;#125;, // 用户状态：1启用, 0禁用, 2隐藏, 3删除
+      createdAt: DATE, // 用户创建时间
+      updatedAt: DATE, // 用户信息更新时间
+      lastSignInAt: DATE // 上次登录时间
+    &amp;#125;);
+
+  &amp;#125;,
+
+  async down(queryInterface, Sequelize) &amp;#123;
+    await queryInterface.dropTable("users");
+  &amp;#125;
+&amp;#125;;</code></pre>
+<h2 id="用户认证选型"><a href="#用户认证选型" class="headerlink" title="用户认证选型"></a>用户认证选型</h2><p>所谓用户认证（Authentication），就是让用户登录，并且在接下来的一段时间内让用户访问网站时可以使用其账户，而不需要再次登录的机制。</p>
+<blockquote>
+<p>小知识：可别把用户认证和用户授权（Authorization）搞混了。用户授权指的是规定并允许用户使用自己的权限，例如发布帖子、管理站点等。</p>
+</blockquote>
+<p>用户认证主要分为两个部分：</p>
+<ul>
+<li>用户通过用户名和密码登录生成并且获取 Token；</li>
+<li>用户通过 Token 验证用户身份获取相关信息。</li>
+</ul>
+<h3 id="JSON-Web-Token（JWT）规范"><a href="#JSON-Web-Token（JWT）规范" class="headerlink" title="JSON Web Token（JWT）规范"></a>JSON Web Token（JWT）规范</h3><p><a target="_blank" rel="noopener" href="https://jwt.io/">JSON Web Token</a> （JWT）是一个非常轻巧的<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32">规范</a> 。这个规范允许我们使用 JWT 在用户和服务器之间传递安全可靠的信息。</p>
+<h4 id="JWT-的组成"><a href="#JWT-的组成" class="headerlink" title="JWT 的组成"></a>JWT 的组成</h4><p>一个 JWT 实际上就是一个字符串，它由三部分组成，头部、载荷与签名。</p>
+<p><strong>头部（Header）</strong></p>
+<p>JWT 需要一个头部，头部用于描述关于该 JWT 的最基本的信息，例如其类型以及签名所用的算法等。这也可以被表示成一个 JSON 对象。</p>
+<pre><code>&amp;#123;
+  "typ": "JWT",
+  "alg": "HS256"
+&amp;#125;</code></pre>
+<p>在这里，我们说明了这是一个 JWT，并且我们所用的签名算法是 HS256 算法。对它也要进行 Base64 编码，之后的字符串就成了 JWT 的 Header（头部）。</p>
+<pre><code>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</code></pre>
+<p>这里我们使用 base64url 模块进行 Base64 编码来得到这个字符串，测试代码如下：</p>
+<pre><code>const base64url = require("base64url");
+
+let header = &amp;#123;
+  typ: "JWT",
+  alg: "HS256"
+&amp;#125;;
+
+console.log("header: " + base64url(JSON.stringify(header)));
+// header: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</code></pre>
+<blockquote>
+<p>小知识：Base64 是一种编码，也就是说，它是可以被翻译回原来的样子来的。它并不是一种加密过程。</p>
+</blockquote>
+<p><strong>载荷（Payload）</strong></p>
+<p>说白了就是我们需要包含的数据，类似于网络请求的请求体 body，例如：</p>
+<pre><code>&amp;#123;
+  "iss": "zhaomenghaun",
+  "sub": "\*@agree.com.cn",
+  "aud": "www.agree.com.cn",
+  "exp": 1526875179,
+  "iat": 1526871579,
+  "id": "49a9dd505c9d11e8b5e86b9776bb3c4f"
+&amp;#125;</code></pre>
+<p>这里面的前五个字段都是由 JWT 的标准所定义的。</p>
+<ul>
+<li>iss: 该 JWT 的签发者</li>
+<li>sub: 该 JWT 所面向的用户</li>
+<li>aud: 接收该 JWT 的一方</li>
+<li>exp(expires): 什么时候过期，这里是一个 Unix 时间戳</li>
+<li>iat(issued at): 在什么时候签发的</li>
+</ul>
+<p>将下面的 JSON 对象进行<strong>base64 编码</strong>可以得到下面的字符串，这个字符串我们将它称作 JWT 的 Payload（载荷）。</p>
+<pre><code>const base64url = require("base64url");
+
+let payload = &amp;#123;
+  id: "49a9dd505c9d11e8b5e86b9776bb3c4f",
+  iat: 1526871579,
+  exp: 1526875179
+&amp;#125;;
+console.log("payload: " + base64url(JSON.stringify(payload)));
+// payload: eyJpZCI6IjQ5YTlkZDUwNWM5ZDExZThiNWU4NmI5Nzc2YmIzYzRmIiwiaWF0IjoxNTI2ODcxNTc5LCJleHAiOjE1MjY4NzUxNzl9</code></pre>
+<p><strong>签名（Signature）</strong></p>
+<p>将上面的两个编码后的字符串都用句号.连接在一起（头部在前），就形成了:</p>
+<pre><code>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjQ5YTlkZDUwNWM5ZDExZThiNWU4NmI5Nzc2YmIzYzRmIiwiaWF0IjoxNTI2ODcxNTc5LCJleHAiOjE1MjY4NzUxNzl9
+</code></pre>
+<p>最后，我们将上面拼接完的字符串用 HS256 算法进行加密。在加密的时候，我们还需要提供一个密钥（secret）。我们可以使用 <a target="_blank" rel="noopener" href="https://github.com/brianloveswords/node-jwa">node-jwa</a> 进行 HS256 算法加密。如果我们用 123456 作为密钥的话，那么就可以得到我们加密后的内容，这一部分又叫做签名。最后一步签名的过程，实际上是对头部以及载荷内容进行签名。</p>
+<p><img src="https://blog.leapoahead.com/2015/09/06/understanding-jwt/sig1.png"></p>
+<pre><code>const jwa = require("jwa");
+const hmac = jwa("HS256");
+
+let secret = "123456";
+const signature = hmac.sign(
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjQ5YTlkZDUwNWM5ZDExZThiNWU4NmI5Nzc2YmIzYzRmIiwiaWF0IjoxNTI2ODcxNTc5LCJleHAiOjE1MjY4NzUxNzl9",
+  secret
+);
+console.log("signature: " + signature);
+// signature: JtrTx9QaN3BD1QkZhY58MTu6WHn\_vQwRBxO9VwJgkhE
+</code></pre>
+<p>最后将这一部分签名也拼接在被签名的字符串后面，我们就得到了完整的 JWT，如下：</p>
+<pre><code>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjQ5YTlkZDUwNWM5ZDExZThiNWU4NmI5Nzc2YmIzYzRmIiwiaWF0IjoxNTI2ODcxNTc5LCJleHAiOjE1MjY4NzUxNzl9.JtrTx9QaN3BD1QkZhY58MTu6WHn\_vQwRBxO9VwJgkhE</code></pre>
+<p>整个完整过程走下来我们需要思考一下问题，Token 是否安全，是否可以传输敏感信息？</p>
+<p>我们现在明白了一个 token 是由 Header 的 Base64 编码 + Payload 的 Base64 编码 + Signature 三段组成，当其他人拿到我们的 Token，可以通过 Token 前两段 Base64 解码得到 Header 和 Payload 对象，这里我们通过 <a target="_blank" rel="noopener" href="https://github.com/auth0/node-jsonwebtoken">node-jsonwebtoken</a> 模块 decode 方法直接 “破解” 我们的 Token。</p>
+<pre><code>const jwt = require("jsonwebtoken");
+
+let decoded = jwt.decode(
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjQ5YTlkZDUwNWM5ZDExZThiNWU4NmI5Nzc2YmIzYzRmIiwiaWF0IjoxNTI2ODcxNTc5LCJleHAiOjE1MjY4NzUxNzl9.JtrTx9QaN3BD1QkZhY58MTu6WHn\_vQwRBxO9VwJgkhE",
+  &amp;#123; complete: true &amp;#125;
+);
+console.log("jsonwebtoken: " + JSON.stringify(decoded));
+// jsonwebtoken: &amp;#123;"header":&amp;#123;"typ":"JWT","alg":"HS256"&amp;#125;,"payload":&amp;#123;"id":"49a9dd505c9d11e8b5e86b9776bb3c4f","iat":1526871579,"exp":1526875179&amp;#125;,"signature":"JtrTx9QaN3BD1QkZhY58MTu6WHn\_vQwRBxO9VwJgkhE"&amp;#125;</code></pre>
+<p>所以我们的 payload 不能里面不能包含诸如密码这种敏感信息，对于我们这里的 id 是一串 uuid，即使拿到也无法直接判定相关内容，从而不会直接泄露我们的内容。</p>
+<p>一般而言，加密算法对于不同的输入产生的输出总是不一样的。对于两个不同的输入，产生同样的输出的概率极其地小。如果有人对头部以及载荷的内容解码之后进行修改，再进行编码的话，那么新的头部和载荷的签名和之前的签名就将是不一样的，而且如果不知道服务器加密的时候用的密钥的话，得出来的签名也一定会是不一样的。</p>
+<p>所以服务端拿到 JWT 后，首先会校验签名是否过期，以及对头部和载荷的内容用同一算法（通过 JWT 的头部 alg 字段指定）再次签名得到的 JWT 和用户传递的 JWT 是否一致。如果服务器应用对头部和载荷再次以同样方法签名之后发现，自己计算出来的签名和接受到的签名不一样，那么就说明这个 Token 的内容被别人动过的，我们应该拒绝这个 Token，返回一个 HTTP 401 Unauthorized 响应。</p>
+<h3 id="egg-jwt-插件"><a href="#egg-jwt-插件" class="headerlink" title="egg-jwt 插件"></a>egg-jwt 插件</h3><p>文档：<a target="_blank" rel="noopener" href="https://github.com/okoala/egg-jwt">https://github.com/okoala/egg-jwt</a></p>
+<p>egg-jwt 基于 <a target="_blank" rel="noopener" href="https://github.com/auth0/node-jsonwebtoken">node-jsonwebtoken</a> 实现，完整文档可以参考 <a target="_blank" rel="noopener" href="https://github.com/auth0/node-jsonwebtoken">https://github.com/auth0/node-jsonwebtoken</a> 。jwt 对象挂载在 app 对象下，可以通过 app.jwt 访问 jwt 的三个方法：</p>
+<ul>
+<li>jwt.sign(payload, secretOrPrivateKey, [options, callback])————生成 token 字符串</li>
+<li>jwt.verify(token, secretOrPublicKey, [options, callback])————校验 token 合法性</li>
+<li>jwt.decode(token [, options])————token 译码</li>
+</ul>
+<p><strong>安装：</strong></p>
+<pre><code>$ npm i egg-jwt --save</code></pre>
+<p><strong>配置：</strong></p>
+<pre><code>app/config/plugin.js 配置：
+
+exports.jwt = &amp;#123;
+  enable: true,
+  package: "egg-jwt"
+&amp;#125;;
+
+app/config/config.default.js 配置：
+
+exports.jwt = &amp;#123;
+  enable: false,
+  secret: "xxxxxxxxxxxxx"
+&amp;#125;;</code></pre>
+<p><strong>调用：</strong></p>
+<p>请求头：</p>
+<pre><code>Authorization: Bearer &amp;#123;access\_token&amp;#125;</code></pre>
+<p>注：access_token 为登录后返回的 token 值。</p>
+<pre><code>app/service/user.js：
+
+/\*\*
+ \* 生成 Token
+ \* @param &amp;#123;Object&amp;#125; data
+ \*/
+createToken(data) &amp;#123;
+  return app.jwt.sign(data, app.config.jwt.secret, &amp;#123;
+    expiresIn: "12h"
+  &amp;#125;);
+&amp;#125;
+
+/\*\*
+ \* 验证token的合法性
+ \* @param &amp;#123;String&amp;#125; token
+ \*/
+verifyToken(token) &amp;#123;
+  return new Promise((resolve, reject) =&gt; &amp;#123;
+    app.jwt.verify(token, app.config.jwt.secret, function(err, decoded) &amp;#123;
+      let result = &amp;#123;&amp;#125;;
+      if (err) &amp;#123;
+        /\*
+          err = &amp;#123;
+            name: 'TokenExpiredError',
+            message: 'jwt expired',
+            expiredAt: 1408621000
+          &amp;#125;
+        \*/
+        result.verify = false;
+        result.message = err.message;
+      &amp;#125; else &amp;#123;
+        result.verify = true;
+        result.message = decoded;
+      &amp;#125;
+      resolve(result);
+    &amp;#125;);
+  &amp;#125;);
+&amp;#125;
+
+extend/helper.js：
+
+// 获取 Token
+exports.getAccessToken = ctx =&gt; &amp;#123;
+  let bearerToken = ctx.request.header.authorization;
+  return bearerToken &amp;&amp; bearerToken.replace("Bearer ", "");
+&amp;#125;;
+
+// 校验 Token
+exports.verifyToken = async (ctx, userId) =&gt; &amp;#123;
+  let token = this.getAccessToken(ctx);
+  let verifyResult = await ctx.service.user.verifyToken(token);
+  if (!verifyResult.verify) &amp;#123;
+    ctx.helper.error(ctx, 401, verifyResult.message);
+    return false;
+  &amp;#125;
+  if (userId != verifyResult.message.id) &amp;#123;
+    ctx.helper.error(ctx, 401, "用户 ID 与 Token 不一致");
+    return false;
+  &amp;#125;
+  return true;
+&amp;#125;;
+
+// 处理成功响应
+exports.success = (ctx, result = null, message = "请求成功", status = 200) =&gt; &amp;#123;
+  ctx.body = &amp;#123;
+    code: 0,
+    message: message,
+    data: result
+  &amp;#125;;
+  ctx.status = status;
+&amp;#125;;
+
+// 处理失败响应
+exports.error = (ctx, code, message) =&gt; &amp;#123;
+  ctx.body = &amp;#123;
+    code: code,
+    message: message
+  &amp;#125;;
+  ctx.status = code;
+&amp;#125;;
+
+controller 中调用：
+
+// 生成Token
+let token = ctx.service.user.createToken(&amp;#123; id: user.id &amp;#125;);
+
+// 校验Token合法性
+let isVerify = await ctx.helper.verifyToken(ctx, id);
+if (isVerify) &amp;#123;
+  // 合法逻辑
+  // ...
+&amp;#125;</code></pre>
+<p>这样对于需要进行身份认证的 restful API，就可以通过 token 进行认证，从而实现用户认证和授权。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.leapoahead.com/2015/09/06/understanding-jwt/">JSON Web Token - 在 Web 应用间安全地传递信息</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.leapoahead.com/2015/09/07/user-authentication-with-jwt/">八幅漫画理解使用 JSON Web Token 设计单点登录系统</a></li>
+</ul>
+<p>【转自】<a target="_blank" rel="noopener" href="https://zhaomenghuan.js.org/blog/nodejs-eggjs-usersytem.html">https://zhaomenghuan.js.org/blog/nodejs-eggjs-usersytem.html</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/blog/about" rel="external nofollow noreferrer">delfino</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://simple-delfino.github.io/blog/blog/backend/20200803001/">https://simple-delfino.github.io/blog/blog/backend/20200803001/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/blog/about" target="_blank">delfino</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/blog/tags/node/">
+                                    <span class="chip bg-color">node</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/blog/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/blog/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: auto;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: auto;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/blog/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/blog/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/blog/web/20200803002/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/0.jpg" class="responsive-img" alt="什么是BFC">
+                        
+                        <span class="card-title">什么是BFC</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            BFC 定义
+BFC(Block formatting context)直译为”块级格式化上下文”。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/web/" class="post-category">
+                                    web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/css/">
+                        <span class="chip bg-color">css</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog/other/20200731001/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/3.jpg" class="responsive-img" alt="hexo+github+matery搭建自己的个人博客">
+                        
+                        <span class="card-title">hexo+github+matery搭建自己的个人博客</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+之前用wordpress折腾了个博客，服务器、域名、备案、docker、乱七八糟的折腾了好久，现在推荐一个生成静态网站的工具，用来写博客，简直不需要太爽，Hexo配合github以及配合 Travis CI 工具自动打包，happy啊….
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/other/" class="post-category">
+                                    other
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/blog/">
+                        <span class="chip bg-color">blog</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: delfino<br />'
+            + '文章作者: delfino<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/blog/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/blog/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/blog/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/blog/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/blog/about" target="_blank">delfino</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">47.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/simple-delfino" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1319879149@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1319879149" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1319879149" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/blog/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/blog/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/blog/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/blog/libs/materialize/materialize.min.js"></script>
+    <script src="/blog/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/blog/libs/aos/aos.js"></script>
+    <script src="/blog/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/blog/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/blog/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/blog/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/blog/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/blog/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/blog/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/blog/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
